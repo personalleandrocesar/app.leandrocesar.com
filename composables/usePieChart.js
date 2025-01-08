@@ -31,7 +31,7 @@ export async function usePieChart() {
     labels: ['Presencial', 'On-line'],
     datasets: [
       {
-        backgroundColor: ['#8d00ab', '#b800aa'],
+        backgroundColor: ['#00dc82', '#b800aa'],
         data: [
           servicesCount.Personal || 0,
           servicesCount.Consultoria || 0,
@@ -50,7 +50,7 @@ export async function usePieChart() {
       title: {
         display: true,
         text: `Presencial vs Online`,
-        color: '#8d00ab',
+        color: '#00dc82',
         font: {
           size: 17,
         },
@@ -58,7 +58,7 @@ export async function usePieChart() {
       legend: {
         display: true,
         labels: {
-          color: '#8d00ab',
+          color: '#00dc82',
           font: {
             size: 11,
           },

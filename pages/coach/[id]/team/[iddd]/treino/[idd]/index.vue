@@ -737,14 +737,14 @@ form input:nth-child(7){
     z-index: 1;
     height: 40px;
     font-weight: bolder;
-    border-bottom: .10px solid #8d00ab40;
+    border-bottom: .10px solid #00dc8240;
     backdrop-filter: blur(45px);
-    border-bottom: solid 1px #8d00ab40;
-    border-right: solid 1px #8d00ab40;
+    border-bottom: solid 1px #00dc8240;
+    border-right: solid 1px #00dc8240;
 }
 
 .subscriberOk {
-    background-color: #8d00ab;
+    background-color: #00dc82;
     color: #fff;
     text-shadow: 2px 2px 2px #111;
     display: flex;
@@ -761,7 +761,7 @@ form input:nth-child(7){
     color: #fff;
     margin-left: -40%;
     font-weight: 900;
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     z-index: 10000;
 }
 .deleteOk {
@@ -782,7 +782,7 @@ form input:nth-child(7){
     color: #fff;
     margin-left: -40%;
     font-weight: 900;
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     z-index: 10000;
 }
 
@@ -791,11 +791,11 @@ form input:nth-child(7){
 }
 
 .clients span {
-    border: 1px solid #8d00ab90;
+    border: 1px solid #00dc8290;
     padding: 3px 6px;
     border-radius: 8px;
-    color: #8d00ab;
-    background-color: #8d00ab30;
+    color: #00dc82;
+    background-color: #00dc8230;
     margin-left: 3px;
 }
 
@@ -811,7 +811,7 @@ form input:nth-child(7){
 .notifications:hover {
     padding: 4px 5px;
     border-radius: 8px;
-    color: #8d00ab;
+    color: #00dc82;
     background-color: #fff;
 }
 
@@ -828,10 +828,10 @@ form input:nth-child(7){
     height: 35px;
     font-weight: bolder;
     margin-bottom: 1rem;
-    border-bottom: .10px solid #8d00ab40;
+    border-bottom: .10px solid #00dc8240;
     backdrop-filter: blur(45px);
-    border-bottom: solid 1px #8d00ab40;
-    border-right: solid 1px #8d00ab40;
+    border-bottom: solid 1px #00dc8240;
+    border-right: solid 1px #00dc8240;
 }
 
 .reward {
@@ -849,11 +849,11 @@ form input:nth-child(7){
 }
 
 .users-conf span {
-    border: 1px solid #8d00ab90;
+    border: 1px solid #00dc8290;
     padding: 8px;
     border-radius: 8px;
-    color: #8d00ab;
-    background-color: #8d00ab30;
+    color: #00dc82;
+    background-color: #00dc8230;
     margin-left: 3px;
 }
 
@@ -880,7 +880,7 @@ form input:nth-child(7){
 }
 
 .actions a {
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     background-color: transparent;
     padding: 4px 35px;
     margin: 2.5px 10px;
@@ -891,20 +891,20 @@ form input:nth-child(7){
 
 
 .actions a:hover {
-    border: solid 1px #8d00ab60;
-    background-color: #8d00ab60;
+    border: solid 1px #00dc8260;
+    background-color: #00dc8260;
 }
 
 .actions a.router-link-exact-active {
-    background: #8d00ab90;
-    border: solid 1px #8d00ab;
+    background: #00dc8290;
+    border: solid 1px #00dc82;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
 
 .actions-button a.router-link-exact-active:hover {
-    background: #8d00ab90;
+    background: #00dc8290;
     ;
     color: #fff;
     text-decoration: none;
@@ -913,7 +913,7 @@ form input:nth-child(7){
 
 .actions-button a.router-link-exact-active:hover::after {
     background-color: var(--color-background);
-    color: #8d00ab;
+    color: #00dc82;
     text-decoration: none;
     cursor: pointer;
 }
@@ -938,7 +938,7 @@ form input:nth-child(7){
 }
 
 .reward a {
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     background-color: transparent;
     padding: 4px 15px;
     margin: 2.5px 7px;
@@ -949,20 +949,20 @@ form input:nth-child(7){
 
 
 .reward a:hover {
-    border: solid 1px #8d00ab60;
-    background-color: #8d00ab60;
+    border: solid 1px #00dc8260;
+    background-color: #00dc8260;
 }
 
 .reward a.router-link-exact-active {
-    background: #8d00ab90;
-    border: solid 1px #8d00ab;
+    background: #00dc8290;
+    border: solid 1px #00dc82;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
 
 .reward-button a.router-link-exact-active:hover {
-    background: #8d00ab90;
+    background: #00dc8290;
     ;
     color: #fff;
     text-decoration: none;
@@ -971,7 +971,7 @@ form input:nth-child(7){
 
 .reward-button a.router-link-exact-active:hover::after {
     background-color: var(--color-background);
-    color: #8d00ab;
+    color: #00dc82;
     text-decoration: none;
     cursor: pointer;
 }
@@ -1090,7 +1090,7 @@ form input:nth-child(7){
 
 .inputs .terms {
     text-decoration: underline;
-    color: #8d00ab;
+    color: #00dc82;
     height: 15px;
     cursor: pointer;
 }
@@ -1123,7 +1123,7 @@ form input:nth-child(7){
 
 input {
     transition: all .4s linear;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     text-align: left;
     width: 140px;
     font-weight: 600;
@@ -1150,17 +1150,17 @@ input {
 }
 
 input:focus-visible {
-    border: solid 1px #8d00ab;
+    border: solid 1px #00dc82;
 }
 
 input:active {
-    border-color: #8d00ab80;
+    border-color: #00dc8280;
 }
 
 input:focus {
-    background-color: #8d00ab40;
+    background-color: #00dc8240;
     border: 0 none;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     outline: 0;
 }
 
@@ -1198,11 +1198,11 @@ h4:nth-child(1) {
 }
 
 .main-div-two .icon {
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .square {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
     backdrop-filter: blur(5px);
     overflow-x: auto;
     display: flex;
@@ -1211,10 +1211,10 @@ h4:nth-child(1) {
     align-items: stretch;
     margin: 2px 4px 4px 0px;
     border-radius: 8px;
-    border: .1px solid #8d00ab20;
+    border: .1px solid #00dc8220;
     line-height: 1.4;
     transition: all .4s;
-    border: 2px solid #8d00ab10;
+    border: 2px solid #00dc8210;
 }
 
 .square:nth-child(2n+1) {
@@ -1234,10 +1234,10 @@ h4:nth-child(1) {
 }
 
 .square:hover {
-    background-color: #8d00ab30;
+    background-color: #00dc8230;
 
-    border-top: 2px solid #8d00ab40;
-    border-bottom: 2px solid #8d00ab40;
+    border-top: 2px solid #00dc8240;
+    border-bottom: 2px solid #00dc8240;
 
 }
 
@@ -1257,7 +1257,7 @@ h4:nth-child(1) {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .main-div-two h5 {
@@ -1265,7 +1265,7 @@ h4:nth-child(1) {
 }
 
 .main-div-two a div {
-    border-bottom: 2px solid #8d00ab20;
+    border-bottom: 2px solid #00dc8220;
     height: 70px;
     display: flex;
     flex-direction: column;
@@ -1290,7 +1290,7 @@ h4:nth-child(1) {
     border: 0;
     color: inherit;
     background-color: transparent;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     border-radius: 5px;
     cursor: pointer;
     width: 160px;
@@ -1302,25 +1302,25 @@ h4:nth-child(1) {
 
 .select:focus {
     border: 0 none;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     outline: 0;
 }
 
 .select:focus-visible {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 .select:active {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 .select:hover {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 .login {
     transition: all .4s linear;
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
     cursor: pointer;
     width: 140px;
     text-align: center;
@@ -1347,7 +1347,7 @@ h4:nth-child(1) {
 
 .login:hover {
     cursor: pointer;
-    background-color: #8d00ab;
+    background-color: #00dc82;
     color: #fff;
 }
 
@@ -1371,8 +1371,8 @@ h4:nth-child(1) {
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px)
 }
 
@@ -1391,14 +1391,14 @@ h4:nth-child(1) {
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px)
 }
 
 .whats .icon,
 .color .icon {
-    color: #8d00ab90;
+    color: #00dc8290;
     zoom: 1;
 }
 </style>

@@ -92,7 +92,7 @@ b {
 .conf {
   color: #fff;
   height: 80px;
-  background-color: #8d00ab;
+  background-color: #00dc82;
   backdrop-filter: blur(15px);
   display: flex;
   flex-direction: column;
@@ -117,7 +117,7 @@ b {
 
 .main-div-one .icon {
   zoom: 1.2;
-  color: #8d00ab;
+  color: #00dc82;
 }
 .main-div-twoo {
   overflow-x: auto;
@@ -128,11 +128,11 @@ b {
 }
 
 .main-div-twoo .icon {
-  color: #8d00ab;
+  color: #00dc82;
 }
 
 .square {
-  background-color: #8d00ab10;
+  background-color: #00dc8210;
   backdrop-filter: blur(5px);
   overflow-x: auto;
   display: flex;
@@ -141,10 +141,10 @@ b {
   align-items: center;
   margin: 3px 1.5rem;
   border-radius: 8px;
-  border: .1px solid #8d00ab20;
+  border: .1px solid #00dc8220;
   line-height: 1.4;
   transition: all .4s;
-  border: 2px solid #8d00ab10;
+  border: 2px solid #00dc8210;
 }
 
 .square div h4 .icon {
@@ -156,10 +156,10 @@ b {
 }
 
 .square:hover {
-  background-color: #8d00ab30;
+  background-color: #00dc8230;
 
-  border-top: 2px solid #8d00ab40;
-  border-bottom: 2px solid #8d00ab40;
+  border-top: 2px solid #00dc8240;
+  border-bottom: 2px solid #00dc8240;
 
 }
 
@@ -175,7 +175,7 @@ b {
 }
 
 .story {
-  background-color: #8d00ab10;
+  background-color: #00dc8210;
   backdrop-filter: blur(5px);
   overflow-x: auto;
   display: flex;
@@ -186,14 +186,14 @@ b {
   margin: 8px auto;
   padding-top: 3px;
   border-radius: 8px;
-  border: .1px solid #8d00ab10;
+  border: .1px solid #00dc8210;
   line-height: 1.4;
   transition: all .4s;
   font-weight: 700;
 }
 
 .story .icon {
-  color: #8d00ab;
+  color: #00dc82;
   margin-top: -2px;
 }
 
@@ -207,7 +207,7 @@ b {
 
 .main-div-one .icon {
   zoom: 1.2;
-  color: #8d00ab;
+  color: #00dc82;
   margin-top: -2.5px;
 }
 
@@ -221,7 +221,7 @@ b {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: #8d00ab;
+  color: #00dc82;
 }
 
 .main-div-twoo h5 {
@@ -236,7 +236,7 @@ b {
   align-items: center;
 }
 .main-div-twoo a div:nth-child(1) {
-  border-right: 2px solid #8d00ab20;
+  border-right: 2px solid #00dc8220;
   margin-left: 15px;
   display: flex;
   flex-direction: column;
@@ -290,8 +290,8 @@ b {
   width: 32.5%;
   margin: 1rem auto 0 auto;
   border-radius: 8px;
-  background-color: #8d00ab10;
-  border: .1px solid #8d00ab10;
+  background-color: #00dc8210;
+  border: .1px solid #00dc8210;
 }
 
 .conf:nth-child(1) {

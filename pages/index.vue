@@ -55,7 +55,7 @@ colorCookie.value === "darkCookie" ? colorMode.value = "dark" : colorMode.value 
     height: 100vh;
     width: 100%;
     object-fit: cover;
-    border-right: solid 2px #8d00ab;
+    border-right: solid 2px #00dc82;
   }
 }
 

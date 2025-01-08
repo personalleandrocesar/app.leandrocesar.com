@@ -1,6 +1,6 @@
 /* 
-8d00ab // Roxo
-b800ff // lilás
+00dc82 // Roxo
+04be7a // lilás
 020024 // azul-dark
 00d4ff // azul-claro
 ffffff // branco 
@@ -50,7 +50,7 @@ ffffff // branco
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--vt-c-text-light-1) #8d00ab;
+  scrollbar-color: var(--vt-c-text-light-1) #00dc82;
 }
 
 *,
@@ -71,8 +71,8 @@ body {
 }
 
 input{
-    border: solid 2px #8d00ab;
-    background: #8d00ab10;
+    border: solid 2px #00dc82;
+    background: #00dc8210;
 }
 
 .dark-mode body {
@@ -158,14 +158,14 @@ body input {
 }
 
 body input:focus {
-    background-color: #8d00ab20;
+    background-color: #00dc8220;
 }
 
 .dark-mode body input {
   background: var(--vt-c-black-soft);
   color: #fff;
   border: transparent;
-  border: solid 2px #8d00ab;
+  border: solid 2px #00dc82;
 }
 
 .dark-mode body input::placeholder {
@@ -173,7 +173,7 @@ body input:focus {
 }
 
 .dark-mode body input:focus {
-    background-color: #8d00ab70;
+    background-color: #00dc8270;
 }
 
 .dark-mode body ul li {

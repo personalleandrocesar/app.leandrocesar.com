@@ -281,10 +281,10 @@ useHead({
     z-index: 1;
     height: 40px;
     font-weight: bolder;
-    border-bottom: .10px solid #8d00ab40;
+    border-bottom: .10px solid #00dc8240;
     backdrop-filter: blur(45px);
-    border-bottom: solid 1px #8d00ab40;
-    border-right: solid 1px #8d00ab40;
+    border-bottom: solid 1px #00dc8240;
+    border-right: solid 1px #00dc8240;
 }
 
 .subscriberOk {
@@ -312,11 +312,11 @@ useHead({
 }
 
 .clients span {
-    border: 1px solid #8d00ab90;
+    border: 1px solid #00dc8290;
     padding: 3px 6px;
     border-radius: 8px;
-    color: #8d00ab;
-    background-color: #8d00ab30;
+    color: #00dc82;
+    background-color: #00dc8230;
     margin-left: 3px;
 }
 
@@ -332,7 +332,7 @@ useHead({
 .notifications:hover {
     padding: 4px 5px;
     border-radius: 8px;
-    color: #8d00ab;
+    color: #00dc82;
     background-color: #fff;
 }
 
@@ -349,10 +349,10 @@ useHead({
     height: 35px;
     font-weight: bolder;
     margin-bottom: 1rem;
-    border-bottom: .10px solid #8d00ab40;
+    border-bottom: .10px solid #00dc8240;
     backdrop-filter: blur(45px);
-    border-bottom: solid 1px #8d00ab40;
-    border-right: solid 1px #8d00ab40;
+    border-bottom: solid 1px #00dc8240;
+    border-right: solid 1px #00dc8240;
 }
 
 .reward {
@@ -370,11 +370,11 @@ useHead({
 }
 
 .users-conf span {
-    border: 1px solid #8d00ab90;
+    border: 1px solid #00dc8290;
     padding: 8px;
     border-radius: 8px;
-    color: #8d00ab;
-    background-color: #8d00ab30;
+    color: #00dc82;
+    background-color: #00dc8230;
     margin-left: 3px;
 }
 
@@ -390,7 +390,7 @@ useHead({
 }
 
 .actions a {
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     background-color: transparent;
     padding: 4px 35px;
     margin: 2.5px 10px;
@@ -401,20 +401,20 @@ useHead({
 
 
 .actions a:hover {
-    border: solid 1px #8d00ab60;
-    background-color: #8d00ab60;
+    border: solid 1px #00dc8260;
+    background-color: #00dc8260;
 }
 
 .actions a.router-link-exact-active {
-    background: #8d00ab90;
-    border: solid 1px #8d00ab;
+    background: #00dc8290;
+    border: solid 1px #00dc82;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
 
 .actions-button a.router-link-exact-active:hover {
-    background: #8d00ab90;
+    background: #00dc8290;
     ;
     color: #fff;
     text-decoration: none;
@@ -423,7 +423,7 @@ useHead({
 
 .actions-button a.router-link-exact-active:hover::after {
     background-color: var(--color-background);
-    color: #8d00ab;
+    color: #00dc82;
     text-decoration: none;
     cursor: pointer;
 }
@@ -438,7 +438,7 @@ useHead({
 }
 
 .reward a {
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     background-color: transparent;
     padding: 4px 15px;
     margin: 2.5px 7px;
@@ -449,20 +449,20 @@ useHead({
 
 
 .reward a:hover {
-    border: solid 1px #8d00ab60;
-    background-color: #8d00ab60;
+    border: solid 1px #00dc8260;
+    background-color: #00dc8260;
 }
 
 .reward a.router-link-exact-active {
-    background: #8d00ab90;
-    border: solid 1px #8d00ab;
+    background: #00dc8290;
+    border: solid 1px #00dc82;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
 
 .reward-button a.router-link-exact-active:hover {
-    background: #8d00ab90;
+    background: #00dc8290;
     ;
     color: #fff;
     text-decoration: none;
@@ -471,7 +471,7 @@ useHead({
 
 .reward-button a.router-link-exact-active:hover::after {
     background-color: var(--color-background);
-    color: #8d00ab;
+    color: #00dc82;
     text-decoration: none;
     cursor: pointer;
 }
@@ -571,8 +571,8 @@ useHead({
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px)
 }
 
@@ -591,14 +591,14 @@ useHead({
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px)
 }
 
 .whats .icon,
 .color .icon {
-    color: #8d00ab90;
+    color: #00dc8290;
     zoom: 1;
 }
 </style>

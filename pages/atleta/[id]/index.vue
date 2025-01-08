@@ -324,8 +324,8 @@ const selectG = () => {
 }
 
 .square.selected {
-  background-color: #8d00ab40; /* Cor de fundo para o treino selecionado */
-  border: 2px solid #8d00ab; /* Adiciona uma borda para destaque */
+  background-color: #00dc8240; /* Cor de fundo para o treino selecionado */
+  border: 2px solid #00dc82; /* Adiciona uma borda para destaque */
 }
 
 .square:hover {
@@ -345,7 +345,7 @@ body {
   justify-content: flex-end;
   margin: .5rem 2% 1rem 2%;
   box-shadow: 0 0px 5px #00f2ff10;
-  border: solid 1px #8d00ab40;
+  border: solid 1px #00dc8240;
   border-radius: 50px;
   box-shadow: 0 0px 5px #00f2ff10;
   -webkit-backdrop-filter: blur(100px);
@@ -361,7 +361,7 @@ body {
   width: 100%;  font-size: .8rem;
   border-radius: 50px;
   margin: 2px;
-  /* border: solid .2px #8d00ab30; */
+  /* border: solid .2px #00dc8230; */
   
 }
 .alternate span:hover{
@@ -372,8 +372,8 @@ body {
   margin: 2px;
   width: 100%;  font-size: .8rem;
   border-radius: 50px;
-  background-color: #8d00ab50;
-  color: #8d00ab;
+  background-color: #00dc8250;
+  color: #00dc82;
 }
 .alternate span:nth-child(3):hover{
   background-color: transparent;
@@ -391,7 +391,7 @@ body {
   margin: -4px 3px 0 0;
 }
 .alternate span:hover .icon {
-  color: #8d00ab;
+  color: #00dc82;
   zoom: 1.1;
 }
 .dark-mode .alternate span:nth-child(3):hover .icon {
@@ -404,12 +404,12 @@ body {
 }
 
 .alternateGrid {
-    border-bottom:solid 2px #8d00ab;
+    border-bottom:solid 2px #00dc82;
     padding: 4px;
 }
 
 .alternateList {
-    border-bottom:solid 2px #8d00ab;
+    border-bottom:solid 2px #00dc82;
     padding: 4px;
 }
 
@@ -427,7 +427,7 @@ body {
 }
 
 .arrowUp .icon {
-  color: #8d00ab80;
+  color: #00dc8280;
 }
 
 .info h5 {
@@ -447,7 +447,7 @@ body {
 .conf {
   color: #fff;
   height: 80px;
-  background-color: #8d00ab;
+  background-color: #00dc82;
   backdrop-filter: blur(15px);
   display: flex;
   flex-direction: column;
@@ -472,7 +472,7 @@ body {
 
 .main-div-one .icon {
   zoom: 1.2;
-  color: #8d00ab;
+  color: #00dc82;
 }
 
 .main-div-two {
@@ -497,7 +497,7 @@ body {
 
 
 .main-div-two .icon {
-  color: #8d00ab;
+  color: #00dc82;
 }
 
 .main-div-two h3 {
@@ -510,11 +510,11 @@ body {
   
 }
 .main-div-two h3:hover {
-    background: #8d00ab40;
+    background: #00dc8240;
 }
 
 .sel{
-  border-bottom:solid 2px #8d00ab;
+  border-bottom:solid 2px #00dc82;
   padding: 4px;
 }
 .main-div-tree div {
@@ -522,7 +522,7 @@ body {
 }
 
 .main-div-two .icon {
-  color: #8d00ab;
+  color: #00dc82;
   zoom:.9;
 }
 
@@ -551,7 +551,7 @@ body {
 }
 
 .main-div-two a div {
-  border-bottom: 2px solid #8d00ab20;
+  border-bottom: 2px solid #00dc8220;
   width: 90%;
   height: 100px;
   display: flex;
@@ -597,11 +597,11 @@ body {
 }
 
   .main-div-tree .icon {
-    color: #8d00ab;
+    color: #00dc82;
   }
 
   .main-div-tree .icon {
-  color: #8d00ab;
+  color: #00dc82;
 }
 
 .main-div-tree H3 {
@@ -650,7 +650,7 @@ body {
 }
 
 .main-div-four .icon {
-  color: #8d00ab;
+  color: #00dc82;
   margin-top: -4px;
 }
 
@@ -693,7 +693,7 @@ body {
 }
 
 .main-div-twoo .icon {
-  color: #8d00ab;
+  color: #00dc82;
 }   
 
 .main-div-twoo h4 {
@@ -701,7 +701,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: #8d00ab;
+  color: #00dc82;
 }
 
 .main-div-twoo h5 {
@@ -754,7 +754,7 @@ body {
 
 .main-square {
   color: var(--color-text);
-  background-color: #8d00ab10;
+  background-color: #00dc8210;
   backdrop-filter: blur(5px);
   overflow-x: auto;
   display: flex;
@@ -763,18 +763,18 @@ body {
   align-items: center;
   margin: 0rem 1.5rem;
   border-radius: 10px;
-  border: .1px solid #8d00ab10;
+  border: .1px solid #00dc8210;
   line-height: 1.4;
   transition: all .4s;
-  border: 2px solid #8d00ab10;
+  border: 2px solid #00dc8210;
 }
 
 .main-square:hover {
-  background-color: #8d00ab30;
-  border-right: 1px solid #8d00ab30;
-    border: 2px solid #8d00ab20;
-    border-top: 2px solid #8d00ab40;
-    border-bottom: 2px solid #8d00ab40;
+  background-color: #00dc8230;
+  border-right: 1px solid #00dc8230;
+    border: 2px solid #00dc8220;
+    border-top: 2px solid #00dc8240;
+    border-bottom: 2px solid #00dc8240;
 }
 
 .squareRes {
@@ -788,14 +788,14 @@ body {
   margin: 1.5rem;
   border-radius: 8px;
   overflow-x: hidden;
-  background-color: #8d00ab30;
+  background-color: #00dc8230;
   line-height: 1.2;
 }
 
 
 
 .square {
-  background-color: #8d00ab10;
+  background-color: #00dc8210;
   backdrop-filter: blur(5px);
   overflow-x: auto;
   display: flex;
@@ -807,11 +807,11 @@ body {
   height: 25px;    
   width: 130px;    
   border-radius: 8px;
-  border: 2px solid #8d00ab10;
+  border: 2px solid #00dc8210;
   overflow-x: hidden;
 }
 .squareS {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
     backdrop-filter: blur(5px);
     overflow-x: auto;
     display: flex;
@@ -834,7 +834,7 @@ body {
 }
 
 .squareS:hover {
-  background-color: #8d00ab30;
+  background-color: #00dc8230;
 }
 
 .squareS div:nth-child(1) {
@@ -849,10 +849,10 @@ body {
 }
 
 .squared {
-  background-color: #8d00ab30;
-  border: 2px solid #8d00ab20;
-  border-top: 2px solid #8d00ab40;
-  border-bottom: 2px solid #8d00ab40;
+  background-color: #00dc8230;
+  border: 2px solid #00dc8220;
+  border-top: 2px solid #00dc8240;
+  border-bottom: 2px solid #00dc8240;
 }
 
 
@@ -874,8 +874,8 @@ body {
   width: 32.5%;
   margin: 1rem auto 0 auto;
   border-radius: 8px;
-  background-color: #8d00ab10;
-  border: .1px solid #8d00ab10;
+  background-color: #00dc8210;
+  border: .1px solid #00dc8210;
 }
 .conf:nth-child(1){
   margin: 1rem 2px 0 5%;
@@ -902,10 +902,10 @@ table tr th, table tr td {
 }
 table tr th {
     border: none;
-    background-color: #8d00ab40;
+    background-color: #00dc8240;
 }
 th, td {
-  border: 1px solid #8d00ab;
+  border: 1px solid #00dc82;
   padding: 8px;
   text-align: left;
 }
@@ -937,7 +937,7 @@ th, td {
   border-radius: 8px;
   align-items: center;
   margin: 5px;
-  border: 2px solid #8d00ab10; 
+  border: 2px solid #00dc8210; 
   cursor: zoom-in;
   
 }
@@ -953,13 +953,13 @@ ul {
 }
 
 .main-div-twoo ul li {
-  border: solid .1px #8d00ab80;
+  border: solid .1px #00dc8280;
   padding: 0px 8px;
   border-radius: 6px;
   margin: 3px 0 ;
   margin: 5px 0rem;
-  background-color: #8d00ab10;
-  border: solid .2px #8d00ab10;
+  background-color: #00dc8210;
+  border: solid .2px #00dc8210;
 }
 .main-div-twoo ul li {
   border-radius: 12px;
@@ -980,7 +980,7 @@ ul {
 
 
 .main-div-twoo ul li:nth-child(2n -1) {
-  background-color: #8d00ab20;
+  background-color: #00dc8220;
 }
 
 .main-div-twoo {
@@ -1012,16 +1012,16 @@ ul {
   margin-left: 10px;
 }
 .main-div-twoo h3{
-  color: #8d00ab;
+  color: #00dc82;
 }
 .img-exe{
-  color: #8d00ab;
+  color: #00dc82;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  background-color: #8d00ab40;
+  background-color: #00dc8240;
     border-radius: 10px 10px 0 0;
 }
 
@@ -1030,7 +1030,7 @@ ul {
     height: 45px;
     margin-right: 15px;
     border-radius: 10px;
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
 }
 
 .col {
@@ -1054,10 +1054,10 @@ table tr th, table tr td {
 }
 table tr th {
     border: none;
-    background-color: #8d00ab40;
+    background-color: #00dc8240;
 }
 th, td {
-  border: 1px solid #8d00ab;
+  border: 1px solid #00dc82;
   padding: 8px;
   text-align: left;
 }
@@ -1113,16 +1113,16 @@ th, td {
 }
 
 .main-div-treeee ul li {
-  border: solid .1px #8d00ab80;
+  border: solid .1px #00dc8280;
   padding: .5px 6px;
   border-radius: 6px;
   margin: 0px 0rem;
-  background-color: #8d00ab20;
-  border: solid .2px #8d00ab10;
+  background-color: #00dc8220;
+  border: solid .2px #00dc8210;
 }
 
 .main-div-treeee ul li:nth-child(2n -1) {
-  background-color: #8d00ab60;
+  background-color: #00dc8260;
 }
 .main-div-treeee .icon{   
   cursor: pointer;
@@ -1132,14 +1132,14 @@ th, td {
 }
 .main-div-treeee h3{
   margin-left: 1.5rem;
-  color: #8d00ab;
+  color: #00dc82;
   font-size: 1.2rem;
 }
 .main-div-treeee h5{
   font-size: .9rem;
 }
 .main-div-treeee .icon{
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 </style>

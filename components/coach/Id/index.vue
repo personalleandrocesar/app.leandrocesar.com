@@ -104,7 +104,7 @@ function button () {
     height: 60px;
     width:100%;
     backdrop-filter: blur(10px);
-    background: #8d00ab;
+    background: #00dc82;
 }
 .view {
     position: fixed;
@@ -124,7 +124,7 @@ function button () {
     align-items: center;
     justify-content: space-between;
     backdrop-filter: blur(10px);
-    border-bottom: solid 1px #8d00ab;
+    border-bottom: solid 1px #00dc82;
 }
 .nav div {
     display: flex;
@@ -156,34 +156,34 @@ img{
     margin: 0rem; 
     height: 40px;
     border-radius: 200px;
-    box-shadow: 0px 2px 10px #8d00ab;   
+    box-shadow: 0px 2px 10px #00dc82;   
 }
 
 .nav .icon {
     margin-right: 1rem;
     zoom: 1;
-    color: #8d00ab;
+    color: #00dc82;
     color: #fff;
 }
 .nav .icon:hover {
-    color: #b800ff;
+    color: #04be7a;
 }
 
 .dark-mode .nav .icon {
     color: #020024;
 }
 .dark-mode .nav .icon:hover {
-    color: #b800ff;
+    color: #04be7a;
 }
 
 .nav .button .icon {
     margin: 0 .4rem 0 .7rem;
     zoom: 1.3;
-    color: #8d00ab;
+    color: #00dc82;
     color: #fff;
 }
 .nav .button .icon:hover {
-    color: #b800ff;
+    color: #04be7a;
 }
 
 
@@ -194,13 +194,13 @@ img{
 }
 
 .button:hover .icon {
-    background-color: #8d00ab60;
+    background-color: #00dc8260;
     border-radius: 4px;
 }
 
 /* .hr {
     height: 1.5px;
-    background: linear-gradient(to right,#8d00ab05 0%,#8d00ab 50%,#8d00ab05 100%);
+    background: linear-gradient(to right,#00dc8205 0%,#00dc82 50%,#00dc8205 100%);
 } */
 .menu-button {
     display: flex;
@@ -210,8 +210,8 @@ img{
     width: 100%;
     padding: 10px 2px 2px 2px;
     margin: 0px auto;
-    border: solid 1px #8d00ab10;
-    border-bottom: solid .1px #8d00ab40;
+    border: solid 1px #00dc8210;
+    border-bottom: solid .1px #00dc8240;
     border-top: solid .2px transparent;
 }
 
@@ -235,7 +235,7 @@ img{
     zoom: 1.2;
 }
 .menu-button:hover .icon {
-    color: #b800ff;
+    color: #04be7a;
 }
 
 .menu-button .icon:nth-child(2) {
@@ -245,7 +245,7 @@ img{
 
 .menu-button:hover {
     cursor: pointer;
-    border-bottom: solid .2px #b800ff;
+    border-bottom: solid .2px #04be7a;
 }
 
 

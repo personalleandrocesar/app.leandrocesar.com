@@ -107,7 +107,7 @@ import { ref } from 'vue';
 //         `Avaliação Física (${servicesCount.Avaliação})`],
 //     datasets: [
 //         {
-//             backgroundColor: ['#09df00', '#8d00ab', '#095d62'],
+//             backgroundColor: ['#09df00', '#00dc82', '#095d62'],
 //             data: [servicesCount.Personal, servicesCount.Consultoria, servicesCount.Avaliação],
 //             borderRadius: 8,
 //             rotation: 260,
@@ -144,7 +144,7 @@ import { ref } from 'vue';
 //         `Avaliação Física (${servicesCount.Avaliação})`],
 //     datasets: [
 //         {
-//             backgroundColor: ['#09df00', '#8d00ab', '#095d62'],
+//             backgroundColor: ['#09df00', '#00dc82', '#095d62'],
 //             data: [servicesCount.Personal, servicesCount.Consultoria, servicesCount.Avaliação],
 //             borderRadius: 8,
 //             rotation: 260,
@@ -191,7 +191,7 @@ export default {
                 `Avaliação Física   `],
             datasets: [
                 {
-                    backgroundColor: ['#09df00', '#8d00ab', '#095d62'],
+                    backgroundColor: ['#09df00', '#00dc82', '#095d62'],
                     data: [3,3,3],
                     borderRadius: 8,
                     rotation: 260,

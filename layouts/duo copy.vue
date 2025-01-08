@@ -352,7 +352,7 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     flex-wrap: wrap;
     height: 55px;
     width: 55px;
-    background:  linear-gradient(to bottom right, #8d00ab 0%,#8d00ab70 50%,#00f2ff90 100%);
+    background:  linear-gradient(to bottom right, #00dc82 0%,#00dc8270 50%,#00f2ff90 100%);
     margin: 1.5rem;
     border-radius: 7px ; 
     z-index: 10;
@@ -393,7 +393,7 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     bottom: 0px;
     height: calc(100% - 0px);
     width: 100%;
-    background:  linear-gradient(to bottom right, #8d00ab 0%,#8d00ab80 50%,#00f2ff90 100%);
+    background:  linear-gradient(to bottom right, #00dc82 0%,#00dc8280 50%,#00f2ff90 100%);
     backdrop-filter: blur(5px);
     z-index: 1004;
     
@@ -402,7 +402,7 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     height: 300px;
     width: 300px;
     border-radius: 7px;
-    border: #8d00ab 1px solid;
+    border: #00dc82 1px solid;
     opacity: 1;
     z-index: 100;
     
@@ -437,7 +437,7 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     margin: .2rem 1.5rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: #8d00ab;
+    color: #00dc82;
 
 }
 
@@ -469,7 +469,7 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     flex-wrap: wrap;
     height: 100px;
     width: 100px;
-    box-shadow: 1px 7px 20px #8d00ab;
+    box-shadow: 1px 7px 20px #00dc82;
     margin: 1.5rem;
     border-radius: 7px;
 }
@@ -478,7 +478,7 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     height: 100px;
     width: 100px;
     border-radius: 7px;
-    border: #8d00ab 2px solid;
+    border: #00dc82 2px solid;
     opacity: 1;
 
 }
@@ -493,7 +493,7 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
 }
 
 .link:hover {
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .section-title {
@@ -557,7 +557,7 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     padding: 5px;
     border-radius: 8px;
     margin: 1px auto;
-    border: solid .1px #8d00ab50;
+    border: solid .1px #00dc8250;
 }
 
 .menu-square div .icon {
@@ -599,8 +599,8 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     width: 100%;
     padding:  6px 2px 2px 2px;
     margin: 5px auto;
-    border: solid 1px #8d00ab10;
-    border-bottom: solid .1px #8d00ab40;
+    border: solid 1px #00dc8210;
+    border-bottom: solid .1px #00dc8240;
     border-top: solid .2px transparent;
 }
 
@@ -626,8 +626,8 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
 
 .menu-button:hover {
     cursor: pointer;
-    border-bottom: solid .2px #8d00ab;
-    background-color: #8d00ab10;
+    border-bottom: solid .2px #00dc82;
+    background-color: #00dc8210;
 }
 
 
@@ -642,8 +642,8 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     width: 250px;
     margin-left: -125px;
     transition: all .4s linear;
-    border: solid .1px #8d00ab70;
-    box-shadow: 0 0px 5px #8d00ab10;
+    border: solid .1px #00dc8270;
+    box-shadow: 0 0px 5px #00dc8210;
     border-radius: 8px;
     cursor: pointer;
     text-align: center;
@@ -665,8 +665,8 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
 }
 
 .logout:hover {
-    background-color: #8d00ab10;
-    color: #8d00ab80;
+    background-color: #00dc8210;
+    color: #00dc8280;
     cursor: pointer;
 }
 
@@ -686,7 +686,7 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     top: 20px;
     margin: 16px auto;
     box-shadow: 0 0px 5px #00f2ff10;
-    border: solid 1px #8d00ab40;
+    border: solid 1px #00dc8240;
     width: 90%;
     height: 50px;
     border-radius: 10px;
@@ -704,9 +704,9 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
 }
 
 .nav a.router-link-exact-active {
-    background: linear-gradient(to bottom right, #8d00ab10 0%,#8d00ab10 50%,#8d00ab10 100%);
+    background: linear-gradient(to bottom right, #00dc8210 0%,#00dc8210 50%,#00dc8210 100%);
     margin: 0 2px;
-    color: #8d00ab;
+    color: #00dc82;
     padding: 13px 14.5px 14.5px 14.5px;
     
     border-radius: 9px;
@@ -717,9 +717,9 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
 .nav a.router-link-exact-active:hover {
     margin: 0 2px;
     padding:  13px 14.5px 14.5px 14.5px;
-    color: #8d00ab;
-    background: linear-gradient(to bottom right, #8d00ab10 0%,#8d00ab10 50%,#8d00ab10 100%);
-    color: #8d00ab;
+    color: #00dc82;
+    background: linear-gradient(to bottom right, #00dc8210 0%,#00dc8210 50%,#00dc8210 100%);
+    color: #00dc82;
     border-radius: 9px;
     text-decoration: none;
     cursor: pointer;
@@ -730,7 +730,7 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     top: 60px;
     left: 20px;
   background-color: var(--color-background);
-  color: #8d00ab;
+  color: #00dc82;
   border-radius: 9px;
   text-decoration: none;
   cursor: pointer;
@@ -738,7 +738,7 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
 
 .nav a:hover {
     background-color: transparent;
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .color {
@@ -756,8 +756,8 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
   border-radius: 9px;
   cursor: pointer;
   z-index: 100;
-  border: solid 1px #8d00ab10;
-  box-shadow: 0 0px 5px #8d00ab40;
+  border: solid 1px #00dc8210;
+  box-shadow: 0 0px 5px #00dc8240;
   backdrop-filter: blur(100px)
 }
 .whats {
@@ -775,12 +775,12 @@ await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px)
 }
 .whats .icon, .color .icon {
-  color: #8d00ab90;
+  color: #00dc8290;
   zoom: 1;
 }
 

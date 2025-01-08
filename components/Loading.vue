@@ -43,7 +43,7 @@
     flex-wrap: wrap;
     height: 120px;
     width: 120px;
-    box-shadow: 0px 7px 20px #8d00ab;
+    box-shadow: 0px 7px 20px #00dc82;
     border-radius: 200px;
     z-index: 10;
 }
@@ -52,7 +52,7 @@
     height: 120px;
     width: 120px;
     border-radius: 200px;
-    border: #8d00ab 2px solid;
+    border: #00dc82 2px solid;
     z-index: 100;
     opacity: 1;
 

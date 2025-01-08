@@ -32,7 +32,7 @@
 }
 
 .nav:hover a {
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .nav div {

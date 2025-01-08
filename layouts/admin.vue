@@ -629,7 +629,7 @@ function logout () {
     opacity:.7;
 }
 .can{
-    background: #8d00ab10;
+    background: #00dc8210;
     width: 100px;
   color: #333;
 }
@@ -660,7 +660,7 @@ function logout () {
     text-align: center;
     position: sticky;
     top: 0;
-    border-bottom: solid 0.1px #8d00ab30;
+    border-bottom: solid 0.1px #00dc8230;
     backdrop-filter: blur(10px);
     z-index: 100; /* Garante que a barra fique sobre o conteúdo */
 }
@@ -691,15 +691,15 @@ function logout () {
 }
 
 .track {
-    border-top: solid 0.1px #8d00ab30;
+    border-top: solid 0.1px #00dc8230;
     margin: 0 6%;
 }
 .line {
-    border-top: solid 0.1px #8d00ab30;
+    border-top: solid 0.1px #00dc8230;
     margin: 0 0 5px 0;
 }
 .lin {
-    border-top: solid 0.1px #8d00ab30;
+    border-top: solid 0.1px #00dc8230;
     margin: 5px 0;
 }
 
@@ -710,11 +710,11 @@ function logout () {
 }
 
 .userActive {
-    background-color: #8d00ab60;
-    color: #8d00ab;
+    background-color: #00dc8260;
+    color: #00dc82;
 }
 .userActiveP {
-    color: #8d00ab;
+    color: #00dc82;
 }
 .dark-mode .userActiveP {
     color: #fff;
@@ -728,7 +728,7 @@ function logout () {
     border-radius: 4px;
     text-align: left;
     padding: 10px 10px 2px 10px;
-    border: solid 0.1px #8d00ab30;
+    border: solid 0.1px #00dc8230;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -773,7 +773,7 @@ function logout () {
     border-radius: 6px;
 }
 .conec .icon:hover {
-    background: #8d00ab40;
+    background: #00dc8240;
 }
 .menu-float {
     background: #f1fef9;
@@ -865,7 +865,7 @@ input:focus {
 .left-column,
 .right-column {
     text-align: center;
-    border-right: solid 0.1px #8d00ab30;
+    border-right: solid 0.1px #00dc8230;
 }
 
 .right-column {
@@ -880,7 +880,7 @@ input:focus {
     width: 100%;
     transition: all 0.3s ease; /* Suavizar colapso/expansão */
     z-index: 100;
-    border-right: solid 0.1px #8d00ab30;
+    border-right: solid 0.1px #00dc8230;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -891,7 +891,7 @@ input:focus {
 }
 
 .right-column {
-    border-left: solid 1px #8d00ab30;
+    border-left: solid 1px #00dc8230;
     transition: all 0.3s ease; /* Suavizar mudanças visuais */
 }
 
@@ -907,7 +907,7 @@ input:focus {
     text-align: center;
     position: sticky;
     top: 0;
-    border-bottom: solid 0.1px #8d00ab30;
+    border-bottom: solid 0.1px #00dc8230;
     backdrop-filter: blur(10px);
     z-index: 100; /* Garante que a barra fique sobre o conteúdo */
 }
@@ -956,7 +956,7 @@ input:focus {
     font-family: "Gagalin";
     letter-spacing: 1.3px;
     color: #fff;
-    color: #8d00ab;
+    color: #00dc82;
     font-weight: normal;
 }
 
@@ -964,7 +964,7 @@ input:focus {
     margin: 0 0 0 0.8rem;
     height: 28px;
     border-radius: 200px;
-    box-shadow: 0px 2px 10px #8d00ab;
+    box-shadow: 0px 2px 10px #00dc82;
 }
 .left-column-two .nav img {
     margin: 0 0 0 0.2rem;
@@ -973,28 +973,28 @@ input:focus {
 .nav .icon {
     margin-right: 1rem;
     zoom: 1;
-    color: #8d00ab;
+    color: #00dc82;
     color: #fff;
 }
 .nav .icon:hover {
-    color: #b800ff;
+    color: #04be7a;
 }
 
 .dark-mode .nav .icon {
     color: #020024;
 }
 .dark-mode .nav .icon:hover {
-    color: #b800ff;
+    color: #04be7a;
 }
 
 .nav .button .icon {
     margin: 0 0.4rem 0 0.7rem;
     zoom: 1.3;
-    color: #8d00ab;
+    color: #00dc82;
     color: #fff;
 }
 .nav .button .icon:hover {
-    color: #b800ff;
+    color: #04be7a;
 }
 
 .menu {
@@ -1020,7 +1020,7 @@ input:focus {
 }
 
 .button:hover .icon {
-    background-color: #8d00ab60;
+    background-color: #00dc8260;
     border-radius: 4px;
 }
 
@@ -1037,11 +1037,11 @@ input:focus {
 }
 
 .search{
-    border: solid .1px #8d00ab20;
+    border: solid .1px #00dc8220;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
 .search:hover:nth-child(1){
-    background: #8d00ab05;
+    background: #00dc8205;
 }
 
 .left-column-two .search div .icon{
@@ -1052,11 +1052,11 @@ input:focus {
     padding:1px;
     height: 20px;
     width: 20px;
-    background: #8d00ab50;
+    background: #00dc8250;
     color:#777;
     text-align:center;
     border-radius: 5px;
-    border: solid .1px #8d00ab40;
+    border: solid .1px #00dc8240;
     font-weight: bolder;
     font-size: .9rem;
 }
@@ -1095,33 +1095,33 @@ input:focus {
     zoom: 0.9;
 }
 .menu-button:hover .icon {
-    color: #b800ff;
+    color: #04be7a;
 }
 
 .menu-button:hover p {
-    color: #b800ff;
+    color: #04be7a;
     font-weight: bolder;
 }
 .menu-button:hover {
     cursor: pointer;
     background: transparent;
-    color: #b800ff;
-    background: #8d00ab40;
+    color: #04be7a;
+    background: #00dc8240;
 }
 
 .menu-button.router-link-exact-active {
-    color: #8d00ab;
+    color: #00dc82;
     cursor: pointer;
     border-left: transparent;
-    background: #8d00ab20;
+    background: #00dc8220;
 }
 .menu-button.router-link-exact-active p {
-    color: #8d00ab;
+    color: #00dc82;
     cursor: pointer;
 }
 .menu-button.router-link-exact-active p:hover,
 .menu-button.router-link-exact-active:hover .icon {
-    color: #8d00ab;
+    color: #00dc82;
     cursor: pointer;
 }
 .menu-button.router-link-exact-active p {
@@ -1140,7 +1140,7 @@ input:focus {
             overflow-y: auto;
         }
         .right-column {
-            border-left: solid 1px #8d00ab30;
+            border-left: solid 1px #00dc8230;
         }
 
         .left-column img {
@@ -1166,7 +1166,7 @@ input:focus {
     }
 
     .view {
-        background: #8d00ab;
+        background: #00dc82;
         position: sticky;
         z-index: 10000;
         top: 0px;

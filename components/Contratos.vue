@@ -23,7 +23,7 @@ const personal = 'Leandro Cesar Ramos da Costa'
 
 </script>
 <template>
-  <NuxtLoadingIndicator color='repeating-linear-gradient(to right,#8d00ab 0%,#fadb41 50%,#8d00ab 100%)' /> <!-- here -->
+  <NuxtLoadingIndicator color='repeating-linear-gradient(to right,#00dc82 0%,#fadb41 50%,#00dc82 100%)' /> <!-- here -->
   <NavTree />
 
   <div v-if="bodyOne">
@@ -179,7 +179,7 @@ h4{
   height: 60px;
   width: 60px;
   color: #718096;
-  box-shadow: 1px 7px 20px #8d00ab;
+  box-shadow: 1px 7px 20px #00dc82;
   margin: 1.5rem;
   border-radius: 7px;
   z-index: 10;
@@ -189,7 +189,7 @@ h4{
   height: 60px;
   width: 60px;
   border-radius: 7px;
-  border: #8d00ab 2px solid;
+  border: #00dc82 2px solid;
   z-index: 100;
   opacity: 1;
 
@@ -227,11 +227,11 @@ h4{
 }
 
 .logo-nav-bar img {
-  box-shadow: 1px 7px 20px #8d00ab;
+  box-shadow: 1px 7px 20px #00dc82;
   height: 300px;
   width: 300px;
   border-radius: 7px;
-  border: #8d00ab 2px solid;
+  border: #00dc82 2px solid;
   z-index: 100;
   opacity: 1;
 
@@ -249,7 +249,7 @@ h4{
 }
 
 .button-client:hover {
-  color: #8d00ab80;
+  color: #00dc8280;
 }
 
 .button-client .icon {
@@ -260,7 +260,7 @@ h4{
 }
 
 .button-client:hover .icon {
-  color: #8d00ab80;
+  color: #00dc8280;
 }
 
 .head-name {
@@ -278,7 +278,7 @@ h4{
   margin: .2rem 1.5rem;
   font-weight: 700;
   letter-spacing: 1.5px;
-  color: #8d00ab;
+  color: #00dc82;
 
 }
 
@@ -305,7 +305,7 @@ h4{
   height: 40px;
   width: 40px;
   color: #718096;
-  box-shadow: 1px 1px 15px #8d00ab50;
+  box-shadow: 1px 1px 15px #00dc8250;
   transition: all 0.2s ease-in-out 0s;
   margin: 0rem 1.5rem;
   border-radius: 50%;
@@ -313,8 +313,8 @@ h4{
 }
 
 .whats:hover {
-  color: #8d00ab80;
-  box-shadow: 1px 1px 15px #8d00ab80;
+  color: #00dc8280;
+  box-shadow: 1px 1px 15px #00dc8280;
 }
 
 .body-timeline {
@@ -338,7 +338,7 @@ h4{
   height: 100px;
   width: 100px;
   color: #718096;
-  box-shadow: 1px 7px 20px #8d00ab;
+  box-shadow: 1px 7px 20px #00dc82;
   margin: 1.5rem;
   border-radius: 7px;
 }
@@ -347,7 +347,7 @@ h4{
   height: 100px;
   width: 100px;
   border-radius: 7px;
-  border: #8d00ab 2px solid;
+  border: #00dc82 2px solid;
   opacity: 1;
 
 }
@@ -363,7 +363,7 @@ h4{
 }
 
 .link:hover {
-  color: #8d00ab;
+  color: #00dc82;
 }
 
 
@@ -387,7 +387,7 @@ h4{
     height: 100px;
     width: 100px;
     border-radius: 7px;
-    border: #8d00ab 2px solid;
+    border: #00dc82 2px solid;
 
   }
 
@@ -431,8 +431,8 @@ h4{
     margin: 1.5rem auto;
     cursor: pointer;
     transition: all .4s linear;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab10;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8210;
     background-color: #fff;
     cursor: pointer;
     text-align: center;
@@ -453,13 +453,13 @@ h4{
   .button-plus a:hover {
     margin: 0rem auto;
     transition: all .4s linear;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab10;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8210;
     background-color: #edf2f7;
     cursor: pointer;
     width: 100px;
     text-align: center;
-    color: #8d00ab80;
+    color: #00dc8280;
     line-height: 18px;
     border-radius: 8px;
     transition: all 0.2s ease-in-out 0s;

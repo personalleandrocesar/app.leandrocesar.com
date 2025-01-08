@@ -243,10 +243,10 @@ useHead({
     z-index: 1;
     height: 40px;
     font-weight: bolder;
-    border-bottom: .10px solid #8d00ab40;
+    border-bottom: .10px solid #00dc8240;
     backdrop-filter: blur(45px);
-    border-bottom: solid 1px #8d00ab40;
-    border-right: solid 1px #8d00ab40;
+    border-bottom: solid 1px #00dc8240;
+    border-right: solid 1px #00dc8240;
 }
 
 .subscriberOk {
@@ -267,7 +267,7 @@ useHead({
         color: #fff;
         margin-left: -40%;
         font-weight: 900;
-        border: solid 1px #8d00ab10;
+        border: solid 1px #00dc8210;
         z-index: 10000;
 }
 
@@ -276,11 +276,11 @@ useHead({
 }
 
 .clients span {
-    border: 1px solid #8d00ab90;
+    border: 1px solid #00dc8290;
     padding: 3px 6px;
     border-radius: 8px;
-    color: #8d00ab;
-    background-color: #8d00ab30;
+    color: #00dc82;
+    background-color: #00dc8230;
     margin-left: 3px;
 }
 
@@ -296,7 +296,7 @@ useHead({
 .notifications:hover {
     padding: 4px 5px;
     border-radius: 8px;
-    color: #8d00ab;
+    color: #00dc82;
     background-color: #fff;
 }
 
@@ -311,10 +311,10 @@ useHead({
         width: 100%;
         z-index: 1;
         font-weight: bolder;
-        border-bottom: .10px solid #8d00ab40;
+        border-bottom: .10px solid #00dc8240;
         backdrop-filter: blur(45px);
-        border-bottom: solid 1px #8d00ab40;
-        border-right: solid 1px #8d00ab40;
+        border-bottom: solid 1px #00dc8240;
+        border-right: solid 1px #00dc8240;
 }
 
 .users-conf {
@@ -322,11 +322,11 @@ useHead({
 }
 
 .users-conf span {
-    border: 1px solid #8d00ab90;
+    border: 1px solid #00dc8290;
     padding: 8px;
     border-radius: 8px;
-    color: #8d00ab;
-    background-color: #8d00ab30;
+    color: #00dc82;
+    background-color: #00dc8230;
     margin-left: 3px;
 }
 
@@ -352,7 +352,7 @@ useHead({
 }
 
 .actions a {
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     background-color: transparent;
         padding: 4px 35px;
         margin: 2.5px 10px;
@@ -363,20 +363,20 @@ useHead({
 
 
 .actions a:hover {
-    border: solid 1px #8d00ab60;
-    background-color: #8d00ab60;
+    border: solid 1px #00dc8260;
+    background-color: #00dc8260;
 }
 
 .actions a.router-link-exact-active {
-    background: #8d00ab90;
-    border: solid 1px #8d00ab;
+    background: #00dc8290;
+    border: solid 1px #00dc82;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
 
 .actions-button a.router-link-exact-active:hover {
-    background: #8d00ab90;
+    background: #00dc8290;
     ;
     color: #fff;
     text-decoration: none;
@@ -385,7 +385,7 @@ useHead({
 
 .actions-button a.router-link-exact-active:hover::after {
     background-color: var(--color-background);
-    color: #8d00ab;
+    color: #00dc82;
     text-decoration: none;
     cursor: pointer;
 }
@@ -403,7 +403,7 @@ useHead({
 }
 
 .reward a {
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     background-color: transparent;
     padding: 4px 15px;
     margin: 2.5px 7px;
@@ -414,20 +414,20 @@ useHead({
 
 
 .reward a:hover {
-    border: solid 1px #8d00ab60;
-    background-color: #8d00ab60;
+    border: solid 1px #00dc8260;
+    background-color: #00dc8260;
 }
 
 .reward a.router-link-exact-active {
-    background: #8d00ab90;
-    border: solid 1px #8d00ab;
+    background: #00dc8290;
+    border: solid 1px #00dc82;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
 
 .reward-button a.router-link-exact-active:hover {
-    background: #8d00ab90;
+    background: #00dc8290;
     ;
     color: #fff;
     text-decoration: none;
@@ -436,7 +436,7 @@ useHead({
 
 .reward-button a.router-link-exact-active:hover::after {
     background-color: var(--color-background);
-    color: #8d00ab;
+    color: #00dc82;
     text-decoration: none;
     cursor: pointer;
 }
@@ -547,8 +547,8 @@ useHead({
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px)
 }
 
@@ -582,9 +582,9 @@ useHead({
     margin: -1px 0 0 -1px;
     border-radius: 18px;
     z-index: 100;
-    border: #8d00ab 0px solid;
+    border: #00dc82 0px solid;
     opacity: 1;
-    background: linear-gradient(to bottom right, #8d00ab 0%, #8d00ab80 50%, #00f2ff 100%);
+    background: linear-gradient(to bottom right, #00dc82 0%, #00dc8280 50%, #00f2ff 100%);
     padding: 3px;
 
 }
@@ -614,7 +614,7 @@ h1
     bottom: 0px;
     height: calc(100% - 0px);
     width: 100%;
-    background: linear-gradient(to bottom right, #8d00ab80 0%, #8d00ab80 50%, #8d00ab 100%);
+    background: linear-gradient(to bottom right, #00dc8280 0%, #00dc8280 50%, #00dc82 100%);
     backdrop-filter: blur(5px);
     z-index: 1004;
 
@@ -623,7 +623,7 @@ h1
 .logo-nav-bar img {
     width: 300px;
     border-radius: 18px;
-    border: #8d00ab 0px solid;
+    border: #00dc82 0px solid;
     opacity: 1;
     z-index: 100;
 
@@ -658,7 +658,7 @@ h1
     margin: .2rem 1.5rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: #8d00ab;
+    color: #00dc82;
 
 }
 
@@ -689,7 +689,7 @@ h1
     align-items: center;
     flex-wrap: wrap;
     width: 100px;
-    box-shadow: 1px 7px 20px #8d00ab;
+    box-shadow: 1px 7px 20px #00dc82;
     margin: 1.5rem;
     border-radius: 7px;
 }
@@ -697,7 +697,7 @@ h1
 .main-logo img {
     width: 100px;
     border-radius: 7px;
-    border: #8d00ab 2px solid;
+    border: #00dc82 2px solid;
     opacity: 1;
 
 }
@@ -712,7 +712,7 @@ h1
 }
 
 .link:hover {
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .section-title {
@@ -776,7 +776,7 @@ h1
     padding: 5px;
     border-radius: 8px;
     margin: 1px auto;
-    border: solid .1px #8d00ab50;
+    border: solid .1px #00dc8250;
 }
 
 .menu-square div .icon {
@@ -818,8 +818,8 @@ h1
     width: 100%;
     padding: 6px 2px 2px 2px;
     margin: 5px auto;
-    border: solid 1px #8d00ab10;
-    border-bottom: solid .1px #8d00ab40;
+    border: solid 1px #00dc8210;
+    border-bottom: solid .1px #00dc8240;
     border-top: solid .2px transparent;
 }
 
@@ -845,8 +845,8 @@ h1
 
 .menu-button:hover {
     cursor: pointer;
-    border-bottom: solid .2px #8d00ab;
-    background-color: #8d00ab10;
+    border-bottom: solid .2px #00dc82;
+    background-color: #00dc8210;
 }
 
 
@@ -870,14 +870,14 @@ h1
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px)
 }
 
 .whats .icon,
 .color .icon {
-    color: #8d00ab90;
+    color: #00dc8290;
     zoom: 1;
 }
 </style>

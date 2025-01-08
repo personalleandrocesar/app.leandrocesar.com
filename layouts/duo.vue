@@ -369,7 +369,7 @@ const greetingMessage = computed(() => getGreetingMessage());
     margin: -.5rem 1.5rem .7rem 1.5rem;
     border-radius: 200px;
     z-index: 10;
-    background: linear-gradient(90deg, #8d00ab 0%, #00d4ff 35%, #b800ff 100%);
+    background: linear-gradient(90deg, #00dc82 0%, #00d4ff 35%, #04be7a 100%);
     width: 72px;
     height: 72px;
 }
@@ -408,7 +408,7 @@ const greetingMessage = computed(() => getGreetingMessage());
     bottom: 0px;
     height: calc(100% - 0px);
     width: 100%;
-    background: linear-gradient(to bottom right, #8d00ab90 0%, #00d4ff90 50%, #b800ff90 100%);
+    background: linear-gradient(to bottom right, #00dc8290 0%, #00d4ff90 50%, #04be7a90 100%);
     backdrop-filter: blur(5px);
     z-index: 1004;
 
@@ -417,7 +417,7 @@ const greetingMessage = computed(() => getGreetingMessage());
 .logo-nav-bar img {
     width: 300px;
     border-radius: 200px;
-    border: #8d00ab 1px solid;
+    border: #00dc82 1px solid;
     opacity: 1;
     z-index: 100;
 
@@ -452,7 +452,7 @@ const greetingMessage = computed(() => getGreetingMessage());
     margin: 1rem 1.5rem 0 1.5rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: #8d00ab;
+    color: #00dc82;
 
 }
 
@@ -483,7 +483,7 @@ const greetingMessage = computed(() => getGreetingMessage());
     align-items: center;
     flex-wrap: wrap;
     width: 100px;
-    box-shadow: 1px 7px 20px #8d00ab;
+    box-shadow: 1px 7px 20px #00dc82;
     margin: 1.5rem;
     border-radius: 10px;
 }
@@ -491,7 +491,7 @@ const greetingMessage = computed(() => getGreetingMessage());
 .main-logo img {
     width: 100px;
     border-radius: 10px;
-    border: #8d00ab 2px solid;
+    border: #00dc82 2px solid;
     opacity: 1;
 
 }
@@ -506,7 +506,7 @@ const greetingMessage = computed(() => getGreetingMessage());
 }
 
 .link:hover {
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .section-title {
@@ -570,7 +570,7 @@ const greetingMessage = computed(() => getGreetingMessage());
     padding: 5px;
     border-radius: 10px;
     margin: 1px auto;
-    border: solid .1px #8d00ab50;
+    border: solid .1px #00dc8250;
 }
 
 .menu-square div .icon {
@@ -612,8 +612,8 @@ const greetingMessage = computed(() => getGreetingMessage());
     width: 100%;
     padding: 6px 2px 2px 2px;
     margin: 5px auto;
-    border: solid 1px #8d00ab10;
-    border-bottom: solid .1px #8d00ab40;
+    border: solid 1px #00dc8210;
+    border-bottom: solid .1px #00dc8240;
     border-top: solid .2px transparent;
 }
 
@@ -639,8 +639,8 @@ const greetingMessage = computed(() => getGreetingMessage());
 
 .menu-button:hover {
     cursor: pointer;
-    border-bottom: solid .2px #8d00ab;
-    background-color: #8d00ab10;
+    border-bottom: solid .2px #00dc82;
+    background-color: #00dc8210;
 }
 
 
@@ -655,8 +655,8 @@ const greetingMessage = computed(() => getGreetingMessage());
     width: 250px;
     margin-left: -125px;
     transition: all .4s linear;
-    border: solid .1px #8d00ab70;
-    box-shadow: 0 0px 5px #8d00ab10;
+    border: solid .1px #00dc8270;
+    box-shadow: 0 0px 5px #00dc8210;
     cursor: pointer;
     text-align: center;
     line-height: 18px;
@@ -677,8 +677,8 @@ const greetingMessage = computed(() => getGreetingMessage());
 }
 
 .logout:hover {
-    background-color: #8d00ab10;
-    color: #8d00ab80;
+    background-color: #00dc8210;
+    color: #00dc8280;
     cursor: pointer;
 }
 
@@ -716,7 +716,7 @@ const greetingMessage = computed(() => getGreetingMessage());
 
 .nav a.router-link-exact-active {
     margin: 0 2px;
-    color: #8d00ab;
+    color: #00dc82;
     padding: 8px;
 
     border-radius: 10px;
@@ -726,8 +726,8 @@ const greetingMessage = computed(() => getGreetingMessage());
 
 .nav a.router-link-exact-active:hover {
     margin: 0 2px;
-    color: #8d00ab;
-    color: #8d00ab;
+    color: #00dc82;
+    color: #00dc82;
     border-radius: 10px;
     text-decoration: none;
     cursor: pointer;
@@ -738,7 +738,7 @@ const greetingMessage = computed(() => getGreetingMessage());
     top: 60px;
     left: 20px;
     background-color: var(--color-background);
-    color: #8d00ab;
+    color: #00dc82;
     border-radius: 10px;
     text-decoration: none;
     cursor: pointer;
@@ -746,7 +746,7 @@ const greetingMessage = computed(() => getGreetingMessage());
 
 .nav a:hover {
     background-color: transparent;
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .color {
@@ -764,8 +764,8 @@ const greetingMessage = computed(() => getGreetingMessage());
     border-radius: 10px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px)
 }
 
@@ -784,14 +784,14 @@ const greetingMessage = computed(() => getGreetingMessage());
     border-radius: 10px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px)
 }
 
 .whats .icon,
 .color .icon {
-    color: #8d00ab90;
+    color: #00dc8290;
     zoom: 1;
 }
 </style>

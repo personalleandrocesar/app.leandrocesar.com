@@ -416,7 +416,7 @@ const formShow = ref(true);
     top: 10px;
     right: 10px;
     margin-left: 40%;
-    background-color: #8d00ab;
+    background-color: #00dc82;
     color: #fff;
     font-weight: bolder;
     text-shadow: -1px 2px 5px #111;
@@ -452,18 +452,18 @@ a {
 }
 
 .link a:hover {
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     cursor: pointer;
 }
 
 .aActive {
-    border-bottom: solid 2px #8d00ab;
-    color: #8d00ab;
+    border-bottom: solid 2px #00dc82;
+    color: #00dc82;
 }
 
 .aActivee {
-    border-bottom: solid 2px #8d00ab;
-    color: #8d00ab;
+    border-bottom: solid 2px #00dc82;
+    color: #00dc82;
 }
 .head-logo {
     display: flex;
@@ -508,7 +508,7 @@ h3 {
     flex-wrap: wrap;
     height: 100px;
     width: 100px;
-    box-shadow: 0px 7px 20px #8d00ab;
+    box-shadow: 0px 7px 20px #00dc82;
     margin: 3rem 0 1.5rem 0;
     border-radius: 200px;
     z-index: 10;
@@ -518,7 +518,7 @@ h3 {
     height: 100px;
     width: 100px;
     border-radius: 200px;
-    border: #8d00ab 2px solid;
+    border: #00dc82 2px solid;
     z-index: 100;
     opacity: 1;
 }
@@ -526,8 +526,8 @@ h3 {
 .button-client {
     margin: 2rem 1.5rem;
     transition: all 0.4s linear;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab10;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8210;
     border-radius: 8px;
     cursor: pointer;
     width: 160px;
@@ -544,8 +544,8 @@ h3 {
 }
 
 .button-client:hover {
-    background-color: #8d00ab10;
-    color: #8d00ab80;
+    background-color: #00dc8210;
+    color: #00dc8280;
 }
 
 .button-client .icon {
@@ -555,7 +555,7 @@ h3 {
 }
 
 .button-client:hover .icon {
-    color: #8d00ab80;
+    color: #00dc8280;
 }
 
 .head-name {
@@ -571,7 +571,7 @@ h3 {
     line-height: 1.5rem;
     margin: 0.2rem 1.5rem;
     font-weight: 700;
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .color {
@@ -589,8 +589,8 @@ h3 {
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px);
 }
 .whats {
@@ -608,13 +608,13 @@ h3 {
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px);
 }
 .whats .icon,
 .color .icon {
-    color: #8d00ab90;
+    color: #00dc8290;
     zoom: 1;
 }
 
@@ -651,7 +651,7 @@ h3 {
 
 .inputs .terms {
     text-decoration: underline;
-    color: #8d00ab;
+    color: #00dc82;
     height: 15px;
     cursor: pointer;
 }
@@ -683,7 +683,7 @@ h3 {
 
 input {
     transition: all 0.4s linear;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     text-align: left;
     width: 160px;
     font-weight: 600;
@@ -711,20 +711,20 @@ input {
 }
 
 input:focus-visible {
-    border: solid 1px #8d00ab;
+    border: solid 1px #00dc82;
 }
 
 input:active {
-    border-color: #8d00ab80;
+    border-color: #00dc8280;
 }
 
 input:hover {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 input:focus {
     border: 0 none;
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
     outline: 0;
 }
 
@@ -744,7 +744,7 @@ h4:nth-child(1) {
     border: 0;
     color: inherit;
     background-color: transparent;
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
     border-radius: 200px;
     cursor: pointer;
     width: 160px;
@@ -759,25 +759,25 @@ h4:nth-child(1) {
 
 .select:focus {
     border: 0 none;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     outline: 0;
 }
 
 .select:focus-visible {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 .select:active {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 .select:hover {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 .login {
     transition: all 0.4s linear;
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
     cursor: pointer;
     width: 140px;
     text-align: center;
@@ -791,7 +791,7 @@ h4:nth-child(1) {
     padding-top: 6px;
     padding-bottom: 8px;
     margin: 1rem 1.5rem;
-    background-color: #8d00ab;
+    background-color: #00dc82;
     color: #fff;
 }
 
@@ -806,7 +806,7 @@ h4:nth-child(1) {
 
 .login:hover {
     cursor: pointer;
-    background-color: #8d00ab;
+    background-color: #00dc82;
     color: #fff;
 }
 
@@ -827,11 +827,11 @@ h4:nth-child(1) {
     bottom: 10px;
     width: 80%;
     left: 50%;
-    background-color: #8d00ab;
+    background-color: #00dc82;
     color: #fff;
     margin-left: -40%;
     font-weight: 900;
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     z-index: 10000;
 }
 
@@ -845,8 +845,8 @@ h4:nth-child(1) {
 .button-pop {
     margin: 7px auto 0 auto;
     transition: all 0.4s linear;
-    border: solid 1px #8d00ab;
-    box-shadow: 0 0px 5px #8d00ab10;
+    border: solid 1px #00dc82;
+    box-shadow: 0 0px 5px #00dc8210;
     border-radius: 8px;
     cursor: pointer;
     width: 50%;

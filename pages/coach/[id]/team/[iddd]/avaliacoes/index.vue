@@ -412,7 +412,7 @@ if (aval) {
                       </div>
                       <div>
                                           
-                          <h4 style="font-weight: 900;color: #8d00ab; zoom: 1.6; margin-bottom: -5px;">
+                          <h4 style="font-weight: 900;color: #00dc82; zoom: 1.6; margin-bottom: -5px;">
                               %G
                           </h4>
                           <h4>
@@ -763,7 +763,7 @@ if (aval) {
 
 .login {
     transition: all .4s linear;
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
     cursor: pointer;
     width: 140px;
     text-align: center;
@@ -790,7 +790,7 @@ if (aval) {
 
 .login:hover {
     cursor: pointer;
-    background-color: #8d00ab;
+    background-color: #00dc82;
     color: #fff;
 }
 
@@ -800,7 +800,7 @@ if (aval) {
 }
 input {
     transition: all .4s linear;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     text-align: left;
     width: 160px;
     font-weight: 600;
@@ -814,7 +814,7 @@ input {
     border: 0;
     color: inherit;
     background-color: transparent;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     border-radius: 5px;
     cursor: pointer;
     width: 160px;
@@ -826,27 +826,27 @@ input {
 
 .select:focus {
     border: 0 none;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     outline: 0;
 }
 
 .select:focus-visible {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 .select:active {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 .select:hover {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 textarea {
     transition: all .4s linear;
     border: 0;
     color: inherit;
     background-color: transparent;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     border-radius: 5px;
     cursor: pointer;
     width: 800px;
@@ -859,20 +859,20 @@ textarea {
 
 textarea:focus {
     border: 0 none;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     outline: 0;
 }
 
 textarea:focus-visible {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 textarea:active {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 textarea:hover {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 
@@ -894,11 +894,11 @@ textarea:hover {
 }
 
 input:focus-visible {
-    border: solid 1px #8d00ab;
+    border: solid 1px #00dc82;
 }
 
 input:active {
-    border-color: #8d00ab80;
+    border-color: #00dc8280;
 }
 /* 
 input:hover {
@@ -906,9 +906,9 @@ input:hover {
 
 
 input:focus {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
     border: 0 none;
-    border-bottom: solid 2px #8d00ab;
+    border-bottom: solid 2px #00dc82;
     outline: 0;
 }
 
@@ -962,7 +962,7 @@ input:focus {
 
 .inputs .terms {
     text-decoration: underline;
-    color: #8d00ab;
+    color: #00dc82;
     height: 15px;
     cursor: pointer;
 }
@@ -1035,14 +1035,14 @@ input:focus {
     z-index: 1;
     height: 40px;
     font-weight: bolder;
-    border-bottom: .10px solid #8d00ab40;
+    border-bottom: .10px solid #00dc8240;
     backdrop-filter: blur(45px);
-    border-bottom: solid 1px #8d00ab40;
-    border-right: solid 1px #8d00ab40;
+    border-bottom: solid 1px #00dc8240;
+    border-right: solid 1px #00dc8240;
 }
 
 .subscriberOk {
-    background-color: #8d00ab;
+    background-color: #00dc82;
     color: #fff;
     text-shadow: 2px 2px 2px #111;
     display: flex;
@@ -1059,7 +1059,7 @@ input:focus {
     color: #fff;
     margin-left: -40%;
     font-weight: 900;
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     z-index: 10000;
 }
 
@@ -1081,7 +1081,7 @@ input:focus {
     color: #fff;
     margin-left: -40%;
     font-weight: 900;
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     z-index: 10000;
 }
 
@@ -1090,11 +1090,11 @@ input:focus {
 }
 
 .clients span {
-    border: 1px solid #8d00ab90;
+    border: 1px solid #00dc8290;
     padding: 3px 6px;
     border-radius: 8px;
-    color: #8d00ab;
-    background-color: #8d00ab30;
+    color: #00dc82;
+    background-color: #00dc8230;
     margin-left: 3px;
 }
 
@@ -1110,7 +1110,7 @@ input:focus {
 .notifications:hover {
     padding: 4px 5px;
     border-radius: 8px;
-    color: #8d00ab;
+    color: #00dc82;
     background-color: #fff;
 }
 
@@ -1127,10 +1127,10 @@ input:focus {
     height: 35px;
     font-weight: bolder;
     margin-bottom: 1rem;
-    border-bottom: .10px solid #8d00ab40;
+    border-bottom: .10px solid #00dc8240;
     backdrop-filter: blur(45px);
-    border-bottom: solid 1px #8d00ab40;
-    border-right: solid 1px #8d00ab40;
+    border-bottom: solid 1px #00dc8240;
+    border-right: solid 1px #00dc8240;
 }
 
 .reward {
@@ -1148,11 +1148,11 @@ input:focus {
 }
 
 .users-conf span {
-    border: 1px solid #8d00ab90;
+    border: 1px solid #00dc8290;
     padding: 8px;
     border-radius: 8px;
-    color: #8d00ab;
-    background-color: #8d00ab30;
+    color: #00dc82;
+    background-color: #00dc8230;
     margin-left: 3px;
 }
 
@@ -1168,7 +1168,7 @@ input:focus {
 }
 
 .actions a {
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     background-color: transparent;
     padding: 4px 35px;
     margin: 2.5px 10px;
@@ -1179,20 +1179,20 @@ input:focus {
 
 
 .actions a:hover {
-    border: solid 1px #8d00ab60;
-    background-color: #8d00ab60;
+    border: solid 1px #00dc8260;
+    background-color: #00dc8260;
 }
 
 .actions a.router-link-exact-active {
-    background: #8d00ab90;
-    border: solid 1px #8d00ab;
+    background: #00dc8290;
+    border: solid 1px #00dc82;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
 
 .actions-button a.router-link-exact-active:hover {
-    background: #8d00ab90;
+    background: #00dc8290;
     ;
     color: #fff;
     text-decoration: none;
@@ -1201,7 +1201,7 @@ input:focus {
 
 .actions-button a.router-link-exact-active:hover::after {
     background-color: var(--color-background);
-    color: #8d00ab;
+    color: #00dc82;
     text-decoration: none;
     cursor: pointer;
 }
@@ -1216,7 +1216,7 @@ input:focus {
 }
 
 .reward a {
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     background-color: transparent;
     padding: 4px 15px;
     margin: 2.5px 7px;
@@ -1227,20 +1227,20 @@ input:focus {
 
 
 .reward a:hover {
-    border: solid 1px #8d00ab60;
-    background-color: #8d00ab60;
+    border: solid 1px #00dc8260;
+    background-color: #00dc8260;
 }
 
 .reward a.router-link-exact-active {
-    background: #8d00ab90;
-    border: solid 1px #8d00ab;
+    background: #00dc8290;
+    border: solid 1px #00dc82;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
 
 .reward-button a.router-link-exact-active:hover {
-    background: #8d00ab90;
+    background: #00dc8290;
     ;
     color: #fff;
     text-decoration: none;
@@ -1249,7 +1249,7 @@ input:focus {
 
 .reward-button a.router-link-exact-active:hover::after {
     background-color: var(--color-background);
-    color: #8d00ab;
+    color: #00dc82;
     text-decoration: none;
     cursor: pointer;
 }
@@ -1353,7 +1353,7 @@ input:focus {
     height: 60px;
     width: 60px;
     color: #718096;
-    box-shadow: 1px 7px 20px #8d00ab;
+    box-shadow: 1px 7px 20px #00dc82;
     margin: 1.5rem;
     border-radius: 7px;
     z-index: 10;
@@ -1363,7 +1363,7 @@ input:focus {
     height: 60px;
     width: 60px;
     border-radius: 7px;
-    border: #8d00ab 2px solid;
+    border: #00dc82 2px solid;
     z-index: 100;
     opacity: 1;
 
@@ -1401,11 +1401,11 @@ input:focus {
 }
 
 .logo-nav-bar img {
-    box-shadow: 1px 7px 20px #8d00ab;
+    box-shadow: 1px 7px 20px #00dc82;
     height: 300px;
     width: 300px;
     border-radius: 7px;
-    border: #8d00ab 2px solid;
+    border: #00dc82 2px solid;
     z-index: 100;
     opacity: 1;
 
@@ -1423,7 +1423,7 @@ input:focus {
 }
 
 .button-client:hover {
-    color: #8d00ab80;
+    color: #00dc8280;
 }
 
 .button-client .icon {
@@ -1434,7 +1434,7 @@ input:focus {
 }
 
 .button-client:hover .icon {
-    color: #8d00ab80;
+    color: #00dc8280;
 }
 
 .head-name {
@@ -1459,7 +1459,7 @@ input:focus {
     margin: .2rem 1.5rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: #8d00ab;
+    color: #00dc82;
 
 }
 
@@ -1486,7 +1486,7 @@ input:focus {
     height: 40px;
     width: 40px;
     color: #718096;
-    box-shadow: 1px 1px 15px #8d00ab50;
+    box-shadow: 1px 1px 15px #00dc8250;
     transition: all 0.2s ease-in-out 0s;
     margin: 0rem 1.5rem;
     border-radius: 50%;
@@ -1494,9 +1494,9 @@ input:focus {
 }
 
 .whats:hover {
-    background-color: #8d00ab10;
-    color: #8d00ab80;
-    box-shadow: 1px 1px 15px #8d00ab80;
+    background-color: #00dc8210;
+    color: #00dc8280;
+    box-shadow: 1px 1px 15px #00dc8280;
 }
 
 .body-timeline {
@@ -1519,7 +1519,7 @@ input:focus {
     height: 100px;
     width: 100px;
     color: #718096;
-    box-shadow: 1px 7px 20px #8d00ab;
+    box-shadow: 1px 7px 20px #00dc82;
     margin: 1.5rem;
     border-radius: 7px;
 }
@@ -1528,7 +1528,7 @@ input:focus {
     height: 100px;
     width: 100px;
     border-radius: 7px;
-    border: #8d00ab 2px solid;
+    border: #00dc82 2px solid;
     opacity: 1;
 
 }
@@ -1544,7 +1544,7 @@ input:focus {
 }
 
 .link:hover {
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .section-title {
@@ -1555,7 +1555,7 @@ input:focus {
 }
 
 .section-subtitle {
-    color: #8d00ab;
+    color: #00dc82;
     text-align: left;
     margin: -10px 1.5rem 15px;
     font-weight: 800;
@@ -1603,9 +1603,9 @@ input:focus {
     padding: 5px;
     border-radius: 8px;
     margin: 1px auto;
-    color: #8d00ab;
-    background-color: #8d00ab10;
-    border: solid .2px #8d00ab10;
+    color: #00dc82;
+    background-color: #00dc8210;
+    border: solid .2px #00dc8210;
 }
 
 .menu-square div .icon {
@@ -1648,10 +1648,10 @@ input:focus {
     width: 100%;
     padding: 5px;
     margin: 1px auto;
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     color: var(--color-text);
     background-color: #fff;
-    border-bottom: solid .2px #8d00ab30;
+    border-bottom: solid .2px #00dc8230;
     border-top: solid .2px transparent;
 }
 
@@ -1676,10 +1676,10 @@ input:focus {
 }
 
 .menu-button:hover {
-    background-color: #8d00ab10;
-    color: #8d00ab80;
+    background-color: #00dc8210;
+    color: #00dc8280;
     cursor: pointer;
-    border-bottom: solid .2px #8d00ab50;
+    border-bottom: solid .2px #00dc8250;
 }
 
 
@@ -1694,9 +1694,9 @@ input:focus {
     width: 250px;
     margin-left: -125px;
     transition: all .4s linear;
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     color: var(--color-text);
-    box-shadow: 0 0px 5px #8d00ab10;
+    box-shadow: 0 0px 5px #00dc8210;
     border-radius: 8px;
     cursor: pointer;
     text-align: center;
@@ -1718,8 +1718,8 @@ input:focus {
 }
 
 .logout:hover {
-    background-color: #8d00ab10;
-    color: #8d00ab80;
+    background-color: #00dc8210;
+    color: #00dc8280;
     cursor: pointer;
 }
 
@@ -1740,13 +1740,13 @@ input:focus {
 }
 
 .main-div-two .icon {
-    color: #8d00ab;
+    color: #00dc82;
     zoom: 1.3;
 }
 
 .main-square {
     color: var(--color-text);
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
     backdrop-filter: blur(5px);
     overflow-x: auto;
     display: flex;
@@ -1755,19 +1755,19 @@ input:focus {
     align-items: center;
     margin: .1rem 5%;
     border-radius: 8px;
-    border: .1px solid #8d00ab10;
+    border: .1px solid #00dc8210;
     line-height: 1.4;
     transition: all .4s;
-    border: 2px solid #8d00ab10;
+    border: 2px solid #00dc8210;
 }
 
 .main-square:hover {
-    background-color: #8d00ab30;
-    border-right: 1px solid #8d00ab30;
+    background-color: #00dc8230;
+    border-right: 1px solid #00dc8230;
 
-    border: 2px solid #8d00ab20;
-    border-top: 2px solid #8d00ab40;
-    border-bottom: 2px solid #8d00ab40;
+    border: 2px solid #00dc8220;
+    border-top: 2px solid #00dc8240;
+    border-bottom: 2px solid #00dc8240;
 }
 
 .main-square div:nth-child(1) {
@@ -1794,7 +1794,7 @@ input:focus {
 }
 
 .main-div-two a div {
-    border-right: 2px solid #8d00ab10;
+    border-right: 2px solid #00dc8210;
     margin-left: 15px;
     height: 100px;
     display: flex;
@@ -1827,7 +1827,7 @@ input:focus {
 
 .main-div-one .icon {
     zoom: 1.3;
-    color: #8d00ab;
+    color: #00dc82;
     margin-top: -2.5px;
 }
 
@@ -1847,7 +1847,7 @@ input:focus {
 }
 
 .main-div-tree .icon {
-    color: #8d00ab;
+    color: #00dc82;
     margin-top: -4px;
 }
 
@@ -1905,7 +1905,7 @@ input:focus {
         height: 100px;
         width: 100px;
         border-radius: 7px;
-        border: #8d00ab 2px solid;
+        border: #00dc82 2px solid;
 
     }
 
@@ -1949,8 +1949,8 @@ input:focus {
         margin: 1.5rem auto;
         cursor: pointer;
         transition: all .4s linear;
-        border: solid 1px #8d00ab10;
-        box-shadow: 0 0px 5px #8d00ab10;
+        border: solid 1px #00dc8210;
+        box-shadow: 0 0px 5px #00dc8210;
         background-color: #fff;
         cursor: pointer;
         text-align: center;
@@ -1971,13 +1971,13 @@ input:focus {
     .button-plus a:hover {
         margin: 0rem auto;
         transition: all .4s linear;
-        border: solid 1px #8d00ab10;
-        box-shadow: 0 0px 5px #8d00ab10;
+        border: solid 1px #00dc8210;
+        box-shadow: 0 0px 5px #00dc8210;
         background-color: #edf2f7;
         cursor: pointer;
         width: 100px;
         text-align: center;
-        color: #8d00ab80;
+        color: #00dc8280;
         line-height: 18px;
         border-radius: 8px;
         transition: all 0.2s ease-in-out 0s;

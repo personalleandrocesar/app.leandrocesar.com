@@ -120,7 +120,7 @@ html, body {
   text-align: center;
   position: sticky;
   top: 0;
-  border-bottom: solid .1px #8d00ab30;
+  border-bottom: solid .1px #00dc8230;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -142,7 +142,7 @@ html, body {
     margin-left: .2rem;
     padding: 4px 6px;
     border-radius: 8px;
-    background: #8d00ab80;
+    background: #00dc8280;
 }
 
 .topbar .icon {
@@ -157,7 +157,7 @@ html, body {
 }
 
 .topbar .icon:hover {
-    color: #8d00ab;
+    color: #00dc82;
     cursor: pointer;
 }
 
@@ -173,7 +173,7 @@ html, body {
 .nav {
     height: 70px;
     width: 100%;
-    border-bottom: solid .1px #8d00ab30;
+    border-bottom: solid .1px #00dc8230;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -239,17 +239,17 @@ span {
 }
 
 .rectangle {
-    border: solid 2px #8d00ab10;
+    border: solid 2px #00dc8210;
     box-shadow:
-        2px 2px 15px #8d00ab90,
-        -2px -2px 15px #8d00ab90;
+        2px 2px 15px #00dc8290,
+        -2px -2px 15px #00dc8290;
     padding: 20px;
     border-radius: 8px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background: #8d00ab;
+    background: #00dc82;
     transition: all 0.3s linear;
 }
 
@@ -282,7 +282,7 @@ span {
 }
 
 .rectangle:hover {
-    background: #b800ff;
+    background: #04be7a;
 }
 
 .rectangle .intern h3,
@@ -304,7 +304,7 @@ span {
 .rectangle .icon {
     zoom: 3;
     background: #eee;
-    color: #8d00ab;
+    color: #00dc82;
     padding: 5px;
     border-radius: 50%;
     box-shadow: 0px 0px 3px 3px #ffffff50;
@@ -364,9 +364,9 @@ span {
 }
 
 .square {
-    border: solid 2px #8d00ab10;
+    border: solid 2px #00dc8210;
     box-shadow:
-        2px 2px 2px #8d00ab90,
+        2px 2px 2px #00dc8290,
         -2px -2px 2px #8d0aab90;
     border-radius: 8px;
     width: 49%;
@@ -437,9 +437,9 @@ span {
     align-items: center;
     justify-content: flex-start;
     text-align: left;
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     box-shadow:
-        1px 1px 1px #8d00ab90,
+        1px 1px 1px #00dc8290,
         -1px -1px 1px #8d0aab90;
     border-radius: 8px;
     margin: 1.5%;
@@ -453,7 +453,7 @@ span {
 }
 
 .v-for:hover {
-    background: #8d00ab30;
+    background: #00dc8230;
 }
 
 .atletas div {
@@ -465,11 +465,11 @@ span {
 }
 
 .v-for:nth-child(2n) {
-    background: #8d00ab10;
+    background: #00dc8210;
 }
 
 .v-for:nth-child(2n):hover {
-    background: #8d00ab30;
+    background: #00dc8230;
 }
 
 .atletas .img-coach {

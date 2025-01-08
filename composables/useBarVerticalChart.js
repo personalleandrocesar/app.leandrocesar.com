@@ -27,7 +27,7 @@ export function useBarVerticalChart() {
     labels: ['Ativos', 'Inativos'],
     datasets: [
       {
-        backgroundColor: ['#8d00ab', '#b800aa'],
+        backgroundColor: ['#00dc82', '#b800aa'],
         data: [
           18,
            13,
@@ -52,7 +52,7 @@ export function useBarVerticalChart() {
          title: {
            display: true,
            text: `Atletas Ativos vs Inativos`,
-           color: '#8d00ab',
+           color: '#00dc82',
            font: {
              size: 17,
            },
@@ -60,7 +60,7 @@ export function useBarVerticalChart() {
          legend: {
            display: false,
            labels: {
-           color: '#8d00ab',
+           color: '#00dc82',
              font: {
                size: 11,
              },

@@ -161,7 +161,7 @@ function alternarFoto() {
     bottom: 0px;
     height: calc(100% - 0px);
     width: 100%;
-    background: linear-gradient(to bottom right, #8d00ab90 0%, #00d4ff90 50%, #b800ff90 100%);
+    background: linear-gradient(to bottom right, #00dc8290 0%, #00d4ff90 50%, #04be7a90 100%);
     backdrop-filter: blur(5px);
     z-index: 1134004;
 
@@ -170,7 +170,7 @@ function alternarFoto() {
 .logo-nav-bar img {
     width: 300px;
     border-radius: 200px;
-    border: #8d00ab 1px solid;
+    border: #00dc82 1px solid;
     opacity: 1;
     z-index: 100;
 
@@ -184,7 +184,7 @@ function alternarFoto() {
 }
 
 .photo .icon {
-    color: #8d00ab;
+    color: #00dc82;
     zoom:1;
 }
 
@@ -232,7 +232,7 @@ function alternarFoto() {
     border-radius: 200px;
     width: 300px;
     margin: 10px;
-    background: #8d00ab20;
+    background: #00dc8220;
 }
 
 .floating-div img {
@@ -274,7 +274,7 @@ input[type="file"] {
 .custom-file-upload {
     display: inline-block;
     padding: 10px 20px;
-    background: linear-gradient(90deg, #8d00ab 0%, #00d4ff 35%, #b800ff 100%);
+    background: linear-gradient(90deg, #00dc82 0%, #00d4ff 35%, #04be7a 100%);
     color: white;
     border-radius: 200px;
     cursor: pointer;
@@ -381,7 +381,7 @@ input[type="file"] {
     opacity:.7;
 }
 .can{
-    background: #8d00ab10;
+    background: #00dc8210;
     width: 100px;
   color: #333;
 }
@@ -442,7 +442,7 @@ input[type="file"] {
 
 /* Efeito ligado (quando o checkbox está marcado) */
 input:checked + .slider {
-  background-color: #8d00ab;
+  background-color: #00dc82;
 }
 
 input:checked + .slider:before {
@@ -460,7 +460,7 @@ input:checked + .slider:before {
 }
 
 .bor {
-    border-left: solid 1px #8d00ab40;
+    border-left: solid 1px #00dc8240;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -479,7 +479,7 @@ input:checked + .slider:before {
 }
 .theme-switch:not(:last-child) {
     padding-bottom: 10px;
-    border-bottom: solid 1px #8d00ab40;
+    border-bottom: solid 1px #00dc8240;
 }
 
 .theme-switch .icon {
@@ -503,20 +503,20 @@ input:checked + .slider:before {
 }
 
 .radio-input:checked + .pill {
-  background-color: #8d00ab;
+  background-color: #00dc82;
   border-color: #00d4ff50;
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .pill:hover {
-  background-color: #b800ff ;
+  background-color: #04be7a ;
   color:#fff;
 }
 
 .upper {
     text-transform: Capitalize;
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .topbar {
@@ -525,7 +525,7 @@ input:checked + .slider:before {
   text-align: center;
   position: sticky;
   top: 0;
-  border-bottom: solid .1px #8d00ab30;
+  border-bottom: solid .1px #00dc8230;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -547,7 +547,7 @@ input:checked + .slider:before {
     margin-left: .2rem;
     padding: 4px 6px;
     border-radius: 8px;
-    background: #8d00ab80;
+    background: #00dc8280;
     color: #fff;
 }
 
@@ -588,7 +588,7 @@ input:checked + .slider:before {
 
 .login:hover {
     cursor: pointer;
-    background-color: #8d00ab;
+    background-color: #00dc82;
     color: #fff;
 }
 
@@ -630,7 +630,7 @@ input:checked + .slider:before {
 
 .inputs .terms {
     text-decoration: underline;
-    color: #8d00ab;
+    color: #00dc82;
     height: 15px;
     cursor: pointer;
 }
@@ -662,7 +662,7 @@ input:checked + .slider:before {
 }
 
 input {
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
     text-align: left;
     width: 500px;
     font-weight: 600;
@@ -674,7 +674,7 @@ input {
      
 }
 textarea {
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
     text-align: left;
     width: 500px;
     font-weight: 600;
@@ -686,21 +686,21 @@ textarea {
      
 }
 textarea:focus {
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
     outline: 0;
     padding: 5px;
     color: #555;
-    background: #8d00ab70;
+    background: #00dc8270;
 }
 .dark-mode textarea:focus {
     color: #fff;
 }
 textarea:active {
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
      
 }
 textarea:focus-visible {
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
 }
 
 
@@ -775,20 +775,20 @@ textarea:focus-visible {
 }
 
 input:focus-visible {
-    border: solid 1px #8d00ab;
+    border: solid 1px #00dc82;
 }
 input:active {
-    border-color: #8d00ab80;
+    border-color: #00dc8280;
 }
 
 input:hover {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 
 input:focus {
     border: 0 none;
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
     outline: 0;
 }
 
@@ -805,7 +805,7 @@ h4 {
     border: 0;
     color: inherit;
     background-color: transparent;
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
     border-radius: 5px;
     cursor: pointer;
     width: 80px;
@@ -814,8 +814,8 @@ h4 {
     font-size: 14px;
 }
 select::selection {
-    border: solid 2px #8d00ab;
-    background: #8d00ab40;
+    border: solid 2px #00dc82;
+    background: #00dc8240;
 }
 
 .select:focus {
@@ -825,29 +825,29 @@ select::selection {
 }
 
 .dark-mode .select:focus {
-    border-color: #8d00ab90 ;
+    border-color: #00dc8290 ;
 }
 
 .select:focus-visible {
-    background-color: #8d00ab10;
-    border: solid 2px #8d00ab;
+    background-color: #00dc8210;
+    border: solid 2px #00dc82;
 }
 
 .select:active {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 .dark-mode select:active {
     background: #111827;
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
 }
 
 .select:hover {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 }
 
 .login {
-    border: solid 2px #8d00ab;
+    border: solid 2px #00dc82;
     cursor: pointer;
     width: 140px;
     text-align: center;
@@ -872,7 +872,7 @@ select::selection {
 
 .login:hover {
     cursor: pointer;
-    background-color: #8d00ab;
+    background-color: #00dc82;
     color: #fff;
 }
 
@@ -896,10 +896,10 @@ select::selection {
     z-index: 1;
     height: 40px;
     font-weight: bolder;
-    border-bottom: .10px solid #8d00ab40;
+    border-bottom: .10px solid #00dc8240;
     backdrop-filter: blur(45px);
-    border-bottom: solid 1px #8d00ab40;
-    border-right: solid 1px #8d00ab40;
+    border-bottom: solid 1px #00dc8240;
+    border-right: solid 1px #00dc8240;
 }
 
 
@@ -908,11 +908,11 @@ select::selection {
 }
 
 .clients span {
-    border: 1px solid #8d00ab90;
+    border: 1px solid #00dc8290;
     padding: 3px 6px;
     border-radius: 4px;
-    color: #8d00ab;
-    background-color: #8d00ab30;
+    color: #00dc82;
+    background-color: #00dc8230;
     margin-left: 3px;
 }
 
@@ -927,7 +927,7 @@ select::selection {
 .notifications:hover {
     padding: 4px 5px;
     border-radius: 4px;
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .users-list {
@@ -956,8 +956,8 @@ select::selection {
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px)
 }
 
@@ -975,18 +975,18 @@ select::selection {
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #8d00ab10;
-    box-shadow: 0 0px 5px #8d00ab40;
+    border: solid 1px #00dc8210;
+    box-shadow: 0 0px 5px #00dc8240;
     backdrop-filter: blur(100px)
 }
 
 .whats .icon,
 .color .icon {
-    color: #8d00ab90;
+    color: #00dc8290;
     zoom: 1;
 }
 .subscriberOk {
-    background-color: #8d00ab;
+    background-color: #00dc82;
     text-shadow: 2px 2px 2px #111;
     display: flex;
     flex-direction: column;
@@ -1002,7 +1002,7 @@ select::selection {
     color: #fff;
     margin-left: -40%;
     font-weight: 900;
-    border: solid 1px #8d00ab10;
+    border: solid 1px #00dc8210;
     z-index: 10000;
 }
 #customers {
@@ -1015,31 +1015,31 @@ select::selection {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #8d00ab80;
+    background-color: #00dc8280;
 font-weight: bolder;
 }
 
 #customers td,
 #customers th {
-    border: 1px solid #8d00ab40;
+    border: 1px solid #00dc8240;
     padding: 8px;
     color: white;
     font-weight: bolder;
 }
 
 #customers tr:nth-child(1) {
-    background-color: #8d00ab30;
+    background-color: #00dc8230;
     }
 #customers tr:nth-child(2n) {
-    background-color: #8d00ab30;
+    background-color: #00dc8230;
     }
     
     #customers tr:hover {
-        background-color: #8d00ab50 ;
+        background-color: #00dc8250 ;
     }
    
 input[type="radio"] {
-  accent-color: #8d00ab; /* Muda a cor do botão de rádio */
+  accent-color: #00dc82; /* Muda a cor do botão de rádio */
   transform: scale(1); /* Diminui o tamanho do botão de rádio */
   width: 15px; /* Ajusta a largura do botão de rádio */
   height: 15px; /* Ajusta a altura do botão de rádio */
@@ -1047,7 +1047,7 @@ input[type="radio"] {
 .row {
     display: flex;
     flex-direction: row;
-    border: 1px solid #8d00ab40;
+    border: 1px solid #00dc8240;
     font-size: 1rem;
 }
 
@@ -1059,7 +1059,7 @@ input[type="radio"] {
 }
 
 .row:nth-child(2n) {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 
 }
 
@@ -1070,7 +1070,7 @@ input[type="radio"] {
 .cell {
     flex: 1;
     overflow: hidden;
-    border-right: 1px solid #8d00ab40;
+    border-right: 1px solid #00dc8240;
 }
 
 .cell:nth-child(1) {
@@ -1095,7 +1095,7 @@ input[type="radio"] {
 .cell-two {
     flex: 1;
     overflow: hidden;
-    border-right: 1px solid #8d00ab40;
+    border-right: 1px solid #00dc8240;
 }
 
 .cell-two:nth-child(1) {
@@ -1137,8 +1137,8 @@ input[type="radio"] {
     z-index: 1;
     height: 50px;
     font-weight: bolder;
-    border-bottom: solid 1px #8d00ab40;
-    border-right: solid 1px #8d00ab40;
+    border-bottom: solid 1px #00dc8240;
+    border-right: solid 1px #00dc8240;
     backdrop-filter: blur(45px);
 }
 
@@ -1147,17 +1147,17 @@ input[type="radio"] {
 }
 
 .clients span {
-    border: 1px solid #8d00ab40;
+    border: 1px solid #00dc8240;
     padding: 3px 6px;
     border-radius: 4px;
-    color: #8d00ab;
-    background-color: #8d00ab40;
+    color: #00dc82;
+    background-color: #00dc8240;
     margin-left: 3px;
 }
 
 .add-client {
-    border: solid 1px #8d00ab90;
-    background-color: #8d00ab;
+    border: solid 1px #00dc8290;
+    background-color: #00dc82;
     padding: 5px 7px;
     margin: 5px;
     border-radius: 4px;
@@ -1166,9 +1166,9 @@ input[type="radio"] {
 }
 
 .add-client:hover {
-    border: solid 1px #8d00ab90 ;
+    border: solid 1px #00dc8290 ;
     border-radius: 4px;
-    color: #8d00ab;
+    color: #00dc82;
     background-color: #fff;
 }
 
@@ -1190,8 +1190,8 @@ input[type="radio"] {
 }
 
 .close-client {
-    border: solid 1px #8d00ab;
-    background-color: #8d00ab;
+    border: solid 1px #00dc82;
+    background-color: #00dc82;
     padding: 5px 42px;
         margin: 1.5px 6px;
     border-radius: 4px;
@@ -1200,9 +1200,9 @@ input[type="radio"] {
 }
 
 .close-client:hover {
-    border: solid 1px #8d00ab90 ;
+    border: solid 1px #00dc8290 ;
     border-radius: 4px;
-    color: #8d00ab;
+    color: #00dc82;
     background-color: #fff;
 }
 .close-edit-client {
@@ -1216,9 +1216,9 @@ input[type="radio"] {
 }
 
 .close-edit-client:hover {
-    border: solid 1px #8d00ab90 ;
+    border: solid 1px #00dc8290 ;
     border-radius: 4px;
-    color: #8d00ab;
+    color: #00dc82;
     background-color: #fff;
 }
 
@@ -1234,7 +1234,7 @@ input[type="radio"] {
         font-weight: bolder;
         backdrop-filter: blur(45px);
         margin-right: 1.5rem;
-        border-bottom: solid .1px #8d00ab30;
+        border-bottom: solid .1px #00dc8230;
 }
 
 .users-conf {
@@ -1252,12 +1252,12 @@ input[type="radio"] {
 }
 
 .filter:hover {
-    color: #8d00ab;
-    background-color: #8d00ab20;
+    color: #00dc82;
+    background-color: #00dc8220;
 }
 
 .filter.router-link-exact-active {
-    border-bottom: solid 2px #8d00ab70; 
+    border-bottom: solid 2px #00dc8270; 
     border-radius: 0;
 }
 
@@ -1304,19 +1304,19 @@ input[type="radio"] {
     width: 120px;
     margin: 2px;
     border-radius: 4px;
-    border: solid 2px #8d00ab60;
+    border: solid 2px #00dc8260;
     text-align: center;
 }
 
 .title-user:hover {
-    background-color: #8d00ab60;
+    background-color: #00dc8260;
     color: #fff;
 }
 
 .title-user img {
     width: 60px;
-    background-color: #8d00ab60;
-    border: 3px solid #8d00ab;
+    background-color: #00dc8260;
+    border: 3px solid #00dc82;
     border-radius: 4px;
 }
 
@@ -1329,14 +1329,14 @@ input[type="radio"] {
 
 .form-cliente {
     border-radius: 50%;
-    border: solid 3px #8d00ab;
+    border: solid 3px #00dc82;
 }
 
 .cliente {
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 
@@ -1368,7 +1368,7 @@ input[type="radio"] {
     flex-direction: row;
     align-items: flex-start;
     flex-wrap: wrap;
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .green {
@@ -1464,14 +1464,14 @@ input[type="radio"] {
 
 .others-full {
     z-index: 1;
-    background-color: #8d00ab50;
+    background-color: #00dc8250;
 }
 
 .others-details {
     margin: 0 .5%;
     z-index: 1;
-    background-color: #8d00ab30;
-    border: solid 3px #8d00ab40;
+    background-color: #00dc8230;
+    border: solid 3px #00dc8240;
     border-radius: 3px;
 }
 
@@ -1500,7 +1500,7 @@ input[type="radio"] {
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    background: linear-gradient(90deg, #8d00ab 0%, #00d4ff 35%, #b800ff 100%);
+    background: linear-gradient(90deg, #00dc82 0%, #00d4ff 35%, #04be7a 100%);
     height: 76px;
     width: 76px;
     color: #718096;
@@ -1514,7 +1514,7 @@ input[type="radio"] {
     height: 76px;
     width: 76px;
     border-radius: 50px;
-    /* border: #8d00ab 2px solid; */
+    /* border: #00dc82 2px solid; */
     z-index: 100;
     margin-right: 1.2rem;
     padding: 4px;
@@ -1525,7 +1525,7 @@ input[type="radio"] {
     height: 300px;
     width: 300px;
     border-radius: 200px;
-    /* border: #8d00ab 2px solid; */
+    /* border: #00dc82 2px solid; */
     margin-right: 1.2rem;
     padding: 4px;
     opacity: 1;
@@ -1546,18 +1546,18 @@ input[type="radio"] {
 }
 
 .head-name h3 {
-    color: #8d00ab;
+    color: #00dc82;
 }
 
 .status {
-    border: solid 2px #8d00ab40;
+    border: solid 2px #00dc8240;
     Background: #00e900;
     border-radius: 8px;
     padding: 1px 20px;
     color: #fff;;
 }
 .statusOff {
-    border: solid 2px #8d00ab40;
+    border: solid 2px #00dc8240;
     Background: #e70000;
     border-radius: 8px;
     padding: 1px 20px;
@@ -1572,12 +1572,12 @@ input[type="radio"] {
 .row {
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #8d00ab40;
+    border-bottom: 1px solid #00dc8240;
     font-size: 1rem;
 }
 
 .row:nth-child(1) {
-    background-color: #8d00ab90;
+    background-color: #00dc8290;
     position: sticky;
     top: 90px;
     font-size: 1.1rem;
@@ -1585,7 +1585,7 @@ input[type="radio"] {
 }
 
 .row:nth-child(2n) {
-    background-color: #8d00ab10;
+    background-color: #00dc8210;
 
 }
 

@@ -35,7 +35,7 @@ export async function useDoughnutChart() {
     ],
     datasets: [
       {
-        backgroundColor: ['#8d00ab', '#b800ee', '#b80077', '#b80033'],
+        backgroundColor: ['#00dc82', '#b800ee', '#b80077', '#b80033'],
         data: [
           targetsCount.Hipertrofia || 0,
           targetsCount.Emagrecimento || 0,
@@ -56,14 +56,14 @@ export async function useDoughnutChart() {
       title: {
         display: true,
         text: `Objetivos - Atletas`,
-        color: '#8d00ab',
+        color: '#00dc82',
         font: {
           size: 17,
         },
       },
       legend: {
         labels: {
-          color: '#8d00ab',
+          color: '#00dc82',
           font: {
             size: 11,
           },

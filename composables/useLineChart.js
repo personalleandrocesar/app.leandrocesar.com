@@ -5,7 +5,7 @@ const datsa = {
   datasets: [
     {
       label: 'Data One',
-      backgroundColor: '#f87979',
+      backgroundColor: '#00dc82',
       data: [40, 39, 10, 40, 39, 80, 40]
     },
     {

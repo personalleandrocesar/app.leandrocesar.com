@@ -222,7 +222,7 @@ function logout () {
                             </div>
                             <NuxtLink v-if="navLeft" @click="button">
                                 <img src="~assets/logo.png" />
-                                <h3>Nex_Wod</h3>
+                                <h3>app.leandrocesar</h3>
                                 <h3></h3>
                             </NuxtLink>
                             <NuxtLink v-else @click="button">
@@ -952,7 +952,7 @@ input:focus {
 
 .nav h3 {
     margin-left: 15px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: "Gagalin";
     letter-spacing: 1.3px;
     color: #fff;

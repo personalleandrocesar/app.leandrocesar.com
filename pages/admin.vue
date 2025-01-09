@@ -2,57 +2,37 @@
 import { ref } from 'vue';
 const user = ref('');
 const senha = ref('');
+const id = ref('');
 const client = useFetch('https://api.leandrocesar.com/usersnw');
 
 const dontUser = ref(false);
-
-const coachIdCookie = useCookie('coachId'); // Criação do cookie para armazenar o ID do coach
+const dontPerson = ref(false);
 
 const enterClient = () => {
-  const userData = client.data.value;
+const userData = client.data.value;
+const userExists = client.data.value.some(u => u.username === user.value && u.password === senha.value);
+const idExists = client.data.value.find(u => u.username === user.value && u.password === senha.value);
 
-  // Verifica se o usuário principal existe e não é coach
-  const userExists = userData.some(
-    u => u.username === user.value && u.password === senha.value && !u.coach
-  );
 
-  // Verifica se o usuário existe em algum `team`
-  const teamMember = userData
-    .flatMap(u => u.team || []) // Garante que lidamos com times definidos ou ausentes
-    .find(
-      member => member.username === user.value && member.password === senha.value
-    );
 
   if (userExists) {
-    console.log("Usuário principal encontrado e não é coach!");
-    const foundUser = userData.find(
-      u => u.username === user.value && !u.coach
-    );
-    // Configura o cookie com o ID do coach
-    coachIdCookie.value = foundUser._id;
-    return navigateTo(`/atleta/${foundUser._id}`);
-  } else if (teamMember) {
-    console.log("Atleta encontrado no time!");
-    // Encontra o coach associado ao atleta no time
-    const coach = userData.find(u => u.team && u.team.some(t => t._id === teamMember._id));
-    if (coach) {
-      coachIdCookie.value = coach._id; // Configura o cookie com o ID do coach
-    }
-    return navigateTo(`/atleta/${teamMember._id}`);
+    console.log("Usuário encontrado!");
+    // Faça a ação para redirecionar ou permitir o acesso do usuário à página
+    // return navigateTo(`/coach/${user.value}`);
+    return navigateTo(`/coach/${idExists._id}`);
+
   } else {
     console.log("Usuário não encontrado ou senha incorreta!");
+    // Mostre uma mensagem de erro ou realize outra ação adequada
     dontUser.value = true;
     setTimeout(() => {
       dontUser.value = false;
     }, 5000); // Define um timeout para limpar a mensagem após 5 segundos
   }
 };
-
 const trigger = () => {
-  enterClient();
-};
-
-
+  enterClient()
+}
 const pop = useCookie('pop', { maxAge: 7889400 })
 pop.value = pop.value
 
@@ -131,10 +111,12 @@ function close () {
 
 </script>
 <template>
-
 <div v-if='divLogin'>
   <div v-if='dontUser' class="dont-user top">
     Usuário não encontrado!
+  </div>
+  <div v-if='dontPerson' class="dont-user top">
+    Personal não encontrado!
   </div>
   <div>
     <div class="head-logo" id="sobre">
@@ -144,9 +126,12 @@ function close () {
     </div>
     <div class="head-name">
       <div class="name">
-      Personal leandro Cesar
+      Nex_Wod
       </div>
-      <div class="link">    
+      <div class="link">
+        <NuxtLink @click="buttonPartner" :class="{ aActivee: linkPersonal }">
+        Coach
+        </NuxtLink>
       </div>
     </div>
     <!-- Cliente -->
@@ -177,7 +162,8 @@ function close () {
       <div class="lost">
         <a>
           <h5>
-          <NuxtLink to='/admin' class='it'>Área do Personal</NuxtLink>
+          Não tem cadastro? Clique
+          <NuxtLink @click='formAtleta' class='it'>aqui</NuxtLink>
           </h5>
         </a>
       </div>
@@ -247,7 +233,7 @@ function close () {
             <Icon name='material-symbols:cancel' @click='close()'/>
         </div>
     
-        <FormAtleta/>
+        <FormCoach/>
         
     </div>
 
@@ -319,7 +305,7 @@ a {
     cursor: pointer;
     font-family: 'Gagalin';
     letter-spacing: 3px;
-    color: #04be7a;
+    color: #00dc82;
 }
 .link   a:hover {
     border-bottom: solid 2px #00dc82;
@@ -440,7 +426,7 @@ h3 {
 }
 .name {
   font-family: 'Gagalin';
-  src: url('~/assets/Nirequa.otf') format('opentype');
+  src: url('~/assets/Gagalin.otf') format('opentype');
   letter-spacing: 3px;
   font-size: 2.2rem;
   line-height: 1.5rem;
@@ -465,6 +451,7 @@ h3 {
   border-radius: 9px;
   cursor: pointer;
   z-index: 100;
+  backdrop-filter: blur(100px)
 }
 .whats {
     display: flex;
@@ -535,7 +522,7 @@ input {
   transition: all 0.2s ease-in-out 0s;
   height: 36px;
   font-size: 14px;
-  padding-inline: 25px;
+  padding-inline: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
 }
@@ -615,10 +602,6 @@ h4:nth-child(1) {
   color: #fff;
 }
 
-.login:hover .icon {
-  margin: -2px 0px 2px 4px;
-  transform: translateX(6px);
-}
 .login:hover .icon {
   margin: -2px 0px 2px 4px;
   transform: translateX(6px);

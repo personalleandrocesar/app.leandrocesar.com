@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-    titleTemplate: 'Nex_WOD - Seu Próximo Treino Diário!',
+    titleTemplate: 'Personal Leandro Cesar',
 })
 const colorMode = useColorMode()
 function theme() {
@@ -20,7 +20,7 @@ colorCookie.value === "darkCookie" ? colorMode.value = "dark" : colorMode.value 
   <div>
     <div class="grid-container">
       <div class="left-column">
-        <img src="~/assets/treino-hard.jpg">
+        <img src="~/assets/perfil.jpeg">
       </div>
       <div class="right-column">
         <Home1Index />

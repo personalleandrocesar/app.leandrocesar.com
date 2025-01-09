@@ -65,7 +65,7 @@ ffffff // branco
 body {
   color: var(--vt-c-text-light-1);
   background: var(--vt-c-white-soft);
-  font-family: 'Gagalin', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+  font-family: 'Pilosopher', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 15px;
 }

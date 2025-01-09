@@ -247,7 +247,7 @@ const selectG = () => {
       <ul>
         <li v-for="(exercise, index) in selectedSeries?.exercises" :key="index">
           <h3 class='img-exe' >
-              <img src="nome.img" class="miniSquare"  /> {{ exercise.nome }}
+              <!-- <img src="nome.img" class="miniSquare"  /> {{ exercise.nome }} -->
           </h3>
           <table>
             <tr>

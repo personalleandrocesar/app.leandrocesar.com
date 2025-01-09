@@ -22,7 +22,7 @@ export default defineComponent({
         },
         color: {
             type: [String, Boolean],
-            default: 'repeating-linear-gradient(to right,#00f2ff 0%,#00dc82 50%,#00f2ff 100%)'
+            default: 'repeating-linear-gradient(to right,##00f2ff 0%,#34d399 50%,#00f2ff 100%)'
         }
     },
     setup(props, { slots }) {

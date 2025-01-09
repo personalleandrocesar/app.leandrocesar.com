@@ -1215,7 +1215,7 @@ const selectUser = (user) => {
   border-radius: 8px;
   border: .1px solid #00dc8230;
   padding: .5rem;
-  width: 802px;
+  width: 1000px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -2679,21 +2679,20 @@ input[type="radio"] {
 
 
 table {
-    height: 280px;
     overflow-y:auto;
 }
 
 
 /* Container da tabela */
 .table-container {
-    height: 310px;
+    height: 280px;
     overflow-y:auto;
     margin: 0px;
     padding: 10px 0;
     background-color: #00dc8210;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
+    max-width: 990px;
     overflow-x: auto;
 }
 

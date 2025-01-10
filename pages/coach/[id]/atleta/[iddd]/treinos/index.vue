@@ -492,6 +492,12 @@ const selectUser = (user) => {
     filteredUsserss.value = [user];
 
 };
+
+const isZoomed = ref(false);
+
+const toggleZoom = () => {
+  isZoomed.value = !isZoomed.value;
+};
 </script>
 
 
@@ -799,7 +805,9 @@ const selectUser = (user) => {
                                                         <tr v-for="(exercise, idx) in serie.set" :key="idx">
                                                           <td>{{ exercise.id }}</td>
                                                           <td>
-                                                            <img :src="exercise.img" alt="Avatar" class="user-avatar" />
+                                                                                          <div class="image-container" :class="{ zoomed: isZoomed }" @click="toggleZoom">
+                                            <img :src="exercise.img" alt="Avatar" class="user-avatar" />
+  </div>
                                                           </td>
                                                           <td>{{ exercise.nome }}</td>
                                                           <td>{{ exercise.sets }}</td>
@@ -1148,15 +1156,35 @@ const selectUser = (user) => {
   background: #00dc8230;
 }
 
-.user-avatar {
+
+.user-avatar-zoom {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 8px;
 }
 
-.user-avatar:hover {
-    zoom:5;
+.image-container {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.image-container img {
+   width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container.zoomed img {
+  zoom: 5;
+}
+
+li:hover img {
+    zoom:3;
 }
 
 .user-info {

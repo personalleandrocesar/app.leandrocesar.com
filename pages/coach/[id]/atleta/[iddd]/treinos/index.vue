@@ -213,7 +213,7 @@ function addItem() {
     ...newItem.value,
     id: itemIdCounter.value,
     num: `Exercício ${itemIdCounter.value}`,
-    rest: `${newItem.value.rest}"`,
+    rest: `${newItem.value.time}`,
     img: `https://app.leandrocesar.com/exe/${newItem.value.photo}.gif`,
   });
   itemIdCounter.value++;
@@ -523,7 +523,7 @@ const toggleZoom = () => {
                         <Icon name='bi:clipboard-pulse' /> Avaliações
                     </NuxtLink>
                 </div>
-                <div class="users-conf">
+                <div class="users-conf"  v-if='train'>
                     <NuxtLink v-if='buttonCreate' @click="coachFloatCreate" class="filter-two">
                         <Icon name='bi:plus-lg' /> Criar Treino
                     </NuxtLink>
@@ -1175,7 +1175,7 @@ const toggleZoom = () => {
    width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin-right: 8px;
+  margin-right: 0px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -1232,7 +1232,7 @@ li:hover img {
 .content {
     overflow: auto; /* Barra de rolagem apenas na vertical */
     border-radius: 8px;
-    padding: .4rem .4em 0rem 0rem;
+    padding: 2rem .9rem;
     /* Estilo para esconder visualmente a barra */
     scrollbar-width: thin; /* Firefox: deixa a barra fina */
     scrollbar-color: #eee transparent; /* Firefox: cor invisível */
@@ -2399,7 +2399,6 @@ input[type="radio"] {
     padding: 8px 12px;
     border-radius: 8px;
     cursor: pointer;
-    color:#00dc82;
     background-color: #00d4ff;
 }
 
@@ -2843,5 +2842,18 @@ label {
     zoom: 1.6;
     padding: 3px;
     border-radius: 6px;
+}
+table tbody tr td:nth-child(2){
+    width: 0px;
+    padding: 12px 0;
+    margin:0;
+}
+table tbody tr td:nth-child(3){
+    width: 200px;
+    padding: 12px 5px;
+    margin-left: 0;
+}
+table tbody tr td:nth-child(5){
+    width: 150px;
 }
 </style>

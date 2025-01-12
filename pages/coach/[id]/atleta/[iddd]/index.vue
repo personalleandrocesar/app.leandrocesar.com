@@ -477,6 +477,7 @@ function openPhoto() {
   height: 300px;
   display: block;
   margin: 10px auto;
+  object-fit: cover; /* Preenche o contêiner sem deformar */
 }
 
 .floating-div button {
@@ -1769,6 +1770,7 @@ input[type="radio"] {
     margin-right: 1.2rem;
     padding: 4px;
     opacity: 1;
+    object-fit: cover; /* Preenche o contêiner sem deformar */
 }
 
 .logo .nav-bar img {

@@ -469,7 +469,7 @@ const greetingMessage = computed(() => getGreetingMessage());
     border-radius: 200px;
     z-index: 100;
     opacity: 1;
-
+    object-fit: cover; /* Preenche o contêiner sem deformar */
 }
 
 .nav-bar {
@@ -853,7 +853,8 @@ const greetingMessage = computed(() => getGreetingMessage());
     cursor: pointer;
     border: solid 1px #00dc8210;
     box-shadow: 0 0px 5px #00dc8240;
-    backdrop-filter: blur(100px)
+    backdrop-filter: blur(100px);
+    z-index: 1;
 }
 
 .whats {
@@ -872,7 +873,8 @@ const greetingMessage = computed(() => getGreetingMessage());
     cursor: pointer;
     border: solid 1px #00dc8210;
     box-shadow: 0 0px 5px #00dc8240;
-    backdrop-filter: blur(100px)
+        z-index: 1;
+    backdrop-filter: blur(100px);
 }
 
 .whats .icon,
@@ -914,6 +916,7 @@ const greetingMessage = computed(() => getGreetingMessage());
     background: linear-gradient(to bottom right, #00dc8290 0%, #00d4ff90 50%, #04be7a90 100%);
     backdrop-filter: blur(5px);
     z-index: 1134004;
+    
 
 }
 
@@ -924,6 +927,7 @@ const greetingMessage = computed(() => getGreetingMessage());
     border: #00dc82 1px solid;
     opacity: 1;
     z-index: 100;
+    object-fit: cover; /* Preenche o contêiner sem deformar */
 
 }
 
@@ -995,6 +999,7 @@ const greetingMessage = computed(() => getGreetingMessage());
   height: 300px;
   display: block;
   margin: 10px auto;
+  object-fit: cover; /* Preenche o contêiner sem deformar */
 }
 
 .floating-div button {

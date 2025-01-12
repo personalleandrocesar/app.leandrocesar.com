@@ -6,22 +6,30 @@
           <th>ID</th>
           <th>Avatar</th>
           <th>Name</th>
-          <th>Sets</th>
-          <th>Reps</th>
-          <th>Observations</th>
+          <th>Set</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(exercise, idx) in serie.set" :key="idx">
+        <tr v-for="(exercise, idx) in serie.set" :key="exercise.id">
           <td>{{ exercise.id }}</td>
           <td>
             <img :src="exercise.img" alt="Avatar" class="user-avatar" />
           </td>
           <td>{{ exercise.nome }}</td>
-          <td>{{ exercise.sets }}</td>
-          <td>{{ exercise.reps }}</td>
-          <td>{{ exercise.obs }}</td>
+          <td>
+            <!-- Iterando sobre os sets e exibindo cada um em uma linha separada -->
+            <table>
+              <tbody>
+                <tr v-for="(set, setIdx) in exercise.sets" :key="setIdx">
+                  <td>{{ set }}</td>
+                  <td>{{ exercise.reps }}</td>
+                  <td>{{ exercise.obs }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          
           <td>
             <!-- Botões de ação -->
             <button type="button" @click="moveExerciseUp(idx)" :disabled="idx === 0">↑</button>
@@ -40,9 +48,9 @@ import { ref } from 'vue';
 // Dados da série
 const serie = ref({
   set: [
-    { id: 1, img: 'https://via.placeholder.com/40', nome: 'Exercise 1', sets: 3, reps: 10, obs: 'Keep your back straight' },
-    { id: 2, img: 'https://via.placeholder.com/40', nome: 'Exercise 2', sets: 4, reps: 12, obs: 'Focus on breathing' },
-    { id: 3, img: 'https://via.placeholder.com/40', nome: 'Exercise 3', sets: 5, reps: 8, obs: 'Use moderate weight' },
+    { id: 1, img: 'https://via.placeholder.com/40', nome: 'Exercise 1', sets: [1, 2, 3], reps: 10, obs: 'Keep your back straight' },
+    { id: 2, img: 'https://via.placeholder.com/40', nome: 'Exercise 2', sets: [1, 2, 3, 4], reps: 12, obs: 'Focus on breathing' },
+    { id: 3, img: 'https://via.placeholder.com/40', nome: 'Exercise 3', sets: [1, 2, 3, 4, 5], reps: 8, obs: 'Use moderate weight' },
   ],
 });
 

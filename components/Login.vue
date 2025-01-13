@@ -149,7 +149,7 @@ function close () {
     </div>
     <div class="head-name">
       <div class="name">
-      Nex_Wod
+      h
       </div>
       <div class="link">
         <NuxtLink @click="buttonFeed" :class="{ aActive: linkClient }">

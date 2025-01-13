@@ -116,10 +116,6 @@ body h2 {
   color: var(--vt-c-text-light-1);
 }
 
-.dark-mode body h2 {
-  color: var(--vt-c-text-dark-0);
-}
-
 body h3 {
   color: var(--vt-c-text-light-1);
 }

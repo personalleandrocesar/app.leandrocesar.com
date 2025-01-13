@@ -327,12 +327,9 @@ const greetingMessage = computed(() => getGreetingMessage());
             <div class="email">{{ people.email }}</div>
         </div>
         <div>
-            <p class="section-title">Ciclos</p>
-            <p class="section-subtitle">Contrato atual: {{ people?.periodStart.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1') }} - {{
+            <p class="section-title"><Icon name="cil:weightlifitng" /> {{people.username}}</p>
+            <p class="section-title"><Icon name="eos-icons:content-lifecycle-management" /> Ciclo atual: {{ people?.periodStart.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1') }} a {{
                 people?.periodEnd.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1') }}</p>
-                <p v-if="people?.service" class="section-subtitle-two">Serviço: {{ people?.service
-                }}</p>
-
             <p v-if="status === 1" class="section-option pending">
                 <Icon name="solar:danger-square-outline" /> Pendente!
             </p>
@@ -342,44 +339,14 @@ const greetingMessage = computed(() => getGreetingMessage());
             <p v-else class="section-option verified">
                 <Icon name="solar:check-square-outline" /> Verificado!
             </p>
-            <div class="conf">
-                <NuxtLink class="menu-square">
-                    <div>
-                        <div>
-                            <p>
-                                <Icon name="solar:dumbbell-large-bold" />
-                                Treino
-                            </p>
-                        </div>
-                        <div>
-                            Atual: {{ people?.treinoActual }}
-                        </div>
-                        <div> 
-                            Próximo: {{ people?.treinoNext }}
-                        </div>
-                    </div>
-                </NuxtLink>
-                <NuxtLink v-if="people?.valuationActual" class="menu-square">
-                    <div>
-                        <div>
-                            <p>
-                                <Icon name="solar:clipboard-heart-bold" />
-                                Avaliação
-                            </p>
-                        </div>
-                        <div>
-                            Atual: {{ people?.valuationActual }}
-                        </div>
-                        <div>
-                            Próxima: {{ people?.valuationNext }}
-                        </div>
-                    </div>
-                </NuxtLink>
-            </div>
+                <p class="section-subtitle-two">ID: {{ people?._id}}</p>
+                <p v-if="people?.service" class="section-subtitle-two">Serviço: {{ people?.service}}</p>
+                <p v-if="people?.service" class="section-subtitle-two">Objetivo: {{ people?.target}}</p>
+                <br>
             <!-- Hístórico -->
-            <NuxtLink :to="`/users/${route.params.id}/treinos`" class="menu-button">
+            <NuxtLink class="menu-button">
                 <div>
-                    <Icon name="solar:dumbbells-line-duotone" />
+                    <Icon name="solar:dumbbells-broken" />
                     <p>
                         Todos os treinos
                     </p>
@@ -388,9 +355,9 @@ const greetingMessage = computed(() => getGreetingMessage());
             </NuxtLink>
             <!-- Histórico fim -->
             <!-- Avaliações -->
-            <NuxtLink :to="`/users/${route.params.id}/avaliacao`" class="menu-button">
+            <NuxtLink class="menu-button">
                 <div>
-                    <Icon name="solar:clipboard-heart-linear" />
+                    <Icon name="fluent:clipboard-pulse-20-regular" />
                     <p>
                         Avaliações
                     </p>
@@ -400,19 +367,18 @@ const greetingMessage = computed(() => getGreetingMessage());
             <!-- Avaliações fim -->
 
             <!-- Documentos -->
-            <p class="section-title">Documentos</p>
-            <NuxtLink :to="`/users/${route.params.id}/contratos`" class="menu-button">
+            <NuxtLink  class="menu-button">
                 <div>
-                    <Icon name="solar:document-add-linear" />
+                    <Icon name="fluent:clipboard-text-edit-48-regular" />
                     <p>
                         Contratos
                     </p>
                 </div>
                 <Icon name="ic:baseline-keyboard-arrow-right" />
             </NuxtLink>
-            <NuxtLink :to="`/users/${route.params.id}/termos-de-uso`" class="menu-button">
+            <NuxtLink class="menu-button">
                 <div>
-                    <Icon name="solar:document-text-linear" />
+                    <Icon name="fluent:clipboard-text-ltr-24-regular" />
                     <p>
                         Termos de uso
                     </p>
@@ -428,7 +394,7 @@ const greetingMessage = computed(() => getGreetingMessage());
             <!-- Botão Logout -->
             <NuxtLink to="/" class="logout" @click="logOff()">
                 LOUGOUT
-                <Icon name="solar:logout-3-bold" />
+                <Icon name="solar:logout-3-linear" />
             </NuxtLink>
         </div>
     </div>
@@ -603,6 +569,9 @@ const greetingMessage = computed(() => getGreetingMessage());
     margin: 10px 1.5rem;
     font-weight: 800;
 }
+.section-title .icon{
+    zoom:.8
+}
 
 .section-subtitle {
     text-align: left;
@@ -620,7 +589,7 @@ const greetingMessage = computed(() => getGreetingMessage());
 
 .section-option {
     text-align: left;
-    margin: -10px 1.5rem 15px;
+    margin: -6px 1.5rem 35px 2.8rem;
     font-size: .8em;
     font-weight: 800;
 }

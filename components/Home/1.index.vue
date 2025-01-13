@@ -1,58 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-const user = ref('');
-const senha = ref('');
-const client = useFetch('https://api.leandrocesar.com/usersnw');
-
-const dontUser = ref(false);
-
-const coachIdCookie = useCookie('coachId'); // Criação do cookie para armazenar o ID do coach
-
-const enterClient = () => {
-  const userData = client.data.value;
-
-  // Verifica se o usuário principal existe e não é coach
-  const userExists = userData.some(
-    u => u.username === user.value && u.password === senha.value && !u.coach
-  );
-
-  // Verifica se o usuário existe em algum `team`
-  const teamMember = userData
-    .flatMap(u => u.team || []) // Garante que lidamos com times definidos ou ausentes
-    .find(
-      member => member.username === user.value && member.password === senha.value
-    );
-
-  if (userExists) {
-    console.log("Usuário principal encontrado e não é coach!");
-    const foundUser = userData.find(
-      u => u.username === user.value && !u.coach
-    );
-    // Configura o cookie com o ID do coach
-    coachIdCookie.value = foundUser._id;
-    return navigateTo(`/atleta/${foundUser._id}`);
-  } else if (teamMember) {
-    console.log("Atleta encontrado no time!");
-    // Encontra o coach associado ao atleta no time
-    const coach = userData.find(u => u.team && u.team.some(t => t._id === teamMember._id));
-    if (coach) {
-      coachIdCookie.value = coach._id; // Configura o cookie com o ID do coach
-    }
-    return navigateTo(`/atleta/${teamMember._id}`);
-  } else {
-    console.log("Usuário não encontrado ou senha incorreta!");
-    dontUser.value = true;
-    setTimeout(() => {
-      dontUser.value = false;
-    }, 5000); // Define um timeout para limpar a mensagem após 5 segundos
-  }
-};
-
-const trigger = () => {
-  enterClient();
-};
-
-
 const pop = useCookie('pop', { maxAge: 7889400 })
 pop.value = pop.value
 
@@ -66,212 +13,123 @@ const popView = () => {
   } return true
 }
 
-const photoOpen = ref(false);
-function openPhoto() {
-  photoOpen.value = !photoOpen.value;
-}
-
-const colorMode = useColorMode()
-
-function theme() {
-  colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
-}
-
-const colorCookie = useCookie('colorCookie')
-if (colorMode.value === "dark") {
-  colorCookie.value = "darkCookie"
-} else {
- colorCookie.value = "lightCookie"
-}
-colorCookie.value === "darkCookie" ? colorMode.value = "dark" : colorMode.value ="light"
-
-const passView = ref(true)
-const pass = ref('password')
-function swPass() {
-  passView.value = !passView.value;
-  pass.value = 'password'
-};
-
-function swText() {
-  passView.value = !passView.value;
-  pass.value = 'text'
-};
-
-const linkClient = ref(true)
-const linkPersonal = ref(false)
-const atletaShow = ref(true)
-const coachShow = ref(true)
-
-function buttonFeed() {
-  linkClient.value = true
-  linkPersonal.value = false
-  atletaShow.value = true
-}
-
-function buttonPartner() {
-  linkClient.value = false
-  linkPersonal.value = true
-  atletaShow.value = false
-}
-
-const divLogin = ref(true)
+const divLogin = ref(false)
 const divAtleta = ref(false)
 const divCoach = ref(false)
-function formAtleta () {
-  divLogin.value = false
+
+function atleta () {
   divAtleta.value = true
-}
-function formCoach () {
   divLogin.value = false
-  divAtleta.value = false
 }
+function coach () {
+  divCoach.value = true
+  divLogin.value = false
+}
+
 function close () {
-  divLogin.value = true
+  divAtleta.value = false
+  divCoach.value = false
+  
 }
 
 </script>
 <template>
-
-<div v-if='divLogin'>
-  <div v-if='dontUser' class="dont-user top">
-    Usuário não encontrado!
-  </div>
-  <div>
-    <div class="head-logo" id="sobre">
-      <div class='logo'>
-        <img @click="openPhoto()" src="~/assets/logo.png">
-      </div>
-    </div>
-    <div class="head-name">
-      <div class="name">
-      Personal leandro Cesar
-      </div>
-      <div class="link">    
-      </div>
-    </div>
-    <!-- Cliente -->
-    <div v-if='atletaShow' class="inputs">
       <div>
-        <input type="email" @keyup.enter="trigger" name="" id="username" placeholder="Usuário" autofocus
-          v-model="user" required autocomplete="username">
-      </div>
-      <div class="senha">
-        <input v-bind:type="pass" @keyup.enter="trigger" name="" id="password" placeholder="Senha"
-          v-model="senha" autocomplete="off">
-        <Icon @click="swText" v-if="passView" name="mdi:eye" id="password-icon" />
-        <Icon @click="swPass" v-else name="mdi:eye-off" id="password-icon" />
-
-      </div>
-      <div class="lost">
-        <a href="https://api.whatsapp.com/send?phone=5521936184024%20&text=Ol%C3%A1%20professor!%20Esqueci%20o%20meu%20email%20e%20minha%20senha!"
-          target="_blank">
-          <h5>Esqueci minha senha</h5>
-        </a>
-      </div>
+      
+      
+            <div v-if='divAtleta'>
+            
+                <div class='nav'>
+                    <div>
+                        <a @click="close">
+                            <Icon name="ic:baseline-keyboard-arrow-left" /> Voltar
+                        </a>
+                    </div>
+                </div>
+                <Atleta1Index />
+            </div>
+            <div v-else-if='divCoach'>
+                
+                <div class='nav'>
+                    <div>
+                        <a @click="close">
+                            <Icon name="ic:baseline-keyboard-arrow-left" /> Voltar
+                        </a>
+                    </div>
+                </div>
+                <Coach1Index />
+            
+            </div>
+            <div v-else='divLogin'>
       <div>
-        <NuxtLink class='login' @click="enterClient">
-          LOGIN
-          <Icon name="solar:login-3-bold" />
-        </NuxtLink>
+          </div>
+                <div class="link">
+                <Atleta1Index />
+            </div>
+                <div class="lost">
+                  <a>
+                    <h5>
+                    <NuxtLink @click='coach' class='it'>Personal, clique aqui !!</NuxtLink>
+                    </h5>
+                  </a>
+                </div>
+            
+                    
+            
+      
+          
+          
       </div>
-      <div class="lost">
-        <a>
-          <h5>
-          <NuxtLink to='/admin' class='it'>Área do Personal</NuxtLink>
-          </h5>
-        </a>
-      </div>
-    </div>
-    <!-- Personal -->
-    <div v-else-if='coachShow' class="inputs">
-    <div>
-      <input type="email" @keyup.enter="trigger" name="" id="username" placeholder="Usuário" autofocus
-        v-model="user" required autocomplete="username">
-    </div>
-      <div class="senha">
-        <input v-bind:type="pass" @keyup.enter="trig" name="" id="password" placeholder="Senha"
-          v-model="senha" autocomplete="off">
-        <Icon @click="swText" v-if="passView" name="ph:lock-key-open-bold" id="password-icon" />
-        <Icon @click="swPass" v-else name="ph:lock-key-fill" id="password-icon" />
-
-      </div>
-      <div>
-        <NuxtLink class='login' @click="enterPersonal">
-          LOGIN
-          <Icon name="solar:login-3-bold" />
-        </NuxtLink>
-      </div>
-      <div class="lost">
-        <a href="https://api.whatsapp.com/send?phone=5521936184024%20&text=Ol%C3%A1%20professor!%20Esqueci%20o%20meu%20email%20e%20minha%20senha!"
-          target="_blank">
-          <h5>Esqueci minha senha</h5>
-        </a>
-      </div>
-      <div class="lost">
-        <a>
-          <h5>
-          Não tem cadastro? Clique
-          <NuxtLink @click='formCoach' class='it'>aqui</NuxtLink>
-          </h5>
-        </a>
-      </div>
-    </div>
-
-
-  </div>
-  <footer>
-
-    <div v-if="popView()" class="pop-up">
-      <p>
-        Neste app, usamos cookies e outras tecnologias semelhantes para melhorar sua
-        experiência e facilitar certos tipos de vantagens de navegação.
-        Ao clicar no botão abaixo, você está ciente e concordando com estas funcionalidades.
-      </p>
-      <div class="button-pop" @click="popOk()">PROSSEGUIR!</div>
-    </div>
-  </footer>
-  <div class="color">
-
-    <a @click="theme()" :model="$colorMode.value">
-      <Icon
-        :name="colorMode.value === 'dark' ? 'line-md:moon-filled-to-sunny-filled-loop-transition' : 'line-md:sunny-filled-loop-to-moon-alt-filled-loop-transition'" />
-    </a>
-
-  </div>
-  </div>
-    
-  <div v-else-if='divAtleta'>
   
-    <div class="form-personal">
-        <div class='button-close'>
-            <Icon name='material-symbols:cancel' @click='close()'/>
-        </div>
-    
-        <FormAtleta/>
-        
-    </div>
 
-  </div>
-  <div v-else>
-  
-    <div class="form-personal">
-    
-        <div class='button-close'>
-            <Icon name='material-symbols:cancel' @click='close()'/>
-        </div>
-        <FormCoach/>
-        
-    </div>
-
-  </div>
-
+</div>
+              <div v-if="popView()" class="pop-up">
+              <p>
+                  Neste app, usamos cookies e outras tecnologias semelhantes para melhorar sua
+                  experiência e facilitar certos tipos de vantagens de navegação.
+                  Ao clicar no botão abaixo, você está ciente e concordando com estas funcionalidades.
+              </p>
+              <div class="button-pop" @click="popOk()">PROSSEGUIR!</div>
+              </div>
   </template>
 
 <style scoped>
 @media (max-width: 1000px) {
     .head-logo {
-      margin-top: -10.9rem;
+      margin-top: -15rem;
     }
+}
+.nav {
+    position: fixed;
+    top: 1.5rem;
+    margin: 0rem 0 0 1.5rem;
+}
+
+.nav a {
+    transition: all .4s linear;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 600;
+    height: 34px;
+    font-size: 16px;
+    padding: 8px;
+    
+}
+
+.nav a .icon {
+    margin-top: -3px;
+    margin-left: -5px;
+}
+
+.nav:hover a {
+    color: #8d00ab;
+}
+
+.nav div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 a {
   text-decoration: none;
@@ -280,7 +138,7 @@ a {
 }
 
 .it {
-    color: #00dc82;
+    color: #04be7a;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -301,42 +159,44 @@ a {
     transform: translateX(0%);
     height: calc(100% - 0px);
     width: 100%;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(55px);
     z-index: 1004;
 }
 
 .link {
    display: flex;
+   flex-direction: column;
    justify-content: space-evenly;
-   margin-top: 1.5rem;
-   font-size: 1.1rem;
+   margin-top: -3rem;
+   font-size: 1.2rem;
 }
 
 .link a {
     letter-spacing: 3px;
-    margin: 5px 15px;
+    margin: 10px 15px;
     text-align: center;
     cursor: pointer;
     font-family: 'Gagalin';
     letter-spacing: 3px;
+    padding: 10px 100px;
+    border-radius: 200px;
     color: #04be7a;
 }
-.link   a:hover {
-    border-bottom: solid 2px #00dc82;
+
+.link a:nth-child(1){
+    background: #04be7a;
+    color: #fff;
+}
+.link a:nth-child(2){
+    background: #8d00ab;
+    color: #fff;
+}
+
+.link  a:hover {
+    opacity: .8;
     cursor: pointer;
 }
 
-
-.aActive {
-    border-bottom: solid 2px #00dc82;
-    color: #00dc82;
-
-}
-.aActivee {
-    border-bottom: solid 2px #00dc82;
-    color: #00dc82;
-
-}
 .head-logo {
   display: flex;
   justify-content: center;
@@ -377,7 +237,7 @@ h3 {
   flex-wrap: wrap;
   height: 100px;
   width: 100px;
-  box-shadow: 0px 7px 20px #00dc82;
+  box-shadow: 0px 7px 20px #8d00ab;
   margin: 9rem 0 1.5rem 0;
   border-radius: 200px;
   z-index: 10;
@@ -387,7 +247,7 @@ h3 {
   height: 100px;
   width: 100px;
   border-radius: 200px;
-  border: #00dc82 2px solid;
+  border: #8d00ab 2px solid;
   z-index: 100;
   opacity: 1;
 
@@ -397,8 +257,8 @@ h3 {
 .button-client {
   margin: 2rem 1.5rem;
   transition: all .4s linear;
-  border: solid 1px #00dc8210;
-  box-shadow: 0 0px 5px #00dc8210;
+  border: solid 1px #8d00ab10;
+  box-shadow: 0 0px 5px #8d00ab10;
   border-radius: 8px;
   cursor: pointer;
   width: 160px;
@@ -412,12 +272,12 @@ h3 {
   padding-inline: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-  background: #00dc82;
+  background: #8d00ab;
 }
 
 .button-client:hover {
-  background-color: #00dc8210;
-  color: #00dc8280;
+  background-color: #8d00ab10;
+  color: #8d00ab80;
 }
 
 .button-client .icon {
@@ -427,7 +287,7 @@ h3 {
 }
 
 .button-client:hover .icon {
-  color: #00dc8280;
+  color: #8d00ab80;
 }
 
 .head-name {
@@ -440,12 +300,12 @@ h3 {
 }
 .name {
   font-family: 'Gagalin';
-  src: url('~/assets/Nirequa.otf') format('opentype');
+  src: url('~/assets/Gagalin.otf') format('opentype');
   letter-spacing: 3px;
   font-size: 2.2rem;
   line-height: 1.5rem;
   margin: .2rem 1.5rem;
-  color: #00dc82;
+  color: #8d00ab;
 }
 
 
@@ -459,12 +319,12 @@ h3 {
   height: 35px;
   width: 35px;
   transition: all 0.2s ease-in-out 0s;
-  top: 1.5rem;
+  bottom: 1.5rem;
   /* bottom: 6rem; */
   right:1.5rem;
   border-radius: 9px;
   cursor: pointer;
-  z-index: 100;
+  z-index: 1;
 }
 .whats {
     display: flex;
@@ -481,12 +341,12 @@ h3 {
     border-radius: 9px;
     cursor: pointer;
     z-index: 100;
-    border: solid 1px #00dc8210;
-    box-shadow: 0 0px 5px #00dc8240;
+    border: solid 1px #8d00ab10;
+    box-shadow: 0 0px 5px #8d00ab40;
     backdrop-filter: blur(100px)
 }
 .whats .icon, .color .icon {
-  color: #00dc8290;
+  color: #8d00ab90;
   zoom: 1;
 }
 
@@ -511,7 +371,7 @@ h3 {
   top: 10px;
   right: 10px;
   width: 200px;
-  background-color: #00dc82;
+  background-color: #ff1900;
   color: #fff;
   text-shadow: 2px 2px 2px #111;
   z-index: 20;
@@ -535,7 +395,7 @@ input {
   transition: all 0.2s ease-in-out 0s;
   height: 36px;
   font-size: 14px;
-  padding-inline: 25px;
+  padding-inline: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
 }
@@ -545,23 +405,22 @@ input {
 }
 
 input:focus-visible {
-  border: solid 1px #00dc82;
-  background-color: #00dc8210;
+  border: solid 1px #8d00ab;
+  background-color: #8d00ab10;
 }
 
 input:active {
-  border-color: #00dc8280;
+  border-color: #8d00ab80;
 }
 
 input:hover {
-  background-color: #00dc8210;
+  background-color: #8d00ab10;
 }
 
 
 input:focus {
   border: 0 none;
-  border: solid 2px #00dc82;
-  background: #00dc8240;
+  border: solid 2px #8d00ab;
   outline: 0;
 }
 
@@ -578,29 +437,26 @@ h4:nth-child(1) {
 
 
 .login {
+  transition: all .4s linear;
+  border: solid 2px #8d00ab;
   cursor: pointer;
   width: 140px;
   text-align: center;
   line-height: 18px;
   border-radius: 200px;
   font-weight: 600;
+  transition: all 0.2s ease-in-out 0s;
   height: 30px;
   font-size: 14px;
   padding-inline: 16px;
   padding-top: 6px;
   padding-bottom: 8px;
   margin: 1rem 1.5rem;
-  background: #00dc82;
+  background: #8d00ab;
   color: #eee;
-  transition: all .4s linear;
 }
 
 .lost h5{
-  font-size: .6rem;
-}
-
-.lost:nth-child(3) h5{
-  text-decoration: underline;
   font-size: .6rem;
 }
 
@@ -611,14 +467,10 @@ h4:nth-child(1) {
 
 .login:hover {
   cursor: pointer;
-  background: #04be7a;
+  background-color: #8d00ab;
   color: #fff;
 }
 
-.login:hover .icon {
-  margin: -2px 0px 2px 4px;
-  transform: translateX(6px);
-}
 .login:hover .icon {
   margin: -2px 0px 2px 4px;
   transform: translateX(6px);
@@ -636,11 +488,11 @@ h4:nth-child(1) {
   bottom: 10px;
   width: 80%;
   left: 50%;
-  background-color: #00dc82 ;
+  background-color: #8d00ab ;
   color: #fff;
   margin-left: -40%;
   font-weight: 900;
-  border: solid 1px #00dc8210;
+  border: solid 1px #8d00ab10;
   z-index: 10000;
 }
 
@@ -654,8 +506,8 @@ h4:nth-child(1) {
 .button-pop {
   margin: 7px auto 0 auto;
   transition: all .4s linear;
-  border: solid 1px #00dc82;
-  box-shadow: 0 0px 5px #00dc8210;
+  border: solid 1px #8d00ab;
+  box-shadow: 0 0px 5px #8d00ab10;
   border-radius: 8px;
   cursor: pointer;
   width: 50%;

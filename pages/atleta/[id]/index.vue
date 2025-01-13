@@ -174,7 +174,7 @@ const selectG = () => {
 
     <div v-if='treinoMain'>
       <div class="main">
-        <div class="main-div-tree" v-for="(treino, index) in treinus" :key="index">
+        <div class="main-div-tree" v-for="(treino, index) in [...treinus].reverse()" :key="index">
           <div
             class="square"
             :class="{ selected: treino.name === treinoAtual }"
@@ -214,7 +214,7 @@ const selectG = () => {
       </div>
     </div>
     <div v-else>
-    <div class="main">
+    <!-- <div class="main">
       <div class="main-div-tree" v-for="(treino, index) in treinus" :key="index">
         <div
           class="square"
@@ -227,11 +227,14 @@ const selectG = () => {
         </div>
         <Icon name="ic:round-arrow-drop-up" />
       </div>
-    </div>
+    </div> -->
 
         <div class="info">
-        <h5>Escolha um das avaliações acima!</h5>
+        <h5>Sem avaliações feitas! 😥</h5>
         </div>
+        <a href='https://cal.com/leandrocesar/personal' target='_blank' class="not-valuation">
+         <Icon name="material-symbols:calendar-add-on-outline-rounded" />Clique aqui e agende uma avaliação!!
+        </a>
     </div>
 
    
@@ -434,6 +437,28 @@ body {
   text-align: center;
   margin-top: 15px;
   font-weight: 700;
+  font-size: 1rem;
+}
+
+.not-valuation{
+  text-align: center;
+  margin: 15px auto;
+  font-weight: 700;
+    padding: 30px;
+    border-radius: 12px;
+    width: 70%;
+    font-size: .9rem;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #00dc8240;
+        border: 2px solid #00dc82;
+}
+
+.not-valuation .icon {
+    zoom:1.3;
+    color:#00dc82;
 }
 
 .main {

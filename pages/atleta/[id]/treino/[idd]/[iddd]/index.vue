@@ -280,7 +280,7 @@ function getExercises() {
         <li v-for="(exercise, index) in listExercise()" :key="index" class="exercise-item">
           <h3 class="exercise-header">
             <img :src="exercise.img" class="miniSquare" @click="showExerciseDetails(exercise)" />
-            <span>{{ exercise.exercise }}</span>
+            <span>{{ exercise.nome }}</span>
           </h3>
           <table class="exercise-table">
             <thead>
@@ -416,7 +416,6 @@ function getExercises() {
 .exercise-header span {
   font-size: 18px;
   font-weight: bold;
-  color: #333;
 }
 
 /* Tabela de exercícios */
@@ -439,7 +438,6 @@ function getExercises() {
 .exercise-table td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
-  color: #555;
 }
 
 .exercise-table tbody tr:hover {
@@ -760,7 +758,7 @@ th, td {
   cursor: pointer;
 }
 .main-div-tree h2{
-  margin-left: 1.5rem;
+  margin: .3rem 1.5rem;
 }
 .main-div-tree h3{
   margin-left: 1.5rem;
@@ -797,7 +795,6 @@ th, td {
   align-items: center;
   margin: 5px 2px 0 2px;
   border-radius: 8px;
-  color:#555;
   background-color: #00dc8240;
   backdrop-filter: blur(35px);
   border: 1px solid #00dc82; 

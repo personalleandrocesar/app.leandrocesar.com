@@ -144,10 +144,10 @@ function close () {
     </div>
     <div class="head-name">
       <div class="name">
-      app.leandrocesar.com
+      Personal Leandro Cesar
       </div>
-      <div class="link">
-        <NuxtLink @click="buttonPartner" :class="{ aActivee: linkPersonal }">
+      <div class="green">
+        <NuxtLink :class="{ aActivee: linkPersonal }">
         Atleta
         </NuxtLink>
       </div>
@@ -176,14 +176,6 @@ function close () {
           LOGIN
           <Icon name="solar:login-3-bold" />
         </NuxtLink>
-      </div>
-      <div class="lost">
-        <a>
-          <h5>
-          Não tem cadastro? Clique
-          <NuxtLink @click='formAtleta' class='it'>aqui</NuxtLink>
-          </h5>
-        </a>
       </div>
     </div>
     <!-- Personal -->
@@ -274,7 +266,7 @@ function close () {
 <style scoped>
 @media (max-width: 1000px) {
     .head-logo {
-      margin-top: -10.9rem;
+      margin-top: -6.9rem;
     }
 }
 a {
@@ -312,7 +304,7 @@ a {
 .link {
    display: flex;
    justify-content: space-evenly;
-   margin-top: 1.5rem;
+   margin-top: .5rem;
    font-size: 1.1rem;
 }
 
@@ -323,10 +315,26 @@ a {
     cursor: pointer;
     font-family: 'Gagalin';
     letter-spacing: 3px;
-    color: #04be7a;
 }
 .link   a:hover {
-    border-bottom: solid 2px #00dc82;
+    cursor: pointer;
+}
+.green {
+   display: flex;
+   justify-content: space-evenly;
+   margin-top: .5rem;
+   font-size: 1.1rem;
+}
+
+.green a {
+    letter-spacing: 3px;
+    margin: 5px 15px;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Gagalin';
+    letter-spacing: 3px;
+}
+.green   a:hover {
     cursor: pointer;
 }
 
@@ -446,8 +454,8 @@ h3 {
   font-family: 'Gagalin';
   src: url('~/assets/Gagalin.otf') format('opentype');
   letter-spacing: 3px;
-  font-size: 2.2rem;
-  line-height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
   margin: .2rem 1.5rem;
   color: #00dc82;
 }
@@ -530,18 +538,18 @@ h3 {
 }
 
 input {
-  margin: .5rem auto;
-  transition: all .4s linear;
-  text-align: left;
-  line-height: 18px;
-  font-weight: 600;
-  border-radius: 200px;
-  transition: all 0.2s ease-in-out 0s;
-  height: 36px;
-  font-size: 14px;
-  padding-inline: 25px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+    margin: .5rem auto;
+        transition: all .4s linear;
+        text-align: left;
+        line-height: 18px;
+        font-weight: 600;
+        border-radius: 200px;
+        transition: all 0.2s ease-in-out 0s;
+        height: 36px;
+        font-size: 14px;
+        padding-inline: 20px;
+        padding-top: 8px;
+        padding-bottom: 8px;
 }
 
 .inputs div h4 {
@@ -582,21 +590,24 @@ h4:nth-child(1) {
 
 
 .login {
-  cursor: pointer;
-  width: 140px;
-  text-align: center;
-  line-height: 18px;
-  border-radius: 200px;
-  font-weight: 600;
-  height: 30px;
-  font-size: 14px;
-  padding-inline: 16px;
-  padding-top: 6px;
-  padding-bottom: 8px;
-  margin: 1rem 1.5rem;
-  background: #00dc82;
-  color: #eee;
-  transition: all .4s linear;
+    cursor: pointer;
+    width: 140px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 200px;
+    height: 30px;
+    font-size: 14px;
+    padding-inline: 16px;
+    padding-top: 4px;
+    padding-bottom: 8px;
+    margin: 1rem 1.5rem;
+    background: #00dc82;
+    color: #fff;
+    transition: all .4s linear;
+}
+
+.green a {
+    color: #00dc82;
 }
 
 .lost h5{
@@ -604,12 +615,12 @@ h4:nth-child(1) {
 }
 
 .lost:nth-child(3) h5{
-  text-decoration: underline;
   font-size: .6rem;
 }
 
 .login .icon {
-  margin: -2px 0px 2px 4px;
+    color: #fff;
+  margin: -2px 0px 0px 4px;
   transition: transform .3s linear;
 }
 
@@ -620,14 +631,9 @@ h4:nth-child(1) {
 }
 
 .login:hover .icon {
-  margin: -2px 0px 2px 4px;
+    margin: -2px 0px 0px 4px;
   transform: translateX(6px);
 }
-.login:hover .icon {
-  margin: -2px 0px 2px 4px;
-  transform: translateX(6px);
-}
-
 .pop-up {
   display: flex;
   flex-direction: column;

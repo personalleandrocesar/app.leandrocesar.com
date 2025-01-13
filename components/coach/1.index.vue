@@ -126,7 +126,7 @@ function close () {
     </div>
     <div class="head-name">
       <div class="name">
-      Nex_Wod
+      Personal Leandro Cesar
       </div>
       <div class="link">
         <NuxtLink @click="buttonPartner" :class="{ aActivee: linkPersonal }">
@@ -294,7 +294,7 @@ a {
 .link {
    display: flex;
    justify-content: space-evenly;
-   margin-top: 1.5rem;
+   margin-top: .5rem;
    font-size: 1.1rem;
 }
 
@@ -428,8 +428,8 @@ h3 {
   font-family: 'Gagalin';
   src: url('~/assets/Gagalin.otf') format('opentype');
   letter-spacing: 3px;
-  font-size: 2.2rem;
-  line-height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
   margin: .2rem 1.5rem;
   color: #00dc82;
 }

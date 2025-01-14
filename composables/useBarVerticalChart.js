@@ -27,7 +27,7 @@ export function useBarVerticalChart() {
     labels: ['Ativos', 'Inativos'],
     datasets: [
       {
-        backgroundColor: ['#00dc82', '#b800aa'],
+        backgroundColor: ['#00dc82', '#04be7a90'],
         data: [
           18,
            13,

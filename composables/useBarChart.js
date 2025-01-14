@@ -6,7 +6,7 @@ ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend, Title)
 
 export function useBarChart() {
   const Users = useFetch(
-      `https://api.leandrocesar.com/users`,
+      `https://api.leandrocesar.com/usersnw`,
   );
   // Contagem dos serviços
   const servicesCount = {};
@@ -27,7 +27,7 @@ export function useBarChart() {
     labels: ['Ativos', 'Inativos'],
     datasets: [
       {
-        backgroundColor: ['#00dc82', '#b800aa'],
+        backgroundColor: ['#00dc82', '#04be7a90'],
         data: [
           18,
            13,

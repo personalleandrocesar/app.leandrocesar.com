@@ -609,6 +609,9 @@ function logout () {
       justify-content: flex-start;
       align-items: flex-start;
 }
+.dark-mode .notific-float {
+    background: #020030;
+}
 
 .notific-float div {
     margin: 0px 15px 12px 15px;
@@ -633,6 +636,11 @@ function logout () {
     width: 100px;
   color: #333;
 }
+
+.dark-mode .can {
+    color: #fff;
+}
+
 .can:hover{
     opacity:.7;
 }

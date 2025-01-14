@@ -35,7 +35,7 @@ export async function useDoughnutChart() {
     ],
     datasets: [
       {
-        backgroundColor: ['#00dc82', '#b800ee', '#b80077', '#b80033'],
+        backgroundColor: ['#04be7a', '#00dc8290', '#00dc829040', '#00dc8230'],
         data: [
           targetsCount.Hipertrofia || 0,
           targetsCount.Emagrecimento || 0,

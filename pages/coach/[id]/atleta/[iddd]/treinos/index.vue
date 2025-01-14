@@ -134,11 +134,6 @@ const reg = route.params.id
 const logon = useCookie('logon')
 logon.value = reg
 
-const photoOpen = ref(false);
-function openPhoto() {
-    photoOpen.value = !photoOpen.value;
-}
-
 const logOff = () => {
     logon.value = null
 }
@@ -498,6 +493,128 @@ const isZoomed = ref(false);
 const toggleZoom = () => {
   isZoomed.value = !isZoomed.value;
 };
+
+const userId = ref('');
+const athleteId = ref('');
+const error = ref(null);
+const notificTree = ref(false);
+const notificFour = ref(false);
+
+function notifConfirm() { notificTree.value = true; }
+function notifCancel() { notificTree.value = false; }
+
+const showFloatingDiv = ref(false);
+const previewImage = ref(null);
+const file = ref(null);
+const loading = ref(false);
+
+const fetchUserData = async () => {
+  const formats = ['jpeg', 'jpg', 'png'];
+  let latestImage = null;
+
+  // Tenta buscar imagens e verificar qual delas é a mais recente
+  for (const format of formats) {
+    try {
+      const response = await fetch(`https://api.leandrocesar.com/uploads/${user.username}.${format}`);
+      if (response.ok) {
+        // Obtenha o cabeçalho 'Last-Modified' para comparar as datas
+        const lastModified = response.headers.get('Last-Modified');
+        
+        if (lastModified) {
+          if (!latestImage || new Date(lastModified) > new Date(latestImage.lastModified)) {
+            latestImage = { url: `https://api.leandrocesar.com/uploads/${user.username}.${format}`, lastModified };
+          }
+        } else {
+          // Caso o servidor não envie o cabeçalho Last-Modified, use a primeira imagem que encontrar
+          latestImage = { url: `https://api.leandrocesar.com/uploads/${user.username}.${format}` };
+        }
+      }
+    } catch (err) {
+      console.error(`Erro ao buscar dados do usuário no formato ${format}:`, err);
+    }
+  }
+
+  // Atualiza a foto do usuário com a imagem mais recente
+  if (latestImage) {
+    user.foto = latestImage.url;
+    console.log('Imagem atualizada:', latestImage.url);
+  }
+};
+
+
+onMounted(fetchUserData);
+
+const openFloatingDiv = () => { showFloatingDiv.value = true; };
+const closeFloatingDiv = () => {
+  showFloatingDiv.value = false;
+  previewImage.value = null;
+  file.value = null;
+};
+
+const handleFileChange = (event) => {
+  file.value = event.target.files[0];
+  if (file.value) {
+    previewImage.value = URL.createObjectURL(file.value);
+    showFloatingDiv.value = true;
+  }
+};
+
+const uploadImage = async () => {
+  if (!file.value) return alert("Por favor, selecione um arquivo.");
+
+  const formData = new FormData();
+  formData.append('image', file.value, `${user.username}.${file.value.name.split('.').pop()}`);
+
+  try {
+    loading.value = true;
+    const response = await fetch('https://api.leandrocesar.com/api/upload', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (response.ok) {
+      alert("Upload realizado com sucesso!");
+      // Após o upload, chama a função para pegar a imagem mais recente
+      await fetchUserData();
+      closeFloatingDiv();
+      
+    } else {
+      alert("Erro no upload.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Erro ao conectar com o servidor.");
+  } finally {
+    loading.value = false;
+  }
+};
+
+
+const imageExists = ref(false);
+const checkImageExists = async () => {
+  const formats = ['jpeg', 'jpg', 'png', 'webp'];
+  for (const format of formats) {
+    try {
+      const response = await fetch(`https://api.leandrocesar.com/uploads/${user.username}.${format}`, { method: 'HEAD' });
+      if (response.ok) {
+        imageExists.value = true;
+        console.log('ok a imagem existe!')
+        return;
+      }
+    } catch (error) {
+      console.log(`Erro ao verificar a imagem no formato ${format}:`, error);
+    }
+  }
+  imageExists.value = false;
+};
+
+await checkImageExists();
+
+
+const photoOpen = ref(false);
+function openPhoto() {
+    photoOpen.value = !photoOpen.value;
+}
 </script>
 
 
@@ -538,19 +655,50 @@ const toggleZoom = () => {
         <div class='line'>
     <div class="line-columns">
 
-                <div class='logo'>
-                    <img
-                        @click="openPhoto()"
-                        :src='user.foto'
-                    />
-                    <div class='head-name'>
-                        <h3>{{name}} {{user.lastName}}</h3>
-                        <h4>{{user.username}}</h4>
-                        <span><b>ID:</b> {{user._id}}</span>
-                        <h4 v-if='user.status !== 0' class='status'>{{ user.status === 0 ? "Inativo" : "Ativo" }}</h4>
-                        <h4 v-else class='statusOff'>{{ user.status === 0 ? "Inativo" : "Ativo" }}</h4>
-                    </div>
-                </div>
+                <div class="logo">
+    <!-- Foto do usuário ou pré-visualização -->
+    <img @click="openPhoto" :src="user.foto || previewImage" alt="User Photo" />
+    <div v-if="photoOpen" class="nav-bar">
+            <div  class='logo-nav-bar'>
+                <img @click="openPhoto" :src="user.foto || previewImage">
+                <!-- <img @click="openPhoto" :src="inter.data.value?.foto"> -->
+            </div>
+        </div>
+
+    <!-- Ícone para abrir o seletor de arquivos -->
+    <label class="photo" for="file-upload" @click="openFloatingDiv">
+      <Icon name="uil:image-edit" />
+    </label>
+
+
+    <input id="file-upload" type="file" @change="handleFileChange" hidden />
+
+    <!-- Informações do usuário -->
+    <div class="head-name">
+      <h3>{{ user.name }} {{ user.lastName }}</h3>
+      <h4>{{ user.username }}</h4>
+      <span><b>ID:</b> {{ user._id }}</span>
+      <h4 :class="user.status !== 0 ? 'status' : 'statusOff'">
+        {{ user.status === 0 ? "Inativo" : "Ativo" }}
+      </h4>
+    </div>
+  </div>
+  <!-- Div flutuante de pré-visualização -->
+  <div v-if="showFloatingDiv" class="float">
+  <div class="floating-div">
+        <div>
+            <h3>Pré-visualização</h3>
+            <img v-if="previewImage" :src="previewImage" alt="Preview Image" />
+            <div v-else class='alt-image'></div>
+        </div>
+        <div>
+            <button @click="uploadImage" :disabled="loading">
+                {{ loading ? "Enviando..." : "Upload" }}
+            </button>
+            <button @click="closeFloatingDiv">Cancelar</button>
+        </div>
+  </div>
+  </div>
 
                 <div>
                     <div class='bor'>
@@ -756,7 +904,7 @@ const toggleZoom = () => {
 
                           <div v-if="main">
                           <div class="content">
-                              <div class='line'>
+                              <div class='line-two'>
                               <div class="line-columns">
 
                                     <div>
@@ -919,7 +1067,7 @@ const toggleZoom = () => {
 
                 <div v-if="main">
                 <div class="content">
-                    <div class='line'>
+                    <div class='line-two'>
                     <div class="line-columns">
 
                           <div>
@@ -940,7 +1088,7 @@ const toggleZoom = () => {
                             </div>
                           </div>
                           <div>
-<div class='bor'>
+<div class='bor-two'>
             <div class="theme-switch-two">
             <div v-if="selectedSeries" class="exercise-list">
                 <h3>Exercícios da Série: {{ selectedSeries.name }}</h3>
@@ -1102,6 +1250,122 @@ const toggleZoom = () => {
 </template>
 <style scoped>
 
+.photo {
+    position: absolute;
+    top: 96px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.photo .icon {
+    color: #00dc82;
+    zoom:1;
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.float{
+    position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1002;
+      background: #ecedf060;
+      backdrop-filter: blur(1px); /* Desfoque do fundo */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras (opcional) */
+      color: #333; /* Cor do texto */
+      width: 100%; /* Largura fixa */
+      height: 100vh; /* Altura fixa */
+      padding: 20px; /* Espaçamento interno */
+      text-align: center;
+}
+
+.floating-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f1fef9;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.alt-image {
+    height: 300px;
+    border-radius: 200px;
+    width: 300px;
+    margin: 10px;
+    background: #00dc8220;
+}
+
+.floating-div img {
+  width: 300px;
+  border-radius: 200px;
+  height: 300px;
+  display: block;
+  margin: 10px auto;
+  object-fit: cover; /* Preenche o contêiner sem deformar */
+}
+
+.floating-div button {
+    margin: 5px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.floating-div button:first-child {
+  background: green;
+  color: white;
+}
+
+.floating-div button:last-child {
+  background: red;
+  color: white;
+}
+
+.floating-div button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+/* Esconde o input de arquivo */
+input[type="file"] {
+  display: none;
+}
+
+/* Estiliza o botão substituto */
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #00dc82 0%, #00d4ff 35%, #04be7a 100%);
+    color: white;
+    border-radius: 200px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: 25px;
+    height: 98px;
+    width: 98px;
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
 .search-bar-container {
   position: relative;
   width: 100%;
@@ -1230,6 +1494,14 @@ li:hover img {
 
 
 .content {
+    overflow: auto; /* Barra de rolagem apenas na vertical */
+    border-radius: 8px;
+    /* Estilo para esconder visualmente a barra */
+    scrollbar-width: thin; /* Firefox: deixa a barra fina */
+    scrollbar-color: #eee transparent; /* Firefox: cor invisível */
+}
+
+.content-two {
     overflow: auto; /* Barra de rolagem apenas na vertical */
     border-radius: 8px;
     padding: 2rem .9rem;
@@ -1496,7 +1768,18 @@ input:checked + .slider:before {
     justify-content: space-between;
     flex-direction: column;
     align-items: stretch;
+    margin: 20px 1%;
+    margin: 20px 1%;
+    padding: 10px 0 20px 0;
+    border-bottom: solid 1px #00dc8230;
 }
+.line-two {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
+}
+
 .line-f {
     display: flex;
     justify-content: space-between;
@@ -1520,7 +1803,17 @@ input:checked + .slider:before {
     justify-content: space-between;
     align-items: stretch;
     flex-direction: column;
-  width: 100%;
+}
+
+.bor-two {
+    border-left: solid 1px #00dc8240;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+    height: 420px;
 }
 
 .theme-switch {
@@ -2399,6 +2692,7 @@ input[type="radio"] {
     padding: 8px 12px;
     border-radius: 8px;
     cursor: pointer;
+    color: #555;
     background-color: #00d4ff;
 }
 
@@ -2796,6 +3090,7 @@ button:disabled {
 button {
     background: #00d4ff;
     border-radius: 4px;
+    color: #555;
     padding: 7px 10px;
 }
 

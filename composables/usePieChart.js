@@ -31,7 +31,7 @@ export async function usePieChart() {
     labels: ['Presencial', 'On-line'],
     datasets: [
       {
-        backgroundColor: ['#00dc82', '#b800aa'],
+        backgroundColor: ['#04be7a', '#00dc8290'],
         data: [
           servicesCount.Personal || 0,
           servicesCount.Consultoria || 0,

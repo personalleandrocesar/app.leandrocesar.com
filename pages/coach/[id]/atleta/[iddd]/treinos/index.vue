@@ -131,31 +131,6 @@ async function submitSerie() {
     }
 }
 
-async function deleteTreino(treinoId) {
-    try {
-        const response = await fetch(`https://api.leandrocesar.com/usernw/${route.params.id}/atleta/${route.params.iddd}/treinos/${treinoId}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        });
-
-        if (response.ok) {
-            console.log('Treino deletado com sucesso');
-            
-            // Atualiza a interface removendo o treino localmente
-            items.value = items.value.filter(treino => treino.id !== treinoId);
-
-            setTimeout(() => {
-                return navigateTo(`/admin/clientes/${route.params.id}/treino/${route.params.idd}`);
-            }, 1500);
-        } else {
-            console.error('Falha ao deletar o treino');
-        }
-    } catch (error) {
-        console.error('Erro ao deletar o treino:', error);
-    }
-}
 
 
 

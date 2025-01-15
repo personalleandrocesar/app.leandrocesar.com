@@ -130,6 +130,35 @@ async function submitSerie() {
         console.error('Error create data:', error);
     }
 }
+
+async function deleteTreino(treinoId) {
+    try {
+        const response = await fetch(`https://api.leandrocesar.com/usernw/${route.params.id}/atleta/${route.params.iddd}/treinos/${treinoId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+
+        if (response.ok) {
+            console.log('Treino deletado com sucesso');
+            
+            // Atualiza a interface removendo o treino localmente
+            items.value = items.value.filter(treino => treino.id !== treinoId);
+
+            setTimeout(() => {
+                return navigateTo(`/admin/clientes/${route.params.id}/treino/${route.params.idd}`);
+            }, 1500);
+        } else {
+            console.error('Falha ao deletar o treino');
+        }
+    } catch (error) {
+        console.error('Erro ao deletar o treino:', error);
+    }
+}
+
+
+
 const reg = route.params.id
 const logon = useCookie('logon')
 logon.value = reg
@@ -1054,6 +1083,9 @@ function openPhoto() {
                         </h3>
 
                         </div>
+                        <div class="new-user" @click="deleteSerie">
+                            <Icon name='material-symbols:add-notes' /> deletar Serie
+                        </div>
                         <div v-if="addCloseTrainning" class="new-user" @click="newTrainning">
                             <Icon name='material-symbols:add-notes' /> Nova Série
                         </div>
@@ -1301,15 +1333,19 @@ function openPhoto() {
   
 }
 
+.dark-mode .floating-div{
+  background: #111827;
+}
+
 .alt-image {
     height: 300px;
     border-radius: 200px;
     width: 300px;
     margin: 10px;
     background: #00dc8220;
-}
+  }
 
-.floating-div img {
+ .floating-div img {
   width: 300px;
   border-radius: 200px;
   height: 300px;
@@ -1439,6 +1475,7 @@ input[type="file"] {
    width: 40px;
   height: 40px;
   border-radius: 50%;
+  object-fit: cover; /* Preenche o contêiner sem deformar */
   margin-right: 0px;
   transition: transform 0.3s ease-in-out;
 }
@@ -2955,11 +2992,39 @@ input[type="radio"] {
 }
 
 .logo img {
-    height: 98px;
+        height: 98px;
     width: 98px;
     border-radius: 50px;
     /* border: #00dc82 2px solid; */
     z-index: 100;
+    margin-right: 1.2rem;
+    padding: 4px;
+    opacity: 1;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.logo-nav-bar {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: translateX(0%);
+    position: fixed;
+    bottom: 0px;
+    height: calc(100% - 0px);
+    width: 100%;
+    background: linear-gradient(to bottom right, #00dc8290 0%, #00d4ff90 50%, #04be7a90 100%);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    z-index: 1134004;
+}
+
+.logo .nav-bar img{
+    height: 300px;
+    width: 300px;
+    border-radius: 200px;
+    /* border: #00dc82 2px solid; */
     margin-right: 1.2rem;
     padding: 4px;
     opacity: 1;

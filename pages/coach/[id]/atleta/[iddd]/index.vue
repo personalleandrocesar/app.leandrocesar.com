@@ -480,6 +480,11 @@ function openPhoto() {
   object-fit: cover; /* Preenche o contêiner sem deformar */
 }
 
+
+.dark-mode .floating-div{
+  background: #111827;
+}
+
 .floating-div button {
     margin: 5px;
     padding: 8px 12px;

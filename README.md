@@ -121,3 +121,73 @@ eu usei apenas:
 slice(-1).reverse()
 
 slice(0, qtTreinos.length - 1)
+
+
+
+consigo via upload converter via express.js para um formato tipo webp?
+
+não... o cliente quer fazer upload de qualquer formato de arquivo, seja .png, .jpg, .jpeg, quando for escolher um desses, na hora do upload, tem como converter umas desses formatos em .webp, e ficar salvo no servidor... para quando for servir pro app... aparecer só o formtato .webp?
+
+
+const express = require('express');
+const multer = require('multer');
+const sharp = require('sharp');
+const path = require('path');
+const fs = require('fs');
+const app = express();
+const port = 3000;
+
+// Configuração do multer para o upload de arquivos (armazena em memória)
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+// Função para salvar imagem convertida
+const saveImageAsWebP = (buffer, filename) => {
+  return sharp(buffer)
+    .webp() // Converte para o formato WebP
+    .toFile(filename); // Salva o arquivo no sistema
+};
+
+// Rota de upload
+app.post('/upload', upload.single('image'), async (req, res) => {
+  if (!req.file) {
+    return res.status(400).send('No file uploaded');
+  }
+
+  try {
+    // Definindo o nome do arquivo WebP (baseado no nome original)
+    const fileName = `${Date.now()}.webp`;
+    const outputPath = path.join(__dirname, 'uploads', fileName);
+
+    // Certificando-se de que a pasta "uploads" existe
+    if (!fs.existsSync(path.join(__dirname, 'uploads'))) {
+      fs.mkdirSync(path.join(__dirname, 'uploads'));
+    }
+
+    // Convertendo a imagem e salvando no formato WebP
+    await saveImageAsWebP(req.file.buffer, outputPath);
+
+    // Retornando a resposta com o caminho do arquivo convertido
+    res.json({ message: 'Imagem convertida para WebP e salva com sucesso!', file: outputPath });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Erro ao processar a imagem');
+  }
+});
+
+// Rota para servir a imagem convertida em WebP
+app.get('/images/:filename', (req, res) => {
+  const filePath = path.join(__dirname, 'uploads', req.params.filename);
+
+  // Verifica se o arquivo WebP existe e serve
+  if (fs.existsSync(filePath)) {
+    res.sendFile(filePath);
+  } else {
+    res.status(404).send('Imagem não encontrada');
+  }
+});
+
+// Iniciando o servidor
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});

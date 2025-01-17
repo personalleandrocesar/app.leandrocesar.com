@@ -693,7 +693,7 @@ function openPhoto() {
         <div>
             <h3>Pré-visualização</h3>
             <img v-if="previewImage" :src="previewImage" alt="Preview Image" />
-            <div v-else class='alt-image'></div>
+            <div v-else class='alt-image' ></div>
         </div>
         <div>
             <button @click="uploadImage" :disabled="loading">

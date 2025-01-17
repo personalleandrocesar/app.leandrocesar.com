@@ -1642,15 +1642,14 @@ input[type="radio"] {
 
 .title-user {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-    height: 120px;
-    width: 120px;
-    padding-top:10px;
+    flex-wrap: nowrap;
+    height: 130px;
+    width: 130px;
     margin: 2px;
-    border-radius: 8px;
+    border-radius: 4px;
     border: solid 2px #00dc8260;
     text-align: center;
 }

@@ -39,12 +39,12 @@ const toggleMenu = () => {
 };
 
 function home() {
-    navigateTo(`/coach/${route.params.id}`);
+    navigateTo(`/acupuntu/${route.params.id}`);
     menu.value = false;
     menuBar.value = false;
 }
 function team() {
-    navigateTo(`/coach/${route.params.id}/team`);
+    navigateTo(`/acupuntu/${route.params.id}/team`);
     menu.value = false;
     menuBar.value = false;
 }
@@ -130,12 +130,12 @@ function handleKeydown(event) {
 
     // Combinação "g" e "h"
     if (pressedKeys.has("/") && pressedKeys.has("h")) {
-        router.push(`/coach/${route.params.id}`);
+        router.push(`/acupuntura /${route.params.id}`);
     }
 
     // Apenas "t"
     if (pressedKeys.has("/") && pressedKeys.has("t")) {
-        router.push(`/coach/${route.params.id}/team`);
+        router.push(`/acupuntura /${route.params.id}/team`);
     }
     
     if (pressedKeys.has("/") && pressedKeys.has("k")) {
@@ -145,7 +145,7 @@ function handleKeydown(event) {
 
     // Apenas "s"
     if (pressedKeys.has("/") && pressedKeys.has("s")) {
-        router.push(`/coach/${route.params.id}/settings`);
+        router.push(`/acupuntura /${route.params.id}/settings`);
     }
 }
 
@@ -220,13 +220,13 @@ function logout () {
                         <div v-else @click="buttonMenuBar" class="menu-bar">
                             <Icon name="heroicons:bars-2-16-solid" />
                         </div>
-                        <NuxtLink v-if="navLeft" :to='`/acupuntura/${route.params.id}`'>
-                            <img src="~assets/logo.png" />
-                                <h3>app.leandrocesar</h3>
+                        <NuxtLink v-if="navLeft" :to='`/coach/${route.params.id}`'>
+                            <img src="~assets/MyLogoBold.jpg" />
+                                <h3>deepacupuntura</h3>
                                 <h3></h3>
                             </NuxtLink>
-                            <NuxtLink v-else :to='`/acupuntura/${route.params.id}`'>
-                                <img src="~assets/logo.png" />
+                            <NuxtLink v-else :to='`/coach/${route.params.id}`'>
+                                <img src="~assets/MyLogoBold.jpg" />
                                 <h3></h3>
                             </NuxtLink>
                         </div>
@@ -247,7 +247,7 @@ function logout () {
                             </div>
                         </NuxtLink>
                         <NuxtLink
-                        :to="`/coach/${route.params.id}`"
+                        :to="`/acupuntura/${route.params.id}`"
                         class="menu-button"
                         >
                         <div>
@@ -257,12 +257,12 @@ function logout () {
                     </NuxtLink>
                     
                     <NuxtLink
-                    :to="`/coach/${route.params.id}/team`"
+                    :to="`/acupuntura/${route.params.id}/team`"
                     class="menu-button"
                     >
                     <div>
                         <Icon name="heroicons:user-group" />
-                        <p>Team</p>
+                        <p>Clientes</p>
                     </div>
                 </NuxtLink>
                 <NuxtLink
@@ -289,7 +289,7 @@ function logout () {
                         </NuxtLink>
                         <span v-if="settings">
                             <NuxtLink
-                            :to="`/coach/${route.params.id}/settings`"
+                            :to="`/acupuntura/${route.params.id}/settings`"
                             class="menu-button"
                             >
                             <div>
@@ -298,7 +298,7 @@ function logout () {
                                     </div>
                                 </NuxtLink>
                                 <NuxtLink
-                                :to="`/coach/${route.params.id}/settings/users`"
+                                :to="`/acupuntura/${route.params.id}/settings/users`"
                                 class="menu-button"
                                 >
                                 <div>
@@ -307,7 +307,7 @@ function logout () {
                                 </div>
                             </NuxtLink>
                             <NuxtLink
-                            :to="`/coach/${route.params.id}/settings/exercises`"
+                            :to="`/acupuntura/${route.params.id}/settings/exercises`"
                             class="menu-button"
                             >
                             <div>
@@ -316,7 +316,7 @@ function logout () {
                             </div>
                         </NuxtLink>
                                 <NuxtLink
-                                :to="`/coach/${route.params.id}/settings/notifications`"
+                                :to="`/acupuntura/${route.params.id}/settings/notifications`"
                                 class="menu-button"
                                 >
                                 <div>
@@ -342,7 +342,7 @@ function logout () {
                             </div>
                             <div class="line"></div>
                             <NuxtLink
-                            :to="`/coach/${route.params.id}/settings`"
+                            :to="`/acupuntura/${route.params.id}/settings`"
                             class="menu-button"
                             >
                             <div>
@@ -403,11 +403,11 @@ function logout () {
                             <Icon name="heroicons:bars-2-16-solid" />
                         </div>
                         <NuxtLink v-if="navLeft" :to='`/coach/${route.params.id}`'>
-                            <img src="~assets/logo.png" />
+                            <img src="~assets/MyLogoBold.jpg" />
                             <h3>Nex_Wod</h3>
                         </NuxtLink>
                         <NuxtLink v-else :to='`/coach/${route.params.id}`'>
-                            <img src="~assets/logo.png" />
+                            <img src="~assets/MyLogoBold.jpg" />
                         </NuxtLink>
                     </div>
                     <div>
@@ -425,21 +425,21 @@ function logout () {
             </div>
         </NuxtLink>
         <NuxtLink
-        :to="`/coach/${route.params.id}`"
+        :to="`/acupuntura/${route.params.id}`"
         class="menu-button"
         >
         <Icon name="heroicons:home" />
     </NuxtLink>
     
                     <NuxtLink
-                    :to="`/coach/${route.params.id}/team`"
+                    :to="`/acupuntura/${route.params.id}/team`"
                     class="menu-button"
                     >
                     <Icon name="heroicons:user-group" />
                 </NuxtLink>
                 
                 <NuxtLink
-                :to="`/coach/${route.params.id}/settings`"
+                :to="`/acupuntura/${route.params.id}/settings`"
                 class="menu-button"
                 >
                 <Icon name="heroicons:cog-6-tooth" />
@@ -494,7 +494,7 @@ function logout () {
                             </div>
                         <p class='go-to'>Go to</p>
                         <NuxtLink
-                            :to="`/coach/${route.params.id}`"
+                            :to="`/acupuntura/${route.params.id}`"
                             class="menu-button"
                         >
                             <div>
@@ -507,7 +507,7 @@ function logout () {
                             </div>
                         </NuxtLink>
                         <NuxtLink
-                            :to="`/coach/${route.params.id}/team`"
+                            :to="`/acupuntura/${route.params.id}/team`"
                             class="menu-button"
                         >
                             <div>
@@ -520,7 +520,7 @@ function logout () {
                             </div>
                         </NuxtLink>
                         <NuxtLink
-                            :to="`/coach/${route.params.id}/settings`"
+                            :to="`/acupuntura/${route.params.id}/settings`"
                             class="menu-button"
                         >
                             <div>
@@ -687,6 +687,7 @@ function logout () {
     display: grid;
     grid-template-columns: 250px 1fr; /* Coluna esquerda e restante */
     height: 100%;
+    background: #f0ece4;
     transition: grid-template-columns 0.3s ease; /* Suavizar a mudança no layout */
     transition: all 0.3s ease; /* Suavizar a abertura/fechamento */
 }
@@ -969,8 +970,8 @@ input:focus {
     font-size: 1rem;
     font-family: "Gagalin";
     letter-spacing: 1.3px;
-    color: #fff;
-    color: #00dc82;
+    color: #555;
+    color: #ff1900;
     font-weight: normal;
 }
 
@@ -978,7 +979,7 @@ input:focus {
     margin: 0 0 0 0.8rem;
     height: 28px;
     border-radius: 200px;
-    box-shadow: 0px 2px 10px #00dc82;
+    box-shadow: 0px 2px 10px #ff1900;
 }
 .left-column-two .nav img {
     margin: 0 0 0 0.2rem;
@@ -1005,7 +1006,7 @@ input:focus {
     margin: 0 0.4rem 0 0.7rem;
     zoom: 1.3;
     color: #00dc82;
-    color: #fff;
+    color: #555;
 }
 .nav .button .icon:hover {
     color: #04be7a;
@@ -1023,7 +1024,7 @@ input:focus {
     zoom: 1.2;
 }
 .dark-mode .menu-bar .icon {
-    color: #fff;
+    color: #555;
     zoom: 1.2;
 }
 
@@ -1103,6 +1104,7 @@ input:focus {
     font-size: 1rem;
     font-weight: bolder;
     margin: 0;
+    color: #555;
 }
 
 .menu-button div {
@@ -1110,6 +1112,7 @@ input:focus {
     flex-direction: row;
     font-size: 0.8em;
     justify-content: space-between;
+    color: #555;
 }
 
 .menu-button .icon {
@@ -1121,33 +1124,37 @@ input:focus {
     zoom: 0.9;
 }
 .menu-button:hover .icon {
-    color: #04be7a;
+    color: #555;
 }
 
 .menu-button:hover p {
-    color: #04be7a;
+    color: #555;
     font-weight: bolder;
 }
 .menu-button:hover {
     cursor: pointer;
     background: transparent;
-    color: #04be7a;
-    background: #00dc8240;
+    color: #555;
+    background: #e6e1d6;
 }
 
 .menu-button.router-link-exact-active {
-    color: #00dc82;
+    color: #e6e1d6;
     cursor: pointer;
     border-left: transparent;
-    background: #00dc8220;
+    background: #dbad7260;
 }
 .menu-button.router-link-exact-active p {
-    color: #00dc82;
+    color: #555;
     cursor: pointer;
 }
-.menu-button.router-link-exact-active p:hover,
+.menu-button.router-link-exact-active .icon {
+    color: #555;
+    cursor: pointer;
+}
+.menu-button.router-link-exact-active:hover p,
 .menu-button.router-link-exact-active:hover .icon {
-    color: #00dc82;
+    color: #555 ;
     cursor: pointer;
 }
 .menu-button.router-link-exact-active p {

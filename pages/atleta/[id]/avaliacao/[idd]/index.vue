@@ -2,146 +2,18 @@
 import { ref, computed } from 'vue'
 
 const route = useRoute()
-const layout = "duo"
-const data = await useFetch(`https://api.leandrocesar.com/users/${route.params.id}/avaliacoes/${route.params.idd}`)
-const dataAPI = await useFetch(`https://api.leandrocesar.com/users/${route.params.id}`)
+const layout = "default"
+const coachIdCookie = useCookie('coachId')
+const dataAPI = await useFetch(
+  `https://api.leandrocesar.com/usersnw/${coachIdCookie.value}/team/${route.params.id}`
+);
+
+const dateV = route.params.idd
+const valuet = dataAPI.data.value.avaliacoes
+console.log(valuet)
+console.log(dateV)
 
 
-const divInfoIMC = ref(false)
-const peso = parseFloat(data.data.value?.massa).toFixed(2)
-const altura = parseFloat(data.data.value?.altura).toFixed(2)
-
-const calcIMC = computed(() => {
-    return (peso / (altura * altura)).toFixed(1)
-})
-
-const classIMC = computed(() => {
-    if (calcIMC.value < 18.5) {
-        return 'Baixo Peso';
-    } else if (calcIMC.value >= 18.5 && calcIMC.value <= 24.9) {
-        return 'Normal';
-    } else if (calcIMC.value >= 25.0 && calcIMC.value <= 29.9) {
-        return 'Sobrepeso';
-    } else if (calcIMC.value >= 30 && calcIMC.value <= 34.9) {
-        return 'Obesidade classe 1';
-    } else if (calcIMC.value >= 35 && calcIMC.value <= 39.9) {
-        return 'Obesidade classe 2';
-    } else if (calcIMC.value >= 40.0) {
-        return 'Obesidade classe 3';
-    } else {
-        return 'Digite os valores certo para saber seu IMC!!'
-    }
-})
-
-const resClassIMC = classIMC.value
-
-function infoIMC() {
-    divInfoIMC.value = !divInfoIMC.value
-}
-
-const sexo = data.data.value?.sexo
-const idade = parseFloat(data.data.value?.idade)
-const dTorax = parseFloat(data.data.value?.dtorax)
-const abdominal = parseFloat(data.data.value?.abdominal)
-const coxa = parseFloat(data.data.value?.coxa)
-const triceps = parseFloat(data.data.value?.tricipital)
-const supraespinhal = parseFloat(data.data.value?.supraEspinhal)
-
-const homens = dTorax + abdominal + coxa
-const mulheres = triceps + supraespinhal + coxa
-
-const dcHomens = 1.109380 - (0.0008267 * (homens)) + (0.0000016 * (homens * homens)) - (0.0002574 * (idade))
-const dcMulheres = 1.0994921 - (0.0009929 * (mulheres)) + (0.0000023 * (mulheres * mulheres)) - (0.0001392 * (idade))
-
-const percGHomens = (((4.95 / dcHomens) - 4.50) * 100).toFixed(1)
-const percGMulheres = (((4.95 / dcMulheres) - 4.50) * 100).toFixed(1)
-
-const classHomens = computed(() => {
-
-    if (percGHomens >= 5 && percGHomens <= 14.9) {
-        return 'Normal';
-    } else if (percGHomens >= 15 && percGHomens <= 19.9) {
-        return 'Sobrepeso';
-    } else if (percGHomens >= 20 && percGHomens <= 24.9) {
-        return 'Obesidade Moderada';
-    } else if (percGHomens >= 25 && percGHomens <= 29.9) {
-        return 'Obesidade Elevada';
-    } else if (percGHomens > 29.9) {
-        return 'Obesidade Mórbida';
-    } else {
-        return 'Digite os valores certo para saber seu %G!!'
-    }
-
-})
-
-const classMulheres = computed(() => {
-
-    if (percGMulheres >= 10 && percGMulheres <= 24.9) {
-        return 'Normal';
-    } else if (percGMulheres >= 25 && percGMulheres <= 29.9) {
-        return 'Sobrepeso';
-    } else if (percGMulheres >= 30 && percGMulheres <= 34.9) {
-        return 'Obesidade Moderada';
-    } else if (percGMulheres >= 35 && percGMulheres <= 39.9) {
-        return 'Obesidade Elevada';
-    } else if (percGMulheres > 39.9) {
-        return 'Obesidade Mórbida';
-    } else {
-        return 'Digite os valores certo para saber seu %G!!'
-    }
-
-})
-
-const percentualFat = computed(() => {
-    if (sexo === "feminino") {
-        return percGMulheres
-    } return percGHomens
-})
-
-const classify = computed(() => {
-    if (sexo === "feminino") {
-        return classMulheres.value
-    } return classHomens.value
-})
-
-const divOne = ref(true);
-const divTwo = ref(false);
-const divTree = ref(false);
-const divAplicar = ref(true);
-const divAplicarTwo = ref(false);
-const divAplicarTree = ref(false);
-const divInfoPercentual = ref(false)
-
-function infoPercentual() {
-    divInfoPercentual.value = !divInfoPercentual.value
-}
-
-function openDivOne() {
-    divOne.value = !divOne.value;
-    divTwo.value = false
-    divTree.value = false
-    divAplicar.value = !divAplicar.value
-    divAplicarTwo.value = false
-    divAplicarTree.value = false
-}
-
-function openDivTwo() {
-    divTwo.value = !divTwo.value;
-    divOne.value = false;
-    divTree.value = false;
-    divAplicarTwo.value = !divAplicarTwo.value
-    divAplicar.value = false
-    divAplicarTree.value = false
-}
-
-function openDivTree() {
-    divTree.value = !divTree.value;
-    divOne.value = false;
-    divTwo.value = false;
-    divAplicarTree.value = !divAplicarTree.value
-    divAplicarTwo.value = false
-    divAplicar.value = false
-}
 </script>
 
 <template>

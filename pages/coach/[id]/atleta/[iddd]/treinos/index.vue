@@ -1072,50 +1072,64 @@ function openPhoto() {
 
 
 
-                <div v-if="main">
-                <div class="content">
-                    <div class='line-two'>
-                    <div class="line-columns">
+<div v-if="main">
+<div class="content">
+    <div class='line-two'>
+    <div>
 
-                          <div>
-
-                            <div>
-
-                            </div>
-
-
-                            <div class="theme-switch-two">
-                                <div class='tr' v-for="(item, index) in selectedTraining.serie" :key="index"  @click="selectSeries(item)">
-                                    <NuxtLink>
-                                        <div>
-                                            <h3>{{ item.name }}</h3>
-                                        </div>
-                                    </NuxtLink>
-                                </div>
-                            </div>
-                          </div>
-                          <div>
-<div class='bor-two'>
+        <div>
+        
             <div class="theme-switch-two">
-            <div v-if="selectedSeries" class="exercise-list">
-                <h3>Exercícios da Série: {{ selectedSeries.name }}</h3>
-                <div v-for="(exercise, exIndex) in selectedSeries.set" :key="exIndex">
-                    <p>{{ exercise.nome }} - {{ exercise.reps }} reps</p>
-                    <p>Sets: {{ exercise.sets }}</p>
-                    <p>Observações: {{ exercise.obs }}</p>
-                    <img :src="exercise.img" alt="Exercício" />
+                <div class='tr-two' v-for="(item, index) in selectedTraining.serie" :key="index"  @click="selectSeries(item)">
+                    <NuxtLink>
+                        <div>
+                            <h3>{{ item.name }}</h3>
+                        </div>
+                    </NuxtLink>
                 </div>
             </div>
+            
+            <div class="theme-switch-two">
+            
+            
+            <div v-if="selectedSeries" class="exercise-list-container">
+                <h3 class="exercise-list-title">Exercícios da Série: {{ selectedSeries.name }} - {{ selectedSeries.set.length }} exercícios</h3>
+            
+                <table class="exercise-table">
+                  <thead class="exercise-table-header">
+                    <tr class="exercise-table-row">
+                      <th class="exercise-table-cell-header">Imagem</th>
+                      <th class="exercise-table-cell-header">Nome</th>
+                      <th class="exercise-table-cell-header">Sets</th>
+                      <th class="exercise-table-cell-header">Reps</th>
+                      <th class="exercise-table-cell-header">Observações</th>
+                    </tr>
+                  </thead>
+                  <tbody class="exercise-table-body">
+                    <tr
+                      class="exercise-table-row"
+                      v-for="(exercise, exIndex) in selectedSeries.set"
+                      :key="exIndex"
+                    >
+                      <td class="exercise-table-cell">
+                        <img :src="exercise.img" alt="Exercício" class="exercise-image" />
+                      </td>
+                      <td class="exercise-table-cell">{{ exercise.nome }}</td>
+                      <td class="exercise-table-cell">{{ exercise.sets }}</td>
+                      <td class="exercise-table-cell">{{ exercise.reps }}</td>
+                      <td class="exercise-table-cell">{{ exercise.obs }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-                </div>
+            </div>
         </div>
 
-                          </div>
+        </div>
+    </div>
 
-                      </div>
-                    </div>
-
-                  </div>
+</div>
 
                     <div class="main-div-two">
 
@@ -1848,9 +1862,81 @@ input:checked + .slider:before {
   
 }
 
+/* Container principal */
+.exercise-list-container {
+  margin: 20px auto;
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #f1fef9;
+  height: 330px;  
+  color: #555;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+.exercise-list-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #555;
+}
+
+/* Tabela */
+.exercise-table {
+  width: 100%;
+  height: 330px;
+  border-collapse: collapse;
+  background-color: #f1fef9;
+}
+
+.exercise-table-header {
+  background-color: #00dc8220;
+}
+
+.exercise-table-row:nth-child(even) .exercise-table-cell {
+  background-color: #00dc8220;
+}
+
+.exercise-table-row:hover .exercise-table-cell {
+  background-color: #00dc8240;
+}
+
+.exercise-table-cell,
+.exercise-table-cell-header {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.exercise-table-cell-header {
+  font-weight: bold;
+  color: #555;
+}
+
+/* Imagem */
+.exercise-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.exercise-list {
+    height: 330px;
+    width: 100%;
+    overflow-y: auto;
+}
+
 .tr {
   border: solid .1px #00dc8220;
   padding: 50px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tr-two {
+  border: solid .1px #00dc8220;
+  padding: 15px 40px;
   border-radius: 8px;
   cursor: pointer;
 }

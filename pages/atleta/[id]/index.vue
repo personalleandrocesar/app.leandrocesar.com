@@ -17,6 +17,8 @@ const linkFeed = ref(true);
 const linkPartner = ref(false);
 const feedShow = ref(true);
 const treinus = ref([]);
+const valuations = ref([]);
+const allValuations = ref([]);
 const seriuss = ref([]); // Sériess do treino selecionado
 const selectedTraining = ref(null); // Treino selecionado
 const selectedSeries = ref(null); // Série selecionada
@@ -31,9 +33,14 @@ const dataTreinuu = await useFetch(`https://api.leandrocesar.com/usersnw/${coach
 const dataTreino = await useFetch(
   `https://api.leandrocesar.com/usersnw/${coachIdCookie.value}/team/${route.params.id}/treinos`
 );
+const dataValuations = await useFetch(
+  `https://api.leandrocesar.com/usersnw/${coachIdCookie.value}/team/${route.params.id}`
+);
 
 treinus.value = dataTreino.data.value || [];
-
+valuations.value = dataValuations.data.value || [];
+allValuations.value = valuations.value.avaliacoes || [];
+console.log(allValuations.value)
 // Função para carregar as séries do treino
 async function loadSeries(training) {
   const dataSerie = await useFetch(
@@ -214,27 +221,37 @@ const selectG = () => {
       </div>
     </div>
     <div v-else>
-    <!-- <div class="main">
-      <div class="main-div-tree" v-for="(treino, index) in treinus" :key="index">
-        <div
-          class="square"
-          :class="{ selected: treino.name === treinoAtual }"
-          @click="loadSeries(treino)"
-        >
-          <div>
-            <h4>{{ treino.name }}</h4>
-          </div>
+        <div>
+                <div  v-if='allValuations[0]'>
+                    <div class="main">
+                    
+                        <div class="main-div-tree" v-for="(treino, index) in allValuations" :key="index">
+                            <NuxtLink class="square-val" :to="`/atleta/${route.params.id}/avaliacao/${treino.date}`">
+                            
+                                <div>
+                                    <h4>{{ treino.date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1') }}</h4>
+                                </div>
+                                
+                            </NuxtLink>
+                            <Icon name="ic:round-arrow-drop-up" />
+                            
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h5>Escolha uma das avaliações acima!</h5>
+                    </div>
+                    </div>
+                        <div v-else>
+                        
+                            <div class="info">
+                            <h5>Sem avaliações feitas! 😥</h5>
+                            </div>
+                            <a href='https://cal.com/leandrocesar/personal' target='_blank' class="not-valuation">
+                            <Icon name="material-symbols:calendar-add-on-outline-rounded" />Clique aqui e agende uma avaliação!!
+                            </a>
+                            
+                        </div>
         </div>
-        <Icon name="ic:round-arrow-drop-up" />
-      </div>
-    </div> -->
-
-        <div class="info">
-        <h5>Sem avaliações feitas! 😥</h5>
-        </div>
-        <a href='https://cal.com/leandrocesar/personal' target='_blank' class="not-valuation">
-         <Icon name="material-symbols:calendar-add-on-outline-rounded" />Clique aqui e agende uma avaliação!!
-        </a>
     </div>
 
    
@@ -640,7 +657,6 @@ body {
   align-items: center;
 }
 .main-div-tree a div {
-  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -835,6 +851,23 @@ body {
   border: 2px solid #00dc8210;
   overflow-x: hidden;
 }
+
+.square-val {
+  background-color: #00dc8210;
+  backdrop-filter: blur(5px);
+  overflow-x: auto;
+  display: flex;
+  padding: 0px 50px;
+  height: 60px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  border-radius: 8px;
+  border: 2px solid #00dc8210;
+  overflow-x: hidden;
+}
+
 .squareS {
     background-color: #00dc8210;
     backdrop-filter: blur(5px);

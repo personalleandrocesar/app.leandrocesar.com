@@ -234,7 +234,7 @@ const greetingMessage = computed(() => getGreetingMessage());
             </div>
         <div class="head-name">
             <div class="name">
-                {{ greetingMessage }}, {{ people.name }}! 
+                {{ greetingMessage }}, {{ primeiroNome }}! 
             </div>
         </div>
         <div class="color">

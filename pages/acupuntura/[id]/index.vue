@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from 'vue';
 import { Doughnut, Bar, Pie } from 'vue-chartjs';
-import { useDoughnutChart } from '~/composables/useDoughnutChart';
-import { useBarChart } from '~/composables/useBarChart';
-import { usePieChart } from '~/composables/usePieChart';
-import { useBarVerticalChart } from '~/composables/useBarVerticalChart';
+import { useDoughnutChart } from '~/composables/useDoughnutChartDeep';
+import { useBarChart } from '~/composables/useBarChartDeep';
+import { usePieChart } from '~/composables/usePieChartDeep';
+import { useBarVerticalChart } from '~/composables/useBarVerticalChartDeep';
 
 // Variáveis e estados
 const userr = ref([]);
@@ -115,7 +115,7 @@ html, body {
 }
 
 .topbar {
-  color: white;
+  color: #ff1900;
   height: 60px;
   text-align: center;
   position: sticky;
@@ -142,7 +142,7 @@ html, body {
     margin-left: .2rem;
     padding: 4px 6px;
     border-radius: 8px;
-    background: #00dc8280;
+    background: #ff1900;
 }
 
 .topbar .icon {

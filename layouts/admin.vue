@@ -402,11 +402,11 @@ function logout () {
                         <div v-else @click="buttonMenuBar" class="menu-bar">
                             <Icon name="heroicons:bars-2-16-solid" />
                         </div>
-                        <NuxtLink v-if="navLeft" :to='`/coach/${route.params.id}`'>
+                        <NuxtLink v-if="navLeft" :to='`/acupuntura/${route.params.id}`'>
                             <img src="~assets/logo.png" />
                             <h3>Nex_Wod</h3>
                         </NuxtLink>
-                        <NuxtLink v-else :to='`/coach/${route.params.id}`'>
+                        <NuxtLink v-else :to='`/acupuntura/${route.params.id}`'>
                             <img src="~assets/logo.png" />
                         </NuxtLink>
                     </div>

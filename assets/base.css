@@ -71,6 +71,7 @@ body {
 }
 
 input{
+    border: solid 2px #00dc82;
     background: #00dc8210;
 }
 
@@ -113,6 +114,14 @@ body h5 {
 body h2 {
   font-size: 1.3rem;
   color: var(--vt-c-text-light-1);
+}
+
+body h3 {
+  color: var(--vt-c-text-light-1);
+}
+
+.dark-mode body h3 {
+  color: var(--vt-c-text-dark-0);
 }
 
 body a {

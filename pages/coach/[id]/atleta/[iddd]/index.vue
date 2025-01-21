@@ -164,6 +164,7 @@ function openPhoto() {
 
 
 <template>
+    <!-- <UploadImage /> -->
     <div class="layout-no-sidebar">
         <!-- Barra fixa no topo -->
         <header class="topbar">

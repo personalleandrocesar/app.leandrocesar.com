@@ -1874,6 +1874,11 @@ input:checked + .slider:before {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.dark-mode .exercise-list-container {
+  background-color: #111827;
+  color: #fff;
+}
+
 /* Título */
 .exercise-list-title {
   font-size: 1.5rem;
@@ -1882,12 +1887,24 @@ input:checked + .slider:before {
   color: #555;
 }
 
+
+.dark-mode .exercise-list-title {
+  background-color: #111827;
+  color: #fff;
+}
+
 /* Tabela */
 .exercise-table {
   width: 100%;
   height: 330px;
   border-collapse: collapse;
   background-color: #f1fef9;
+}
+
+
+.dark-mode .exercise-table {
+  background-color: #111827;
+  color: #fff;
 }
 
 .exercise-table-header {
@@ -1911,6 +1928,11 @@ input:checked + .slider:before {
 .exercise-table-cell-header {
   font-weight: bold;
   color: #555;
+}
+
+
+.dark-mode .exercise-table-cell-header {
+  color: #fff;
 }
 
 /* Imagem */
@@ -3064,6 +3086,25 @@ input[type="radio"] {
     -o-object-fit: cover;
     object-fit: cover;
 }
+
+.nav-bar {
+    z-index: 200;
+    transform: translateX(0%);
+    position: fixed;
+    height: calc(100% - 0px);
+    bottom: 0px;
+    width: 100%;
+    position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .logo-nav-bar {
     display: flex;
     justify-content: center;

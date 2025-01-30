@@ -697,7 +697,6 @@ function logout () {
 
 .left-column {
     transition: all 0.3s ease; /* Suavizar a animação */
-    z-index: 100;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -744,6 +743,7 @@ function logout () {
     padding: 10px 10px 2px 10px;
     border: solid 0.1px #00dc8230;
     display: flex;
+    z-index: 3;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -1060,6 +1060,7 @@ input:focus {
     padding: 7px 5px;
     border-radius: 6px;
     cursor: pointer;
+    z-index: 1;
 }
 
 .search{

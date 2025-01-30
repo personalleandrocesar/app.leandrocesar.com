@@ -562,6 +562,11 @@ input[type="file"] {
     margin: 0px 15px 12px 15px;
 }
 
+.dark-mode .notific-float {
+    color:#fff;
+    background: #0f172a;
+}
+
 .notific-float button{
     margin: 0 5px 0 0px;
 }
@@ -641,6 +646,10 @@ input[type="file"] {
   transition: all 0.3s ease;
   text-align: center;
 }
+
+.dark-mode .pill-can {
+    color:#fff;
+}
     
       /* Container do botão */
       .switch {
@@ -649,6 +658,8 @@ input[type="file"] {
   width: 36px;
   height: 20px;
 }
+
+notific-float div
 
 /* Oculta o checkbox padrão */
 .switch input {
@@ -768,7 +779,6 @@ input:checked + .slider:before {
 .layout-no-sidebar {
   display: grid;
   grid-template-rows: auto 1fr; /* Barra fixa e conteúdo */
-  overflow:auto;
 }
 
 .upper {
@@ -810,10 +820,6 @@ input:checked + .slider:before {
 
 .dark-mode .topbar h4 {
     color: #fff;
-}
-
-.content {
-  overflow-y: auto; /* Adiciona scroll vertical no conteúdo */
 }
 
 

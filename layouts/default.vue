@@ -241,7 +241,7 @@ const greetingMessage = computed(() => getGreetingMessage());
 
             <a @click="theme()" :model="$colorMode.value">
                 <Icon
-                    :name="colorMode.value === 'dark' ? 'line-md:moon-filled-to-sunny-filled-loop-transition' : 'line-md:sunny-filled-loop-to-moon-alt-filled-loop-transition'" />
+                    :name="colorMode.value === 'dark' ? 'line-md:sunny-filled-loop-to-moon-alt-filled-loop-transition': 'line-md:moon-filled-to-sunny-filled-loop-transition'" />
             </a>
 
         </div>

@@ -116,27 +116,7 @@ function hideExerciseDetails() {
   isImageVisible.value = false; // Oculta a imagem em destaque
 }
 
-// Mock de lista de exercícios
-function getExercises() {
-  return [
-    {
-      img: "exemplo1.jpg",
-      nome: "Exercício 1",
-      sets: 3,
-      reps: 12,
-      rest: "1:00",
-      obs: "Mantenha a postura correta.",
-    },
-    {
-      img: "exemplo2.jpg",
-      nome: "Exercício 2",
-      sets: 4,
-      reps: 10,
-      rest: "1:30",
-      obs: "",
-    },
-  ];
-}
+
 
 </script>
 
@@ -296,7 +276,7 @@ function getExercises() {
                 <td>{{ exercise.sets }}</td>
                 <td>{{ exercise.reps }}</td>
                 <td>--</td>
-                <td>{{ exercise.rest }}</td>
+                <td>{{ exercise.time }}</td>
               </tr>
             </tbody>
           </table>

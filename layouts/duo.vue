@@ -23,6 +23,88 @@ export default {
 
 </script>
 <script setup>
+import { ref, computed, onMounted } from "vue";
+const rota = useRoute();
+const cookieTreinador = useCookie('coachId');
+
+const usuarios = await useFetch(
+    `https://api.leandrocesar.com/usersnw/${cookieTreinador.value}/team/${rota.params.id}`
+);
+const pessoa = usuarios.data.value;
+const primeiroNome = computed(() => pessoa.name.split(" ")[0]);
+
+useHead({
+  titleTemplate: `${primeiroNome.value} ${pessoa.lastName} - Cliente | Leandro Cesar - App`,
+});
+
+const erroMsg = ref(null);
+const notificacaoTres = ref(false);
+const notificacaoQuatro = ref(false);
+const mostrarDivFlutuante = ref(false);
+const imagemPrevia = ref(null);
+const arquivo = ref(null);
+const carregando = ref(false);
+const fotoAberta = ref(false);
+
+
+const buscarDadosUsuario = async () => {
+  const formatos = ['jpeg', 'jpg', 'png'];
+  let ultimaImagem = null;
+  for (const formato of formatos) {
+    try {
+      const resposta = await fetch(`https://api.leandrocesar.com/uploads/${pessoa.username}.${formato}`);
+      if (resposta.ok) {
+        const ultimaModificacao = resposta.headers.get('Last-Modified');
+        if (!ultimaImagem || (ultimaModificacao && new Date(ultimaModificacao) > new Date(ultimaImagem.lastModified))) {
+          ultimaImagem = { url: resposta.url, lastModified: ultimaModificacao };
+        }
+      }
+    } catch {}
+  }
+  if (ultimaImagem) pessoa.foto = ultimaImagem.url;
+};
+
+onMounted(buscarDadosUsuario);
+
+const abrirDivFlutuante = () => { mostrarDivFlutuante.value = true; };
+const fecharDivFlutuante = () => {
+  mostrarDivFlutuante.value = false;
+  imagemPrevia.value = null;
+  arquivo.value = null;
+};
+
+const alterarArquivo = (evento) => {
+  arquivo.value = evento.target.files[0];
+  if (arquivo.value) {
+    imagemPrevia.value = URL.createObjectURL(arquivo.value);
+    mostrarDivFlutuante.value = true;
+  }
+};
+
+const enviarImagem = async () => {
+  if (!arquivo.value) return alert("Por favor, selecione um arquivo.");
+  const dadosFormulario = new FormData();
+  dadosFormulario.append('image', arquivo.value, `${pessoa.username}.${arquivo.value.name.split('.').pop()}`);
+  try {
+    carregando.value = true;
+    const resposta = await fetch('https://api.leandrocesar.com/api/upload', { method: 'POST', body: dadosFormulario });
+    if (resposta.ok) {
+      alert("Upload realizado com sucesso!");
+      await buscarDadosUsuario();
+      fecharDivFlutuante();
+    } else {
+      alert("Erro no upload.");
+    }
+  } catch {
+    alert("Erro ao conectar com o servidor.");
+  } finally {
+    carregando.value = false;
+  }
+};
+
+function alternarFoto() {
+    fotoAberta.value = !fotoAberta.value;
+}
 const route = useRoute()
 
 const reg = route.params.id
@@ -89,35 +171,6 @@ const navB = ref(state.value === 2)
 const navC = ref(state.value === 3)
 const navD = ref(state.value === 4)
 
-// const checkImageExists = async (url) => {
-//   try {
-//     const response = await fetch(url, { method: 'HEAD' });
-//     if (response.ok) {
-//       console.log('A imagem existe:', url);
-//     } else {
-//       console.log('A imagem não existe:', url);
-//     }
-//   } catch (error) {
-//     console.log('Erro ao verificar a imagem:', error);
-//   }
-// };
-
-// // Exemplo de uso
-// checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg`);
-
-const imageExists = ref(false);
-const checkImageExists = async (url) => {
-  try {
-    const response = await fetch(url, { method: 'HEAD' });
-    imageExists.value = response.ok; // Armazena o resultado
-  } catch (error) {
-    console.log('Erro ao verificar a imagem:', error);
-  }
-};
-
-// Exemplo de uso da função
-await checkImageExists(`https://app.leandrocesar.com/img/${route.params.id}.jpeg`);
-
 const getGreetingMessage = () => {
   const now = new Date();
   const hour = now.getHours();
@@ -135,7 +188,6 @@ const greetingMessage = computed(() => getGreetingMessage());
 </script>
 <template>
     <div v-if="bodyOne">
-
         <div id="nav-container" class='nav'>
 
 
@@ -170,7 +222,7 @@ const greetingMessage = computed(() => getGreetingMessage());
 
             <a @click="theme()" :model="$colorMode.value">
                 <Icon
-                    :name="colorMode.value === 'dark' ? 'line-md:moon-filled-to-sunny-filled-loop-transition' : 'line-md:sunny-filled-loop-to-moon-alt-filled-loop-transition'" />
+                    :name="colorMode.value === 'dark' ? 'line-md:sunny-filled-loop-to-moon-alt-filled-loop-transition': 'line-md:moon-filled-to-sunny-filled-loop-transition'" />
             </a>
 
         </div>
@@ -223,15 +275,32 @@ const greetingMessage = computed(() => getGreetingMessage());
             <NuxtLink @click="menu()" class="button-client">
             </NuxtLink>
             <!-- <div v-if='imageExists' class='logo'> -->
-            <div class='logo'>
-                <img @click="openPhoto()" :src="people?.foto">
-            </div>
-            <div v-if="photoOpen" class="nav-bar">
+            <div class="logo">
+              <img @click="alternarFoto" :src="pessoa.foto || imagemPrevia" alt="User Photo" />
+              <div v-if="fotoAberta" class="nav-bar">
                 <div class='logo-nav-bar'>
-                    <img @click="openPhoto" :src="people?.foto">
+                  <img @click="alternarFoto" :src="pessoa.foto || imagemPrevia">
                 </div>
+              </div>
+              <label class="photo" for="file-upload" @click="abrirDivFlutuante">
+                <Icon name="ic:outline-photo-camera" />
+              </label>
+              <input id="file-upload" type="file" @change="alterarArquivo" hidden />
             </div>
-        </div>
+            <div v-if="mostrarDivFlutuante" class="float-t">
+              <div class="floating-div">
+                <div>
+                  <h3>Pré-visualização</h3>
+                  <img v-if="imagemPrevia" :src="imagemPrevia" alt="Preview Image" />
+                  <div v-else class='alt-image' ></div>
+                </div>
+                <div>
+                  <button @click="enviarImagem" :disabled="carregando">{{ carregando ? "Enviando..." : "Upload" }}</button>
+                  <button @click="fecharDivFlutuante">Cancelar</button>
+                </div>
+              </div>
+            </div>
+            </div>
         <div class="head-name">
             <div class="name">
                 {{ people.name }} {{ people.lastName }}
@@ -239,12 +308,9 @@ const greetingMessage = computed(() => getGreetingMessage());
             <div class="email">{{ people.email }}</div>
         </div>
         <div>
-            <p class="section-title">Ciclos</p>
-            <p class="section-subtitle">Contrato atual: {{ people?.periodStart.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1') }} - {{
+            <p class="section-title"><Icon name="cil:weightlifitng" /> {{people.username}}</p>
+            <p class="section-title"><Icon name="eos-icons:content-lifecycle-management" /> Ciclo atual: {{ people?.periodStart.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1') }} a {{
                 people?.periodEnd.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1') }}</p>
-                <p v-if="people?.service" class="section-subtitle-two">Serviço: {{ people?.service
-                }}</p>
-
             <p v-if="status === 1" class="section-option pending">
                 <Icon name="solar:danger-square-outline" /> Pendente!
             </p>
@@ -254,44 +320,14 @@ const greetingMessage = computed(() => getGreetingMessage());
             <p v-else class="section-option verified">
                 <Icon name="solar:check-square-outline" /> Verificado!
             </p>
-            <div class="conf">
-                <NuxtLink class="menu-square">
-                    <div>
-                        <div>
-                            <p>
-                                <Icon name="solar:dumbbell-large-bold" />
-                                Treino
-                            </p>
-                        </div>
-                        <div>
-                            Atual: {{ people?.treinoActual }}
-                        </div>
-                        <div> 
-                            Próximo: {{ people?.treinoNext }}
-                        </div>
-                    </div>
-                </NuxtLink>
-                <NuxtLink v-if="people?.valuationActual" class="menu-square">
-                    <div>
-                        <div>
-                            <p>
-                                <Icon name="solar:clipboard-heart-bold" />
-                                Avaliação
-                            </p>
-                        </div>
-                        <div>
-                            Atual: {{ people?.valuationActual }}
-                        </div>
-                        <div>
-                            Próxima: {{ people?.valuationNext }}
-                        </div>
-                    </div>
-                </NuxtLink>
-            </div>
+                <p class="section-subtitle-two">ID: {{ people?._id}}</p>
+                <p v-if="people?.service" class="section-subtitle-two">Serviço: {{ people?.service}}</p>
+                <p v-if="people?.service" class="section-subtitle-two">Objetivo: {{ people?.target}}</p>
+                <br>
             <!-- Hístórico -->
-            <NuxtLink :to="`/users/${route.params.id}/treinos`" class="menu-button">
+            <NuxtLink class="menu-button">
                 <div>
-                    <Icon name="solar:dumbbells-line-duotone" />
+                    <Icon name="solar:dumbbells-broken" />
                     <p>
                         Todos os treinos
                     </p>
@@ -300,9 +336,9 @@ const greetingMessage = computed(() => getGreetingMessage());
             </NuxtLink>
             <!-- Histórico fim -->
             <!-- Avaliações -->
-            <NuxtLink :to="`/users/${route.params.id}/avaliacao`" class="menu-button">
+            <NuxtLink class="menu-button">
                 <div>
-                    <Icon name="solar:clipboard-heart-linear" />
+                    <Icon name="fluent:clipboard-pulse-20-regular" />
                     <p>
                         Avaliações
                     </p>
@@ -312,19 +348,18 @@ const greetingMessage = computed(() => getGreetingMessage());
             <!-- Avaliações fim -->
 
             <!-- Documentos -->
-            <p class="section-title">Documentos</p>
-            <NuxtLink :to="`/users/${route.params.id}/contratos`" class="menu-button">
+            <NuxtLink  class="menu-button">
                 <div>
-                    <Icon name="solar:document-add-linear" />
+                    <Icon name="fluent:clipboard-text-edit-48-regular" />
                     <p>
                         Contratos
                     </p>
                 </div>
                 <Icon name="ic:baseline-keyboard-arrow-right" />
             </NuxtLink>
-            <NuxtLink :to="`/users/${route.params.id}/termos-de-uso`" class="menu-button">
+            <NuxtLink class="menu-button">
                 <div>
-                    <Icon name="solar:document-text-linear" />
+                    <Icon name="fluent:clipboard-text-ltr-24-regular" />
                     <p>
                         Termos de uso
                     </p>
@@ -340,12 +375,13 @@ const greetingMessage = computed(() => getGreetingMessage());
             <!-- Botão Logout -->
             <NuxtLink to="/" class="logout" @click="logOff()">
                 LOUGOUT
-                <Icon name="solar:logout-3-bold" />
+                <Icon name="solar:logout-3-linear" />
             </NuxtLink>
         </div>
     </div>
 </template>
 <style scoped>
+
 .head-logo {
     display: flex;
     justify-content: space-between;
@@ -380,7 +416,7 @@ const greetingMessage = computed(() => getGreetingMessage());
     border-radius: 200px;
     z-index: 100;
     opacity: 1;
-
+    object-fit: cover; /* Preenche o contêiner sem deformar */
 }
 
 .nav-bar {
@@ -514,6 +550,9 @@ const greetingMessage = computed(() => getGreetingMessage());
     margin: 10px 1.5rem;
     font-weight: 800;
 }
+.section-title .icon{
+    zoom:.8
+}
 
 .section-subtitle {
     text-align: left;
@@ -531,7 +570,7 @@ const greetingMessage = computed(() => getGreetingMessage());
 
 .section-option {
     text-align: left;
-    margin: -10px 1.5rem 15px;
+    margin: -6px 1.5rem 35px 2.8rem;
     font-size: .8em;
     font-weight: 800;
 }
@@ -700,7 +739,6 @@ const greetingMessage = computed(() => getGreetingMessage());
     width: 97%;
     height: 50px;
     border-radius: 200px;
-    z-index: 101;
     padding: 12.2px 8px 12px 12px;
     backdrop-filter: blur(100px)
 }
@@ -763,10 +801,10 @@ const greetingMessage = computed(() => getGreetingMessage());
     right: 1.5rem;
     border-radius: 10px;
     cursor: pointer;
-    z-index: 100;
     border: solid 1px #00dc8210;
     box-shadow: 0 0px 5px #00dc8240;
-    backdrop-filter: blur(100px)
+    backdrop-filter: blur(100px);
+    z-index: 1;
 }
 
 .whats {
@@ -783,10 +821,10 @@ const greetingMessage = computed(() => getGreetingMessage());
     right: 1.5rem;
     border-radius: 10px;
     cursor: pointer;
-    z-index: 100;
     border: solid 1px #00dc8210;
     box-shadow: 0 0px 5px #00dc8240;
-    backdrop-filter: blur(100px)
+        z-index: 1;
+    backdrop-filter: blur(100px);
 }
 
 .whats .icon,
@@ -794,4 +832,151 @@ const greetingMessage = computed(() => getGreetingMessage());
     color: #00dc8290;
     zoom: 1;
 }
+
+.nav-bar {
+    z-index: 200;
+    transform: translateX(0%);
+    position: fixed;
+    height: calc(100% - 0px);
+    bottom: 0px;
+    width: 100%;
+    position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-nav-bar {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: translateX(0%);
+    position: fixed;
+    bottom: 0px;
+    top: -1px;
+    height: calc(100% - -1px);
+    width: 100%;
+    background: linear-gradient(to bottom right, #00dc8290 0%, #00d4ff90 50%, #04be7a90 100%);
+    backdrop-filter: blur(5px);
+    z-index: 1134004;
+    
+
+}
+
+.logo-nav-bar img {
+    width: 300px;
+    height: 300px;
+    border-radius: 200px;
+    border: #00dc82 1px solid;
+    opacity: 1;
+    z-index: 100;
+    object-fit: cover; /* Preenche o contêiner sem deformar */
+
+}
+
+.photo {
+    position: absolute;
+    top: 68px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.photo .icon {
+    color: #00dc82;
+    zoom:1;
+    border-radius: 6px;
+    background: #00dc8240;
+    padding: 3px;
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.float{
+    position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1002;
+      background: #ecedf060;
+      backdrop-filter: blur(1px); /* Desfoque do fundo */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras (opcional) */
+      color: #333; /* Cor do texto */
+      width: 100%; /* Largura fixa */
+      height: 100vh; /* Altura fixa */
+      padding: 20px; /* Espaçamento interno */
+      text-align: center;
+}
+
+.floating-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f1fef9;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.alt-image {
+    height: 300px;
+    border-radius: 200px;
+    width: 300px;
+    margin: 10px;
+    background: #00dc8220;
+}
+
+.floating-div img {
+  width: 300px;
+  border-radius: 200px;
+  height: 300px;
+  display: block;
+  margin: 10px auto;
+  object-fit: cover; /* Preenche o contêiner sem deformar */
+}
+
+.floating-div button {
+    margin: 5px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.floating-div button:first-child {
+  background: green;
+  color: white;
+}
+
+.floating-div button:last-child {
+  background: red;
+  color: white;
+}
+
+.floating-div button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+/* Esconde o input de arquivo */
+input[type="file"] {
+  display: none;
+}
+
 </style>

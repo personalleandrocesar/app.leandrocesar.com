@@ -10,10 +10,150 @@ const dataAPI = await useFetch(
 
 const dateV = route.params.idd
 const valuet = dataAPI.data.value.avaliacoes
-console.log(valuet)
+console.log(valuet[0].date)
 console.log(dateV)
 
+// Encontra o objeto dentro de valuet que tem o date igual a dateV
+const foundItem = valuet.find(item => item.date === dateV)
+const dd = foundItem
+console.log(dd)
 
+
+const divInfoIMC = ref(false)
+const peso = parseFloat(data.data.value?.massa).toFixed(2)
+const altura = parseFloat(data.data.value?.altura).toFixed(2)
+
+const calcIMC = computed(() => {
+    return (peso / (altura * altura)).toFixed(1)
+})
+
+const classIMC = computed(() => {
+    if (calcIMC.value < 18.5) {
+        return 'Baixo Peso';
+    } else if (calcIMC.value >= 18.5 && calcIMC.value <= 24.9) {
+        return 'Normal';
+    } else if (calcIMC.value >= 25.0 && calcIMC.value <= 29.9) {
+        return 'Sobrepeso';
+    } else if (calcIMC.value >= 30 && calcIMC.value <= 34.9) {
+        return 'Obesidade classe 1';
+    } else if (calcIMC.value >= 35 && calcIMC.value <= 39.9) {
+        return 'Obesidade classe 2';
+    } else if (calcIMC.value >= 40.0) {
+        return 'Obesidade classe 3';
+    } else {
+        return 'Digite os valores certo para saber seu IMC!!'
+    }
+})
+
+const resClassIMC = classIMC.value
+
+function infoIMC() {
+    divInfoIMC.value = !divInfoIMC.value
+}
+
+const sexo = data.data.value?.sexo
+const idade = parseFloat(data.data.value?.idade)
+const dTorax = parseFloat(data.data.value?.dtorax)
+const abdominal = parseFloat(data.data.value?.abdominal)
+const coxa = parseFloat(data.data.value?.coxa)
+const triceps = parseFloat(data.data.value?.tricipital)
+const supraespinhal = parseFloat(data.data.value?.supraEspinhal)
+
+const homens = dTorax + abdominal + coxa
+const mulheres = triceps + supraespinhal + coxa
+
+const dcHomens = 1.109380 - (0.0008267 * (homens)) + (0.0000016 * (homens * homens)) - (0.0002574 * (idade))
+const dcMulheres = 1.0994921 - (0.0009929 * (mulheres)) + (0.0000023 * (mulheres * mulheres)) - (0.0001392 * (idade))
+
+const percGHomens = (((4.95 / dcHomens) - 4.50) * 100).toFixed(1)
+const percGMulheres = (((4.95 / dcMulheres) - 4.50) * 100).toFixed(1)
+
+const classHomens = computed(() => {
+
+    if (percGHomens >= 5 && percGHomens <= 14.9) {
+        return 'Normal';
+    } else if (percGHomens >= 15 && percGHomens <= 19.9) {
+        return 'Sobrepeso';
+    } else if (percGHomens >= 20 && percGHomens <= 24.9) {
+        return 'Obesidade Moderada';
+    } else if (percGHomens >= 25 && percGHomens <= 29.9) {
+        return 'Obesidade Elevada';
+    } else if (percGHomens > 29.9) {
+        return 'Obesidade Mórbida';
+    } else {
+        return 'Digite os valores certo para saber seu %G!!'
+    }
+
+})
+
+const classMulheres = computed(() => {
+
+    if (percGMulheres >= 10 && percGMulheres <= 24.9) {
+        return 'Normal';
+    } else if (percGMulheres >= 25 && percGMulheres <= 29.9) {
+        return 'Sobrepeso';
+    } else if (percGMulheres >= 30 && percGMulheres <= 34.9) {
+        return 'Obesidade Moderada';
+    } else if (percGMulheres >= 35 && percGMulheres <= 39.9) {
+        return 'Obesidade Elevada';
+    } else if (percGMulheres > 39.9) {
+        return 'Obesidade Mórbida';
+    } else {
+        return 'Digite os valores certo para saber seu %G!!'
+    }
+
+})
+
+const percentualFat = computed(() => {
+    if (sexo === "feminino") {
+        return percGMulheres
+    } return percGHomens
+})
+
+const classify = computed(() => {
+    if (sexo === "feminino") {
+        return classMulheres.value
+    } return classHomens.value
+})
+
+const divOne = ref(true);
+const divTwo = ref(false);
+const divTree = ref(false);
+const divAplicar = ref(true);
+const divAplicarTwo = ref(false);
+const divAplicarTree = ref(false);
+const divInfoPercentual = ref(false)
+
+function infoPercentual() {
+    divInfoPercentual.value = !divInfoPercentual.value
+}
+
+function openDivOne() {
+    divOne.value = !divOne.value;
+    divTwo.value = false
+    divTree.value = false
+    divAplicar.value = !divAplicar.value
+    divAplicarTwo.value = false
+    divAplicarTree.value = false
+}
+
+function openDivTwo() {
+    divTwo.value = !divTwo.value;
+    divOne.value = false;
+    divTree.value = false;
+    divAplicarTwo.value = !divAplicarTwo.value
+    divAplicar.value = false
+    divAplicarTree.value = false
+}
+
+function openDivTree() {
+    divTree.value = !divTree.value;
+    divOne.value = false;
+    divTwo.value = false;
+    divAplicarTree.value = !divAplicarTree.value
+    divAplicarTwo.value = false
+    divAplicar.value = false
+}
 </script>
 
 <template>
@@ -23,7 +163,7 @@ console.log(dateV)
             <div class="main-div-one">
 
                 <h3>
-                    <Icon name='solar:clipboard-heart-bold' /> AVALIAÇÃO {{}}
+                    <Icon name='solar:clipboard-heart-bold' /> AVALIAÇÃO - {{ dateV.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1') }}
                 </h3>
             </div>
             <div class="main-div-one">
@@ -206,7 +346,7 @@ console.log(dateV)
                     <div>
                         <h3>Ombro:</h3>
                         <h4>
-                            {{ data.data.value?.ombro }} cm
+                            {{ dd.ombro }} cm
                         </h4>
                     </div>
 
@@ -217,7 +357,7 @@ console.log(dateV)
                     <div>
                         <h3>Pescoço:</h3>
                         <h4>
-                            {{ data.data.value?.pescoco }} cm
+                            {{ dd.pescoco }} cm
                         </h4>
                     </div>
 
@@ -227,7 +367,7 @@ console.log(dateV)
                     <div>
                         <h3>Tórax:</h3>
                         <h4>
-                            {{ data.data.value?.torax }} cm
+                            {{ dd.torax }} cm
                         </h4>
                     </div>
 
@@ -238,7 +378,7 @@ console.log(dateV)
                     <div>
                         <h3>Tórax Contraído:</h3>
                         <h4>
-                            {{ data.data.value?.toraxContraido }} cm
+                            {{ dd.toraxContraido }} cm
                         </h4>
                     </div>
 
@@ -249,7 +389,7 @@ console.log(dateV)
                     <div>
                         <h3>Tórax expirado:</h3>
                         <h4>
-                            {{ data.data.value?.toraxRelaxado }} cm
+                            {{ dd.toraxRelaxado }} cm
                         </h4>
                     </div>
 
@@ -260,7 +400,7 @@ console.log(dateV)
                     <div>
                         <h3>Cintura:</h3>
                         <h4>
-                            {{ data.data.value?.cintura }} cm
+                            {{ dd.cintura }} cm
                         </h4>
                     </div>
 
@@ -271,7 +411,7 @@ console.log(dateV)
                     <div>
                         <h3>Quadril:</h3>
                         <h4>
-                            {{ data.data.value?.quadril }} cm
+                            {{ dd.quadril }} cm
                         </h4>
                     </div>
 
@@ -296,10 +436,10 @@ console.log(dateV)
                     </div>
                     <div>
                         <h4>
-                            {{ data.data.value?.bracoEsquerdoRelaxado }} cm
+                            {{ dd.bracoEsquerdoRelaxado }} cm
                         </h4>
                         <h4>
-                            {{ data.data.value?.bracoDireitoRelaxado }} cm
+                            {{ dd.bracoDireitoRelaxado }} cm
                         </h4>
                     </div>
 
@@ -313,10 +453,10 @@ console.log(dateV)
                     </div>
                     <div>
                         <h4>
-                            {{ data.data.value?.bracoEsquerdoContraido }} cm
+                            {{ dd.bracoEsquerdoContraido }} cm
                         </h4>
                         <h4>
-                            {{ data.data.value?.bracoDireitoContraido }} cm
+                            {{ dd.bracoDireitoContraido }} cm
                         </h4>
                     </div>
 
@@ -330,10 +470,10 @@ console.log(dateV)
                     </div>
                     <div>
                         <h4>
-                            {{ data.data.value?.antebracoEsquerdo }} cm
+                            {{ dd.antebracoEsquerdo }} cm
                         </h4>
                         <h4>
-                            {{ data.data.value?.antebracoDireito }} cm
+                            {{ dd.antebracoDireito }} cm
                         </h4>
                     </div>
 
@@ -347,10 +487,10 @@ console.log(dateV)
                     </div>
                     <div>
                         <h4>
-                            {{ data.data.value?.coxaMedialEsquerda }} cm
+                            {{ dd.coxaMedialEsquerda }} cm
                         </h4>
                         <h4>
-                            {{ data.data.value?.coxaMedialDireita }} cm
+                            {{ dd.coxaMedialDireita }} cm
                         </h4>
                     </div>
 
@@ -364,10 +504,10 @@ console.log(dateV)
                     </div>
                     <div>
                         <h4>
-                            {{ data.data.value?.coxaDistalEsquerda }} cm
+                            {{ dd.coxaDistalEsquerda }} cm
                         </h4>
                         <h4>
-                            {{ data.data.value?.coxaDistalDireita }} cm
+                            {{ dd.coxaDistalDireita }} cm
                         </h4>
                     </div>
 
@@ -381,10 +521,10 @@ console.log(dateV)
                     </div>
                     <div>
                         <h4>
-                            {{ data.data.value?.pernaEsquerda }} cm
+                            {{ dd.pernaEsquerda }} cm
                         </h4>
                         <h4>
-                            {{ data.data.value?.pernaDireita }} cm
+                            {{ dd.pernaDireita }} cm
                         </h4>
                     </div>
                     <br>
@@ -504,7 +644,7 @@ console.log(dateV)
                     <div>
                         <h3>Tórax:</h3>
                         <h4>
-                            {{ data.data.value?.dtorax }} mm
+                            {{ dd.dtorax }} mm
                         </h4>
                     </div>
 
@@ -515,7 +655,7 @@ console.log(dateV)
                     <div>
                         <h3>Tricipital:</h3>
                         <h4>
-                            {{ data.data.value?.tricipital }} mm
+                            {{ dd.tricipital }} mm
                         </h4>
                     </div>
 
@@ -526,7 +666,7 @@ console.log(dateV)
                     <div>
                         <h3>Subescapular:</h3>
                         <h4>
-                            {{ data.data.value?.subEscapular }} mm
+                            {{ dd.subEscapular }} mm
                         </h4>
                     </div>
 
@@ -536,7 +676,7 @@ console.log(dateV)
                     <div>
                         <h3>Axilar Média:</h3>
                         <h4>
-                            {{ data.data.value?.axilarMedia }} mm
+                            {{ dd.axilarMedia }} mm
                         </h4>
                     </div>
 
@@ -547,7 +687,7 @@ console.log(dateV)
                     <div>
                         <h3>Abdominal:</h3>
                         <h4>
-                            {{ data.data.value?.abdominal }} mm
+                            {{ dd.abdominal }} mm
                         </h4>
                     </div>
 
@@ -558,7 +698,7 @@ console.log(dateV)
                     <div>
                         <h3>Supra-espinhal:</h3>
                         <h4>
-                            {{ data.data.value?.supraEspinhal }} mm
+                            {{ dd.supraEspinhal }} mm
                         </h4>
                     </div>
 
@@ -569,7 +709,7 @@ console.log(dateV)
                     <div>
                         <h3>Coxa medial:</h3>
                         <h4>
-                            {{ data.data.value?.coxa }} mm
+                            {{ dd.coxa }} mm
                         </h4>
                     </div>
 
@@ -580,7 +720,7 @@ console.log(dateV)
                     <div>
                         <h3>Perna:</h3>
                         <h4>
-                            {{ data.data.value?.perna }} mm
+                            {{ dd.perna }} mm
                         </h4>
                     </div>
 
@@ -599,7 +739,7 @@ console.log(dateV)
                     <div>
                         <h3>Úmero:</h3>
                         <h4>
-                            {{ data.data.value?.umero }} mm
+                            {{ dd.umero }} mm
                         </h4>
                     </div>
 
@@ -610,7 +750,7 @@ console.log(dateV)
                     <div>
                         <h3>Punho:</h3>
                         <h4>
-                            {{ data.data.value?.punho }} mm
+                            {{ dd.punho }} mm
                         </h4>
                     </div>
 
@@ -621,7 +761,7 @@ console.log(dateV)
                     <div>
                         <h3>Fêmur:</h3>
                         <h4>
-                            {{ data.data.value?.femur }} mm
+                            {{ dd.femur }} mm
                         </h4>
                     </div>
 
@@ -632,7 +772,7 @@ console.log(dateV)
                     <div>
                         <h3>Tornozelo:</h3>
                         <h4>
-                            {{ data.data.value?.tornozelo }} mm
+                            {{ dd.tornozelo }} mm
                         </h4>
                     </div>
 
@@ -647,13 +787,13 @@ console.log(dateV)
                     <div>
                         <h2>Flexões de braços</h2>
                         <h3>
-                            {{ data.data.value?.flexaoBraco }}
+                            {{ dd.flexaoBraco }}
                         </h3>
                     </div>
                     <div>
                         <h2>Abdominais</h2>
                         <h3>
-                            {{ data.data.value?.flexaoAbdominal }}
+                            {{ dd.flexaoAbdominal }}
                         </h3>
                     </div>
 

@@ -191,3 +191,6 @@ app.get('/images/:filename', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
+
+## para apagar o treino, depois de criar:
+localStorage.clear();

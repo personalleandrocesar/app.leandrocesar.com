@@ -330,7 +330,6 @@ const removeAllSeries = () => {
   }
 };
 
-
 const addExercise = () => {
   if (selectedSeriesIndex.value !== null) {
     training.value.serie[selectedSeriesIndex.value].set.push({
@@ -399,7 +398,7 @@ async function handleSubmit() {
     });
     if (response.ok) {
       console.log('Create Training successfully');
-      localStorage.clear();
+      // localStorage.clear();
       notific.value = true;
       setTimeout(() => {
           notific.value = false;
@@ -831,7 +830,7 @@ function openPhoto() {
                                     <input
                                       type="search"
                                       v-model="searchQuery"
-                                      placeholder="Pesquisar usuários"
+                                      placeholder="Pesquisar exercício"
                                       @input="updateSearchQuery"
                                       class="search-input"
                                       ref='exerciseNameInput'

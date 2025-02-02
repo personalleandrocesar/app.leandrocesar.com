@@ -893,11 +893,11 @@ const greetingMessage = computed(() => getGreetingMessage());
     width: 300px;
     height: 300px;
     border-radius: 200px;
-    border: #00dc82 1px solid;
+    border: #00dc82 2px solid;
     opacity: 1;
     z-index: 100;
     object-fit: cover; /* Preenche o contêiner sem deformar */
-
+        padding: 4px;
 }
 
 .photo {

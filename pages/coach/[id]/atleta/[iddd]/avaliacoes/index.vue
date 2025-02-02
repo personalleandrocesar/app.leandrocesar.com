@@ -2021,7 +2021,7 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(85px);
-  z-index: 100; /* Garante que a barra fique visível acima do conteúdo */
+  z-index: 1; /* Garante que a barra fique visível acima do conteúdo */
 }
 .topbar div{
   display: flex;
@@ -3126,7 +3126,7 @@ input[type="radio"] {
     height: 300px;
     width: 300px;
     border-radius: 200px;
-    /* border: #00dc82 2px solid; */
+    border: #00dc82 2px solid;
     margin-right: 1.2rem;
     padding: 4px;
     opacity: 1;

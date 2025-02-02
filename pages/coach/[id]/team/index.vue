@@ -466,7 +466,7 @@ loadTeamImages();
                             <div class="title-user">
                                 <div class="user-bd">
 <h3>{{ username }}</h3>
-        <img :src="image" :alt="`Imagem mais recente de ${username}`" />                                </div>
+        <img :src="image" :alt="`${username}`" />                                </div>
                                         <h4>
                                             {{ item.name }} {{ item.lastName }}
                                         </h4>

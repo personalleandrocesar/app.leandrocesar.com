@@ -323,6 +323,19 @@ const removeSeries = (index) => {
   }
 };
 
+const removeSeriesAll = () => {
+  notificTree.value = true
+}
+
+function notifConfirm() {
+    notificTree.value = false
+    training.value.serie = [];
+    selectedSeriesIndex.value = null;
+}
+function notifCancel() {
+    notificTree.value = false
+}
+
 const removeAllSeries = () => {
   if (confirm("Tem certeza que deseja apagar todas as séries?")) {
     training.value.serie = [];
@@ -502,9 +515,6 @@ const athleteId = ref('');
 const error = ref(null);
 const notificTree = ref(false);
 const notificFour = ref(false);
-
-function notifConfirm() { notificTree.value = true; }
-function notifCancel() { notificTree.value = false; }
 
 const showFloatingDiv = ref(false);
 const previewImage = ref(null);
@@ -797,7 +807,7 @@ function openPhoto() {
                               <div>
                                 <div>
                                     <button type="button" @click="addSeries">Adicionar Série</button>
-                                    <button type="button" @click="removeAllSeries" style="color: red;">Apagar  Séries</button>
+                                    <button type="button" @click="removeSeriesAll" style="background-color: #ff1900; border: #ff1900 1px solid; color: #fff; font-weight: bolder;">Apagar  Séries</button>
                                     <Icon @click="coachFloatCreate"  name='material-symbols:close-rounded' />
                                 </div>
                               </div>
@@ -1266,6 +1276,28 @@ function openPhoto() {
                 </div>            
             </div>
         </div>
+        <div v-if='notificTree' class="float">
+                <div class="notific-floatt zoomOut" >
+                    <div>
+                        <Icon name='uil:exclamation-circle' @click='closeNotific' style="color: red; zoom:2.2"/>
+                    </div>
+                    <div>
+                        <div>
+                            <h3>
+                                Apagar Séries
+                            </h3>
+                            <p>
+                                Tem certeza que deseja apagar todas as séries?
+                            </p>
+                        </div>
+                        <div>   
+                            <button @click='notifConfirm()' class="pill-can ex">Apagar</button>
+                            <button @click="notifCancel()" class="pill-can can">Cancelar</button>
+                        </div>
+                    </div>
+        
+                </div>
+        </div>
         
 </template>
 <style scoped>
@@ -1557,7 +1589,7 @@ li:hover img {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 1002;
+      z-index: 102;
       background: #ecedf060;
       backdrop-filter: blur(1px); /* Desfoque do fundo */
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras (opcional) */
@@ -1624,7 +1656,7 @@ label {
         -50%,
         -50%
     ); /* Centraliza ajustando a posição do elemento */
-    z-index: 9999; /* Garante que esteja acima de todo o conteúdo */
+    z-index: 1; /* Garante que esteja acima de todo o conteúdo */
     color: #777;
     padding:20px; /* Espaço interno */
     border-radius: 10px; /* Cantos arredondados (opcional) */
@@ -1659,6 +1691,46 @@ label {
         transform: scale(0.8); /* Começa menor */
         animation: zoomIn 0.5s ease-out forwards; /* Animação de entrada */
 }
+.notific-floatt {
+    background: #f1fef9;
+    width:576px; /* Largura fixa */
+      height: 128px; /* Altura fixa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Fixa a div em relação à tela */
+    top: 50%; /* Posiciona a div no meio da altura */
+    left: 50%; /* Posiciona a div no meio da largura */
+    transform: translate(
+        -50%,
+        -50%
+    ); /* Centraliza ajustando a posição do elemento */
+    z-index: 9999; /* Garante que esteja acima de todo o conteúdo */
+    color: #777;
+    padding:20px; /* Espaço interno */
+    border-radius: 10px; /* Cantos arredondados (opcional) */
+    text-align: left; /* Alinha o texto centralizado */
+    backdrop-filter: blur(10px); /* Desfoque do fundo */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras (opcional) */
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+}
+.dark-mode .notific-floatt {
+    background-color: #0f172a;
+}
+
+.notific-floatt div {
+    margin: 0px 15px 12px 15px;
+}
+
+.notific-floatt button{
+    margin: 0 5px 0 0px;
+}
+.dark-mode .notific-floatt button{
+    margin: 0 5px 0 0px;
+    color: #fff;
+}
+
 .notific-float-two {
     background: #f1fef9;
     width: 21%; /* Largura fixa */
@@ -2020,7 +2092,7 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(85px);
-  z-index: 100; /* Garante que a barra fique visível acima do conteúdo */
+  z-index: 1; /* Garante que a barra fique visível acima do conteúdo */
 }
 .topbar div{
   display: flex;
@@ -3125,7 +3197,7 @@ input[type="radio"] {
     height: 300px;
     width: 300px;
     border-radius: 200px;
-    /* border: #00dc82 2px solid; */
+    border: #00dc82 2px solid;
     margin-right: 1.2rem;
     padding: 4px;
     opacity: 1;
@@ -3256,7 +3328,7 @@ button:disabled {
 button {
     background: #00d4ff;
     border-radius: 4px;
-    color: #555;
+    color: #000;
     padding: 7px 10px;
 }
 

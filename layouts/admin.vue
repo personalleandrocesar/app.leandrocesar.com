@@ -736,14 +736,14 @@ function logout () {
 .menu-suspend {
     background: #eee;
     position: relative;
-    top:2px;
+    bottom: 5px;
     margin: 0 6%;
     border-radius: 4px;
     text-align: left;
     padding: 10px 10px 2px 10px;
     border: solid 0.1px #00dc8230;
     display: flex;
-    z-index: 3;
+    z-index:1;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -801,7 +801,7 @@ function logout () {
         -50%,
         -50%
     ); /* Centraliza ajustando a posição do elemento */
-    z-index: 9999; /* Garante que esteja acima de todo o conteúdo */
+    z-index: 1021200; /* Garante que esteja acima de todo o conteúdo */
     color: #777;
     padding:20px; /* Espaço interno */
     border-radius: 10px; /* Cantos arredondados (opcional) */
@@ -898,6 +898,7 @@ input:focus {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+        z-index: 1;
 }
 
 .left-column-two img {
@@ -1060,7 +1061,9 @@ input:focus {
     padding: 7px 5px;
     border-radius: 6px;
     cursor: pointer;
-    z-index: 1;
+    position: absolute;
+    bottom: 40px;
+    left:-70px;
 }
 
 .search{

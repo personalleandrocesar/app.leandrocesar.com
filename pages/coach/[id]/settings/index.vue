@@ -580,7 +580,7 @@ function notifCancel() {
         
     </div>
     <div v-if='notificTree' class="float">
-            <div class="notific-float zoomOut" >
+            <div class="notific-floatt zoomOut" >
                 <div>
                     <Icon name='uil:exclamation-circle' @click='closeNotific' style="color: red; zoom:2.2"/>
                 </div>
@@ -620,7 +620,7 @@ function notifCancel() {
       padding: 20px; /* Espaçamento interno */
       text-align: center;
 }
-.notific-float {
+.notific-floatt {
     background: #f1fef9;
     width:576px; /* Largura fixa */
       height: 128px; /* Altura fixa */
@@ -644,13 +644,20 @@ function notifCancel() {
       justify-content: flex-start;
       align-items: flex-start;
 }
+.dark-mode .notific-floatt {
+    background-color: #0f172a;
+}
 
-.notific-float div {
+.notific-floatt div {
     margin: 0px 15px 12px 15px;
 }
 
-.notific-float button{
+.notific-floatt button{
     margin: 0 5px 0 0px;
+}
+.dark-mode .notific-floatt button{
+    margin: 0 5px 0 0px;
+    color: #fff;
 }
 
 .theme-switch {

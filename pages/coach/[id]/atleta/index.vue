@@ -758,7 +758,7 @@ watch([periodStart, periodEnd], updateStatus);
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  z-index: 10; /* Garante que a barra fique visível acima do conteúdo */
+  z-index: 1; /* Garante que a barra fique visível acima do conteúdo */
 }
 .topbar div{
   display: flex;

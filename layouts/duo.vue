@@ -872,13 +872,14 @@ const greetingMessage = computed(() => getGreetingMessage());
 
 .logo-nav-bar img {
     width: 300px;
-    height: 300px;
-    border-radius: 200px;
-    border: #00dc82 1px solid;
-    opacity: 1;
-    z-index: 100;
-    object-fit: cover; /* Preenche o contêiner sem deformar */
-
+        height: 300px;
+        border-radius: 200px;
+        border: #00dc82 2px solid;
+        opacity: 1;
+        z-index: 100;
+        -o-object-fit: cover;
+        object-fit: cover;
+        padding: 4px;
 }
 
 .photo {

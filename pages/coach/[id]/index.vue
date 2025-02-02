@@ -62,6 +62,7 @@ useHead({
           <div class="div-bar">
             <Bar :data="barVData" :options="barVOptions" class="c-bar-vertical" />
           </div>
+          
         </div>
       </div>
     </div>

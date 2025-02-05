@@ -107,6 +107,12 @@ function coachFloat() {
     ensureSearchInputFocus();
 }
 
+// if (menuFloat.value === true) {
+//     setTimeout(() => {
+//         navigateTo(`/coach/${route.params.id}/atleta/${createdTeam._id}`);
+//     }, 1500);
+// }
+
 function coachOut() {
     menuSuspend.value = false;
     ative.value = false;
@@ -495,7 +501,7 @@ function logout () {
                         <p class='go-to'>Go to</p>
                         <NuxtLink
                             :to="`/coach/${route.params.id}`"
-                            class="menu-button"
+                            class="menu-button" @click="coachFloat"
                         >
                             <div>
                             <Icon name="heroicons:home" />
@@ -508,7 +514,7 @@ function logout () {
                         </NuxtLink>
                         <NuxtLink
                             :to="`/coach/${route.params.id}/team`"
-                            class="menu-button"
+                            class="menu-button" @click="coachFloat"
                         >
                             <div>
                             <Icon name="heroicons:user-group" />
@@ -521,7 +527,7 @@ function logout () {
                         </NuxtLink>
                         <NuxtLink
                             :to="`/coach/${route.params.id}/settings`"
-                            class="menu-button"
+                            class="menu-button" @click="coachFloat"
                         >
                             <div>
                                 <Icon name="heroicons:cog-6-tooth" />

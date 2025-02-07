@@ -759,7 +759,7 @@ function openPhoto() {
                       <div class='bor'>
                               <div class="theme-switch-two">
 
-                                <div v-if='train' @click="coachFloat(training)" class='tr' v-for="(training, index) in train" :key="index">
+                                <div v-if='train' @click="coachFloat(training)" class='tr' v-for="(training, index) in [...train].reverse()" :key="index">
 
                                     <!-- <NuxtLink :to="`/coach/${route.params.id}/atleta/${route.params.iddd}/treino/${training.named }`"> -->
                                     <NuxtLink>
@@ -2428,10 +2428,12 @@ select {
     text-align: left;
     height: 24px;
     font-size: 14px;
+    background: #00dc8210;
+    border: solid 1px #00dc82;
 }
 
 select::selection {
-    border: solid 2px #00dc82;
+    border: solid 1px #00dc82;
     background: #00dc8240;
 }
 

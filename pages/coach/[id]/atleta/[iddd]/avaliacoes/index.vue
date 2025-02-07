@@ -750,7 +750,7 @@ function openPhoto() {
                       <div class='bor'>
                               <div class="theme-switch-two">
 
-                                <div v-if='train' @click="coachFloat(training)" class='tr' v-for="(training, index) in train" :key="index">
+                                <div v-if='train' @click="coachFloat(training)" class='tr' v-for="(training, index) in [...train].reverse()" :key="index">
 
                                     <!-- <NuxtLink :to="`/coach/${route.params.id}/atleta/${route.params.iddd}/treino/${training.named }`"> -->
                                     <NuxtLink>

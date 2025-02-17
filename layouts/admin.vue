@@ -762,21 +762,7 @@ function logout () {
     background: #111832;
 }
 
-.float{
-    position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1002;
-      background: #ecedf060;
-      backdrop-filter: blur(1px); /* Desfoque do fundo */
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras (opcional) */
-      color: #333; /* Cor do texto */
-      width: 100%; /* Largura fixa */
-      height: 100vh; /* Altura fixa */
-      padding: 20px; /* Espaçamento interno */
-      text-align: center;
-}
+
 
 
 .conec {

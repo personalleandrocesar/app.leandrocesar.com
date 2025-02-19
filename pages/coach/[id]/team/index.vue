@@ -274,31 +274,30 @@ const updateStatus = () => {
 watch([periodStart, periodEnd], updateStatus);
 
 const searchQuery = ref('');
-const atletas = await useFetch(`https://api.leandrocesar.com/usersnw/${route.params.id}/team`);
-const allUsers = atletas.data.value || [];
-
-const filteredUsers = computed(() => {
-  return allUsers.filter(user => 
-    user.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    user.username.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    user.whatsapp.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    user.service.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    user._id.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    user.email.toLowerCase().includes(searchQuery.value.toLowerCase())
-  );
-});
-console.log(allUsers.length)
-// Função para atualizar o estado de pesquisa
-const updateSearchQuery = (event) => {
-  searchQuery.value = event.target.value;
-};
 const searchInputRef = ref(null);
 
-const focusSearchInput = () => {
-  // Verifica se o elemento está definido e o foca
+// Busca os atletas da API corretamente
+const { data: atletas } = await useFetch(`https://api.leandrocesar.com/usersnw/${route.params.id}/team`);
+const allUsers = computed(() => atletas.value || []);
+
+const filteredUsers = computed(() => {
+  return allUsers.value.filter(user => 
+    user.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+    user.username.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+    user._id.toLowerCase().includes(searchQuery.value.toLowerCase()) 
+  );
+});
+
+// Garante que o campo de pesquisa recebe o foco ao carregar
+onMounted(() => {
   if (searchInputRef.value) {
     searchInputRef.value.focus();
   }
+});
+
+// Função para atualizar a pesquisa (opcional, pois `v-model` já faz isso)
+const updateSearchQuery = (event) => {
+  searchQuery.value = event.target.value;
 };
 const pressedKeys = new Set(); // Armazena as teclas pressionadas
 
@@ -425,14 +424,15 @@ loadTeamImages();
           <div>
             <Icon class='filt' name='heroicons-outline:search' />
             <div class="nav-users">
-                    <input type='text'
-                    ref="searchInputRef"
-                    v-model="searchQuery"
-                    placeholder="Procurar..."
-                    @input="updateSearchQuery"
-                    class="search-input"
-                    name='q'
-                    >
+                    <input
+                        type="text"
+                        ref="searchInputRef"
+                        v-model="searchQuery"
+                        placeholder="Procurar..."
+                        @input="updateSearchQuery"
+                        class="search-input"
+                        name="q"
+                    />
             </div>
             <div class="nav-users">
                     <div v-if="addCloseClient" class="add-client add-client-mini" @click="addClient">

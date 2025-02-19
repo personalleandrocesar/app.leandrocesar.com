@@ -1,11 +1,12 @@
 <script setup>
 
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 const route = useRoute();
 
 const searchQuery = ref('');
 const Users = await useFetch(`https://api.leandrocesar.com/usersnw/${route.params.id}/team`);
 const allUsers = Users.data.value || [];
+
 
 const filteredUsers = computed(() => {
   return allUsers.filter(user => 
@@ -18,9 +19,15 @@ const filteredUsers = computed(() => {
 const updateSearchQuery = (event) => {
   searchQuery.value = event.target.value;
 };
-const de = ref()
+
 const searchInputRef = ref(null); // Referência do campo de pesquisa
 
+// Define o foco no input quando o componente for montado
+onMounted(() => {
+  if (searchInputRef.value) {
+    searchInputRef.value.focus();
+  }
+});
 // Força o foco no campo de pesquisa
 function ensureSearchInputFocus() {
     if (searchInputRef.value) {

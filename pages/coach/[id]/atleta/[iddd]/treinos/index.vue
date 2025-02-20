@@ -1540,7 +1540,7 @@ function openPhoto() {
 <style scoped>
 .ex-a {
       position: fixed;
-    left: -6.5%;
+    left: -2px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 100;
@@ -2232,12 +2232,12 @@ input:checked + .slider:before {
 }
 .theme-switch-two {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   gap: .5rem;
-  margin: 4px;
+  margin: 15px;
   
 }
 .theme-switch-two-ex {

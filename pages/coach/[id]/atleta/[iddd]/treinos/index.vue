@@ -1540,17 +1540,16 @@ function openPhoto() {
 <style scoped>
 .ex-a {
       position: fixed;
-    left: -2px;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 0px;
+    bottom: 0;
     z-index: 100;
-    rotate: -90deg;
     background: #00dc8240;
     border-radius: 8px;
     border: solid .5px #00dc8280;
     cursor: pointer;
     display: flex;
     flex-direction: row;
+    font-size: .8rem;
 }
 
 .dark-mode .ex-a {
@@ -1559,7 +1558,7 @@ function openPhoto() {
 }
 
 .ex-a div {
-  padding: 5px 10px;
+  padding: 2px 6px;
 }
 
 .ex-a d:hover {
@@ -1584,21 +1583,6 @@ function openPhoto() {
   align-items: center;
 }
 
-.float{
-    position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1002;
-      background: #ecedf060;
-      backdrop-filter: blur(1px); /* Desfoque do fundo */
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras (opcional) */
-      color: #333; /* Cor do texto */
-      width: 100%; /* Largura fixa */
-      height: 100vh; /* Altura fixa */
-      padding: 20px; /* Espaçamento interno */
-      text-align: center;
-}
 .float-ex{
     position: fixed;
       top: 67%;
@@ -2232,7 +2216,7 @@ input:checked + .slider:before {
 }
 .theme-switch-two {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;

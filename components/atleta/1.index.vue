@@ -206,8 +206,8 @@ function close () {
       <div class="lost">
         <a>
           <h5>
-          Não tem cadastro? Clique
-          <NuxtLink @click='formCoach' class='it'>aqui</NuxtLink>
+            Não tem cadastro? Clique
+            <NuxtLink @click='formCoach' class='it'>aqui</NuxtLink>
           </h5>
         </a>
       </div>

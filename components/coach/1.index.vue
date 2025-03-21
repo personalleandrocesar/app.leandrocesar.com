@@ -121,7 +121,7 @@ function close () {
   <div>
     <div class="head-logo" id="sobre">
       <div class='logo'>
-        <img @click="openPhoto()" src="~/assets/logo.png">
+        <img @click="openPhoto()" src="~/assets/logoTrans.png">
       </div>
     </div>
     <div class="head-name">
@@ -363,17 +363,17 @@ h3 {
   flex-wrap: wrap;
   height: 100px;
   width: 100px;
-  box-shadow: 0px 7px 20px #00dc82;
+  /* box-shadow: 0px 7px 20px #00dc82; */
   margin: 9rem 0 1.5rem 0;
   border-radius: 200px;
   z-index: 10;
 }
 
 .logo img {
-  height: 100px;
-  width: 100px;
+  height: 140px;
+  width: 140px;
   border-radius: 200px;
-  border: #00dc82 2px solid;
+  /* border: #00dc82 2px solid; */
   z-index: 100;
   opacity: 1;
 

@@ -370,8 +370,8 @@ h3 {
 }
 
 .logo img {
-  height: 140px;
-  width: 140px;
+  height: 130px;
+  width: 130px;
   border-radius: 200px;
   /* border: #00dc82 2px solid; */
   z-index: 100;

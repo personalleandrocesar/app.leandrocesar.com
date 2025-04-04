@@ -20,8 +20,8 @@ console.log(dd)
 
 
 const divInfoIMC = ref(false)
-const peso = parseFloat(data.data.value?.massa).toFixed(2)
-const altura = parseFloat(data.data.value?.altura).toFixed(2)
+const peso = parseFloat(dd.massa).toFixed(2)
+const altura = parseFloat(dd.altura).toFixed(2)
 
 const calcIMC = computed(() => {
     return (peso / (altura * altura)).toFixed(1)
@@ -51,13 +51,13 @@ function infoIMC() {
     divInfoIMC.value = !divInfoIMC.value
 }
 
-const sexo = data.data.value?.sexo
-const idade = parseFloat(data.data.value?.idade)
-const dTorax = parseFloat(data.data.value?.dtorax)
-const abdominal = parseFloat(data.data.value?.abdominal)
-const coxa = parseFloat(data.data.value?.coxa)
-const triceps = parseFloat(data.data.value?.tricipital)
-const supraespinhal = parseFloat(data.data.value?.supraEspinhal)
+const sexo = dd.sexo
+const idade = parseFloat(dd.idade)
+const dTorax = parseFloat(dd.dtorax)
+const abdominal = parseFloat(dd.abdominal)
+const coxa = parseFloat(dd.coxa)
+const triceps = parseFloat(dd.tricipital)
+const supraespinhal = parseFloat(dd.supraEspinhal)
 
 const homens = dTorax + abdominal + coxa
 const mulheres = triceps + supraespinhal + coxa
@@ -241,6 +241,7 @@ function openDivTree() {
 
                     <div v-if="divInfoIMC">
                         <table>
+                        <thead>
                             <tr>
                                 <th>
                                     Classificação
@@ -326,6 +327,7 @@ function openDivTree() {
                                     Muito Severo
                                 </td>
                             </tr>
+                            </thead>
                         </table>
                     </div>
                 </div>
@@ -552,6 +554,7 @@ function openDivTree() {
 
                     <div v-if="divInfoPercentual">
                         <table>
+                        <thead>
                             <tr>
                                 <th>
                                     Classificação
@@ -624,6 +627,7 @@ function openDivTree() {
                                     > 29.9
                                 </td>
                             </tr>
+                            </thead>
                         </table>
                     </div>
                 </div>
@@ -833,10 +837,17 @@ body {
 
 table {
     margin: 0;
+    border: solid 1px #00dc82;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 th,
 td {
+    border: solid 1px #00dc82;
+    border-collapse: collapse;
+    border-spacing: 0;
+
     margin: 0 3px;
     padding: 0 7px;
     text-align: center;
@@ -1070,7 +1081,6 @@ td {
 
 
 .square {
-    color: var(--color-text);
     background-color: #00dc8210;
     backdrop-filter: blur(5px);
     overflow-x: auto;
@@ -1096,7 +1106,7 @@ td {
 }
 
 
-.main-div-one H3 {
+.main-div-one h3 {
     margin-left: 20px;
     margin-top: 10px;
 }

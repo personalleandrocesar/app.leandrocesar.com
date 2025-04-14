@@ -1043,7 +1043,7 @@ input:focus {
     border-radius: 6px;
 }
 .retract-button {
-    align-items: right;
+    align-items: center;
     transition: background-color 0.2s ease;
     text-decoration: none;
     display: flex;
@@ -1053,9 +1053,6 @@ input:focus {
     padding: 7px 5px;
     border-radius: 6px;
     cursor: pointer;
-    position: absolute;
-    bottom: 40px;
-    left:-70px;
 }
 
 .search{

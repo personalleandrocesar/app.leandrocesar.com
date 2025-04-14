@@ -523,10 +523,8 @@ loadTeamImages();
                 </div>
             </div>
             <div v-else-if="updt" class="main">
-                <div class="barTop center">
-
-                </div>
-                <form @submit.prevent="submitForm">
+                <form @submit.prevent="submitForm" class="form-container">
+                    <div>
                     <div class="inputs">
 
                         <div>
@@ -541,30 +539,18 @@ loadTeamImages();
                             <input type="text" id="sobrenome" v-model="lastName" required autocomplete="sobrenome">
 
                         </div>
-                    </div>
-                    <div class="inputs">
-
-                        <div>
-
-                            <span>Gênero</span>
-
-                        </div>
-                    </div>
+                    </div> 
 
                     <div class="inputs">
                         <div>
 
-                            <input type="radio" name='sex' id="feminino" v-model="sex" required
-                                value=feminino autocomplete="sexo" checked>
-                            <label for="feminino">Feminino</label>
-
-                        </div>
-                        <div>
-
-                            <input type="radio" name='sex' id="masculino" v-model="sex" required
-                                value="masculino" autocomplete="sexo">
-                            <label for="masculino">Masculino</label>
-
+                            <span>Gênero?</span>
+                            <select name="sex" id="sex" class="select" placeholder='' required v-model="sex" autocomplete="sexo">
+                                <option disabled value="">Selecione uma opção</option>
+                                <option value="feminino">Feminino</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="Outro">Outro</option>
+                            </select>
                         </div>
 
 
@@ -662,9 +648,6 @@ loadTeamImages();
                         </div>
                     </div>
                     <div class="inputs">
-                              <label for="monthsToAdd">Tipo de plano</label>                           
-                    </div>
-                    <div class="inputs">
                             <div>
                                       <input type="radio" id="oneMonth" value="1" v-model="monthsToAdd" @change="calculateNewDate" />
                                       <label for="oneMonth">Mensal</label>
@@ -690,21 +673,16 @@ loadTeamImages();
                               <input type="date" id="newDate" v-model="newDate" @input="updateNewDate" />
                             </div>
                           </div>
-                        <div>
-                          </div>
+                    </div>
                     </div>
                     <div>
-
-                    </div>
-                    <div>
-
-                    </div>
 
                     <div class="inputs">
                         <button class="menu-button" type="submit">
                             Criar
                             <Icon name="material-symbols:person-add-rounded" />
                         </button>
+                    </div>
                     </div>
                     <br>
                     <br>
@@ -890,7 +868,6 @@ loadTeamImages();
   font-size: 16px;
   margin: 0px 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -1091,6 +1068,42 @@ loadTeamImages();
     margin: -2px 0px 2px 4px;
     transform: translateX(6px);
 }
+
+.form-container {
+    width: 95%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.form-container div{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.menu-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.4rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+  margin: 1rem;
+}
+
+.menu-button:hover {
+  background-color: #0056b3;
+}
+
 .inputs {
     display: flex;
     justify-content: center;
@@ -1158,7 +1171,6 @@ loadTeamImages();
 
 input {
     text-align: left;
-    width: 160px;
     background-color: #00dc8210;
     font-weight: 600;
     border-radius: 8px;
@@ -1565,10 +1577,11 @@ input[type="radio"] {
 
 .main {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .nav-top {

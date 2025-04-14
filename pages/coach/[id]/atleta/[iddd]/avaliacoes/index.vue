@@ -17,6 +17,7 @@ function coachFloatCreate() {
     menuFloatCreate.value = !menuFloatCreate.value;
 }
 const menuFloat = ref(false);
+const menuFloatEx = ref(false);
 const user = item;
 const train = item.treinos
 const seriess = train
@@ -87,6 +88,10 @@ const selectedTraining = ref(null);
 
 function coachFloat(training) {
   menuFloat.value = !menuFloat.value;
+  selectedTraining.value = training;
+}
+function coachFloatEx(training) {
+  menuFloatEx.value = !menuFloatEx.value;
   selectedTraining.value = training;
 }
 const UsersTrainnig = await useFetch(`https://api.leandrocesar.com/users/${route.params.id}/treinos/${route.params.idd}`);
@@ -323,13 +328,25 @@ const removeSeries = (index) => {
   }
 };
 
+const removeSeriesAll = () => {
+  notificTree.value = true
+}
+
+function notifConfirm() {
+    notificTree.value = false
+    training.value.serie = [];
+    selectedSeriesIndex.value = null;
+}
+function notifCancel() {
+    notificTree.value = false
+}
+
 const removeAllSeries = () => {
   if (confirm("Tem certeza que deseja apagar todas as séries?")) {
     training.value.serie = [];
     selectedSeriesIndex.value = null;
   }
 };
-
 
 const addExercise = () => {
   if (selectedSeriesIndex.value !== null) {
@@ -399,7 +416,7 @@ async function handleSubmit() {
     });
     if (response.ok) {
       console.log('Create Training successfully');
-      localStorage.clear();
+      // localStorage.clear();
       notific.value = true;
       setTimeout(() => {
           notific.value = false;
@@ -503,9 +520,6 @@ const athleteId = ref('');
 const error = ref(null);
 const notificTree = ref(false);
 const notificFour = ref(false);
-
-function notifConfirm() { notificTree.value = true; }
-function notifCancel() { notificTree.value = false; }
 
 const showFloatingDiv = ref(false);
 const previewImage = ref(null);
@@ -646,7 +660,7 @@ function openPhoto() {
                 </div>
                 <div class="users-conf"  v-if='train'>
                     <NuxtLink v-if='buttonCreate' @click="coachFloatCreate" class="filter-two">
-                        <Icon name='bi:plus-lg' /> Criar Avaliação
+                        <Icon name='bi:plus-lg' /> Criar Treino
                     </NuxtLink>
                     <NuxtLink v-else @click='coachFloatCreate' class="filter-two">
                         <Icon name='material-symbols:close' /> Fechar
@@ -756,7 +770,7 @@ function openPhoto() {
                                     <NuxtLink>
                                         <div>
                                             <h3>{{ training.name }}</h3>
-                                        </div>
+                                        </div> 
                                     </NuxtLink>
                                 </div>
                                 <div v-else >
@@ -782,6 +796,238 @@ function openPhoto() {
           </div>
           <div>
           <div class="float zoom" v-if='menuFloatCreate'>
+          <div class="ex-a">
+
+                                <div v-if='train' @click="coachFloatEx(training)"  v-for="(training, index) in [...train].reverse()" :key="index">
+
+                                    <!-- <NuxtLink :to="`/coach/${route.params.id}/atleta/${route.params.iddd}/treino/${training.named }`"> -->
+                                    <NuxtLink>
+                                        <div>
+                                            <h3>{{ training.name }}</h3>
+                                        </div> 
+                                    </NuxtLink>
+                                </div>
+                                <div v-else >
+                                    <h3>Sem treino!</h3>
+                                    <br>
+                                    <NuxtLink @click="coachFloatCreate">
+                                        <div class='blue'>
+                                            <h3>Criar treino</h3>
+                                        </div>
+
+                                    </NuxtLink>
+                                </div>
+
+                              </div>
+                              <div class="float-ex zoom" v-if='menuFloatEx'>
+          <div class="menu-float-ex zoomOut" >
+
+            <div>
+                <div class='conec'>
+
+                    <div>
+                    <div v-if="selectedTraining">
+                        <h4>Treino: {{ selectedTraining.name }}</h4>
+                        <!-- <span>Criada: {{ creationDate }}</span> -->
+                    </div>
+                    <div v-else>
+                        <p>Nenhum treino selecionado</p>
+                    </div>
+
+                    </div>
+                    <div>
+                        <Icon @click="coachFloatEx"  name='material-symbols:close-rounded' />
+                    </div>
+                </div>
+                <div class="line-f"></div>
+                <div class='conec'>
+
+                    <div>
+                        
+
+                        </div>
+                    </div>
+
+
+
+
+<div v-if="main">
+<div class="content">
+    <div class='line-two'>
+    <div>
+
+        <div>
+        
+            <div class="theme-switch-two">
+
+                <div class='tr-two-ex' v-for="(item, index) in selectedTraining.serie" :key="index"  @click="selectSeries(item)">
+                    <NuxtLink>
+                        <div>
+                            <h3>{{ item.name }}</h3>
+                        </div>
+                    </NuxtLink>
+                </div>
+            </div>
+            
+            <div class="theme-switch-two-ex">
+            
+            
+            <div v-if="selectedSeries" class="exercise-list-container-ex">
+            
+                <table class="exercise-table">
+                  <thead class="exercise-table-header">
+                    <tr class="exercise-table-row">
+                      <th class="exercise-table-cell-header">Imagem</th>
+                      <th class="exercise-table-cell-header">Nome</th>
+                      <th class="exercise-table-cell-header">Sets</th>
+                      <th class="exercise-table-cell-header">Reps</th>
+                      <th class="exercise-table-cell-header">Observações</th>
+                    </tr>
+                  </thead>
+                  <tbody class="exercise-table-body">
+                    <tr
+                      class="exercise-table-row"
+                      v-for="(exercise, exIndex) in selectedSeries.set"
+                      :key="exIndex"
+                    >
+                      <td class="exercise-table-cell">
+                        <img :src="exercise.img" alt="Exercício" class="exercise-image" />
+                      </td>
+                      <td class="exercise-table-cell">{{ exercise.nome }}</td>
+                      <td class="exercise-table-cell">{{ exercise.sets }}</td>
+                      <td class="exercise-table-cell">{{ exercise.reps }}</td>
+                      <td class="exercise-table-cell">{{ exercise.obs }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+</div>
+
+                    <div class="main-div-two">
+
+
+                        <span v-for="(qtTreinos, index) in qtTreinos" :key="index">
+                            <NuxtLink class="square"
+                                :to="`/admin/clientes/${item.username}/treino/${qtTreino}/${qtTreinos.name}`">
+                                <div>
+                                    <h4>
+                                        Série
+                                    </h4>
+
+                                </div>
+
+                                <div>
+                                    <h3>
+
+                                    </h3>
+
+                                    <h5>
+                                        {{ qtTreinos.name }}
+                                    </h5>
+
+                                </div>
+                            </NuxtLink>
+                        </span>
+
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div v-else>
+                <div class='cr-fix'>
+                    <h3>Exercício à ser adicionado:</h3>
+                    <div>
+                        <input type='hidden' v-model="newItem.num" placeholder="Num" />
+                        <input v-model="newItem.nome" placeholder="Nome" ref="firstInputRef" />
+                        <input v-model="newItem.sets" placeholder="Sets" />
+                        <input v-model="newItem.reps" placeholder="Reps" />
+                        <input v-model="newItem.rest" placeholder="Rest" />
+                        <!-- <input v-model="newItem.grupo" placeholder="Grupo" /> -->
+                        <input v-model="newItem.obs" placeholder="Obs" />
+                        <input v-model="newItem.photo" placeholder="Photo" @keyup.enter='addItem' />
+                        <button class="bt-sub-serie" @click="addItem">+ Item</button>
+                    </div>
+                </div>
+                <br>
+            <div class="serie">
+
+                <div>
+                    <h3>Série anterior:
+
+                    </h3>
+                    <br>
+
+                    <form @submit.prevent="submitSerie">
+                        <div v-for="(item, index) in items" :key="item.id">
+                            <input type="hidden" :value.v-model="item.id = index + 1" readonly>{{ item.id }}
+                            <input type="hidden"
+                                :value.v-model="item.num = 'Exercício ' + (index < 9 ? '' + (index + 1) : (index + 1)) "
+                                readonly>
+                            <input type="text" v-model='item.nome' placeholder="Exercício">
+                            <input type="text" v-model='item.sets' placeholder="Sets">
+                            <input type="text" v-model='item.reps' placeholder="Reps">
+                            <input type="text" v-model='item.rest' placeholder="Rest">
+                            <input type="text" v-model='item.obs' placeholder="Observações">
+                            <input type="text" v-model='item.photo' placeholder="Imagem">
+                            <span class="bt-serie" v-if="index > 0" @click="moveItemUp(index)">Up</span>
+                            <span class=" bt-serie" v-if="index < items.length - 1" @click="moveItemDown(index)">Down</span>
+                            <span class="bt-serie" @click="removeItem(item)">Delete</span>
+                        </div>
+                        <br>
+
+
+
+                    </form>
+                </div>
+                <div>
+                        <button  @click="removeAllItems()">Resetar</button>
+                    <form @submit.prevent="submitSerie">
+                    <div>
+                        <label>Nome da Série:</label>
+                        <input v-model="ss" class='ss' type="text" />
+                        <button class="bt-sub-serie" type="submit">Criar</button>
+                    </div>
+                    <h3>Série em construção:
+                    </h3>
+                    <br>
+
+                        <div v-for="(item, index) in items" :key="item.id">
+                            <input type="hidden" :value.v-model="item.id = index + 1" readonly>{{ item.id }}
+                            <input type="hidden"
+                                :value.v-model="item.num = 'Exercício ' + (index < 9 ? '' + (index + 1) : (index + 1)) "
+                                readonly>
+                            <input type="text" v-model='item.nome' placeholder="Exercício">
+                            <input type="text" v-model='item.sets' placeholder="Sets">
+                            <input type="text" v-model='item.reps' placeholder="Reps">
+                            <input type="text" v-model='item.rest' placeholder="Rest">
+                            <input type="text" v-model='item.obs' placeholder="Observações">
+                            <input type="text" v-model='item.photo' placeholder="Imagem">
+                            <span class="bt-serie" v-if="index > 0" @click="moveItemUp(index)">Up</span>
+                            <span class=" bt-serie" v-if="index < items.length - 1" @click="moveItemDown(index)">Down</span>
+                            <span class="bt-serie" @click="removeItem(item)">Delete</span>
+                        </div>
+                        <br>
+
+
+
+
+                    </form>
+                </div>
+            </div>
+
+                </div>
+        </div>
+
+        </div>
+    </div>
                   <div class="menu-float zoomOut" >
 
                       <div>
@@ -798,7 +1044,7 @@ function openPhoto() {
                               <div>
                                 <div>
                                     <button type="button" @click="addSeries">Adicionar Série</button>
-                                    <button type="button" @click="removeAllSeries" style="color: red;">Apagar  Séries</button>
+                                    <button type="button" @click="removeSeriesAll" style="background-color: #ff1900; border: #ff1900 1px solid; color: #fff; font-weight: bolder;">Apagar  Séries</button>
                                     <Icon @click="coachFloatCreate"  name='material-symbols:close-rounded' />
                                 </div>
                               </div>
@@ -831,7 +1077,7 @@ function openPhoto() {
                                     <input
                                       type="search"
                                       v-model="searchQuery"
-                                      placeholder="Pesquisar usuários"
+                                      placeholder="Pesquisar exercício"
                                       @input="updateSearchQuery"
                                       class="search-input"
                                       ref='exerciseNameInput'
@@ -1267,9 +1513,57 @@ function openPhoto() {
                 </div>            
             </div>
         </div>
+        <div v-if='notificTree' class="float">
+                <div class="notific-floatt zoomOut" >
+                    <div>
+                        <Icon name='uil:exclamation-circle' @click='closeNotific' style="color: red; zoom:2.2"/>
+                    </div>
+                    <div>
+                        <div>
+                            <h3>
+                                Apagar Séries
+                            </h3>
+                            <p>
+                                Tem certeza que deseja apagar todas as séries?
+                            </p>
+                        </div>
+                        <div>   
+                            <button @click='notifConfirm()' class="pill-can ex">Apagar</button>
+                            <button @click="notifCancel()" class="pill-can can">Cancelar</button>
+                        </div>
+                    </div>
+        
+                </div>
+        </div>
         
 </template>
 <style scoped>
+.ex-a {
+      position: fixed;
+    left: 0px;
+    bottom: 0;
+    z-index: 100;
+    background: #00dc8240;
+    border-radius: 8px;
+    border: solid .5px #00dc8280;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-size: .8rem;
+}
+
+.dark-mode .ex-a {
+      color: #fff;
+    background: #0f172a;
+}
+
+.ex-a div {
+  padding: 2px 6px;
+}
+
+.ex-a d:hover {
+  background: #00dc8280;
+}
 
 .photo {
     position: absolute;
@@ -1289,21 +1583,19 @@ function openPhoto() {
   align-items: center;
 }
 
-.float{
+.float-ex{
     position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 67%;
+      left: 61%;
+      transform: translate(0%, -50%);
       z-index: 1002;
-      background: #ecedf060;
-      backdrop-filter: blur(1px); /* Desfoque do fundo */
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras (opcional) */
       color: #333; /* Cor do texto */
-      width: 100%; /* Largura fixa */
-      height: 100vh; /* Altura fixa */
-      padding: 20px; /* Espaçamento interno */
+      width:40%; /* Largura fixa */
+      height: 76vh; /* Altura fixa */
+      padding: 20px 0 20px 20px; /* Espaçamento interno */
       text-align: center;
 }
+
 
 .floating-div {
   position: absolute;
@@ -1558,7 +1850,7 @@ li:hover img {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 1002;
+      z-index: 102;
       background: #ecedf060;
       backdrop-filter: blur(1px); /* Desfoque do fundo */
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras (opcional) */
@@ -1625,7 +1917,7 @@ label {
         -50%,
         -50%
     ); /* Centraliza ajustando a posição do elemento */
-    z-index: 9999; /* Garante que esteja acima de todo o conteúdo */
+    z-index: 1; /* Garante que esteja acima de todo o conteúdo */
     color: #777;
     padding:20px; /* Espaço interno */
     border-radius: 10px; /* Cantos arredondados (opcional) */
@@ -1637,6 +1929,37 @@ label {
       justify-content: space-between;
      
 }
+.menu-float-ex {
+    background: #f1fef9;
+    width: 95%; /* Largura fixa */
+      height: 95%; /* Altura fixa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Fixa a div em relação à tela */
+    top: 50%; /* Posiciona a div no meio da altura */
+    left: 50%; /* Posiciona a div no meio da largura */
+    transform: translate(
+        -50%,
+        -50%
+    ); /* Centraliza ajustando a posição do elemento */
+    z-index: 1; /* Garante que esteja acima de todo o conteúdo */
+    color: #777;
+    padding: 5px; /* Espaço interno */
+    border-radius: 10px; /* Cantos arredondados (opcional) */
+    text-align: left; /* Alinha o texto centralizado */
+    backdrop-filter: blur(10px); /* Desfoque do fundo */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras (opcional) */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+     
+}
+
+
+.dark-mode .menu-float-ex {
+      color: #fff;
+    background: #0f172a;
+}
+
 .notific-float {
     background: #f1fef9;
         width: 27%; /* Largura */
@@ -1660,6 +1983,46 @@ label {
         transform: scale(0.8); /* Começa menor */
         animation: zoomIn 0.5s ease-out forwards; /* Animação de entrada */
 }
+.notific-floatt {
+    background: #f1fef9;
+    width:576px; /* Largura fixa */
+      height: 128px; /* Altura fixa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Fixa a div em relação à tela */
+    top: 50%; /* Posiciona a div no meio da altura */
+    left: 50%; /* Posiciona a div no meio da largura */
+    transform: translate(
+        -50%,
+        -50%
+    ); /* Centraliza ajustando a posição do elemento */
+    z-index: 9999; /* Garante que esteja acima de todo o conteúdo */
+    color: #777;
+    padding:20px; /* Espaço interno */
+    border-radius: 10px; /* Cantos arredondados (opcional) */
+    text-align: left; /* Alinha o texto centralizado */
+    backdrop-filter: blur(10px); /* Desfoque do fundo */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras (opcional) */
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+}
+.dark-mode .notific-floatt {
+    background-color: #0f172a;
+}
+
+.notific-floatt div {
+    margin: 0px 15px 12px 15px;
+}
+
+.notific-floatt button{
+    margin: 0 5px 0 0px;
+}
+.dark-mode .notific-floatt button{
+    margin: 0 5px 0 0px;
+    color: #fff;
+}
+
 .notific-float-two {
     background: #f1fef9;
     width: 21%; /* Largura fixa */
@@ -1858,11 +2221,37 @@ input:checked + .slider:before {
   flex-direction: row;
   flex-wrap: wrap;
   gap: .5rem;
-  margin: 4px;
+  margin: 15px;
+  
+}
+.theme-switch-two-ex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: -15px 4px 0 4px;
   
 }
 
 /* Container principal */
+.exercise-list-container-ex {
+  margin: 20px auto;
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #f1fef9;
+  height: 260px;  
+  color: #555;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .exercise-list-container-ex {
+      color: #fff;
+    background: #0f172a;
+}
+
 .exercise-list-container {
   margin: 20px auto;
   padding: 10px 0;
@@ -1950,7 +2339,7 @@ input:checked + .slider:before {
 }
 
 .tr {
-  border: solid .1px #00dc8220;
+  border: solid .1px #00dc8250;
   padding: 50px;
   border-radius: 8px;
   cursor: pointer;
@@ -1959,6 +2348,12 @@ input:checked + .slider:before {
 .tr-two {
   border: solid .1px #00dc8220;
   padding: 15px 40px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.tr-two-ex {
+  border: solid .1px #00dc8220;
+  padding: 5px 20px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -2357,10 +2752,12 @@ select {
     text-align: left;
     height: 24px;
     font-size: 14px;
+    background: #00dc8210;
+    border: solid 1px #00dc82;
 }
 
 select::selection {
-    border: solid 2px #00dc82;
+    border: solid 1px #00dc82;
     background: #00dc8240;
 }
 
@@ -3257,7 +3654,7 @@ button:disabled {
 button {
     background: #00d4ff;
     border-radius: 4px;
-    color: #555;
+    color: #000;
     padding: 7px 10px;
 }
 

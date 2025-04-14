@@ -2339,7 +2339,7 @@ input:checked + .slider:before {
 }
 
 .tr {
-  border: solid .1px #00dc8220;
+  border: solid .1px #00dc8250;
   padding: 50px;
   border-radius: 8px;
   cursor: pointer;

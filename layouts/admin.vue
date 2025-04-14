@@ -10,17 +10,18 @@ const item = Users.data.value;
 const user = item;
 const main = ref(true);
 const buttonIcon = ref(true);
+const title = ref(true);
 
-const menuOpen = useCookie("menuOpen")
-menuOpen.value = true;
-const navLeft = ref(true) || menuOpen.value; // Define se o menu está aberto ou fechado
-if (menuOpen.value === true) {
-    navLeft.value = true;
-    menuOpen.value = true;
-} else {
-    navLeft.value = false;
-    menuOpen.value = false;
-}
+const menuOpen = useCookie("menuOpen", { default: () => true }) // já define o padrão true
+const navLeft = ref(menuOpen.value) // pega o valor atual
+
+// Sincroniza navLeft quando menuOpen mudar
+watch(menuOpen, (newValue) => {
+  navLeft.value = newValue
+})
+watch(navLeft, (newValue) => {
+  menuOpen.value = newValue
+})
 
 const menu = ref(false); // Define se o menu está aberto ou fechado
 const menuBar = ref(false); // Define se o menu está aberto ou fechado
@@ -28,6 +29,9 @@ const link = ref("");
 function button() {
     navLeft.value = !navLeft.value;
     menuOpen.value = !menuOpen.value;
+    setTimeout(() => {
+        title.value = !title.value;
+    }, 250);
 }
 function buttonMenuBar() {
     menuBar.value = !menuBar.value;
@@ -227,12 +231,12 @@ function logout () {
                             <Icon name="heroicons:bars-2-16-solid" />
                         </div>
                         <NuxtLink v-if="navLeft" :to='`/acupuntura/${route.params.id}`'>
-                            <img src="~assets/logo.png" />
-                                <h3>app.leandrocesar</h3>
+                            <img src="~assets/logoTrans.png" />
+                                <h3 v-if='title'>app.leandrocesar</h3>
                                 <h3></h3>
                             </NuxtLink>
                             <NuxtLink v-else :to='`/acupuntura/${route.params.id}`'>
-                                <img src="~assets/logo.png" />
+                                <img src="~assets/logoTrans.png" />
                                 <h3></h3>
                             </NuxtLink>
                         </div>
@@ -259,6 +263,15 @@ function logout () {
                         <div>
                             <Icon name="heroicons:home" />
                             <p>Home</p>
+                        </div>
+                    </NuxtLink>
+                        <NuxtLink
+                        :to="`/coach/${route.params.id}/dashboard`"
+                        class="menu-button"
+                        >
+                        <div>
+                            <Icon name="material-symbols:dashboard-outline-rounded" />
+                            <p>Dashboard</p>
                         </div>
                     </NuxtLink>
                     
@@ -409,11 +422,11 @@ function logout () {
                             <Icon name="heroicons:bars-2-16-solid" />
                         </div>
                         <NuxtLink v-if="navLeft" :to='`/acupuntura/${route.params.id}`'>
-                            <img src="~assets/logo.png" />
+                            <img src="~assets/logoTrans.png" />
                             <h3>Nex_Wod</h3>
                         </NuxtLink>
                         <NuxtLink v-else :to='`/acupuntura/${route.params.id}`'>
-                            <img src="~assets/logo.png" />
+                            <img src="~assets/logoTrans.png" />
                         </NuxtLink>
                     </div>
                     <div>
@@ -435,6 +448,12 @@ function logout () {
         class="menu-button"
         >
         <Icon name="heroicons:home" />
+    </NuxtLink>
+        <NuxtLink
+        :to="`/coach/${route.params.id}/dashboard`"
+        class="menu-button"
+        >
+            <Icon name="material-symbols:dashboard-outline-rounded" />
     </NuxtLink>
     
                     <NuxtLink
@@ -762,7 +781,21 @@ function logout () {
     background: #111832;
 }
 
-
+.float{
+    position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1002;
+      background: #ecedf060;
+      backdrop-filter: blur(1px); /* Desfoque do fundo */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras (opcional) */
+      color: #333; /* Cor do texto */
+      width: 100%; /* Largura fixa */
+      height: 100vh; /* Altura fixa */
+      padding: 20px; /* Espaçamento interno */
+      text-align: center;
+}
 
 
 .conec {
@@ -939,7 +972,7 @@ input:focus {
     align-items: center;
     justify-content: space-between;
     backdrop-filter: blur(10px);
-    margin: 15px 10px;
+    margin: 11.5px 10px;
 }
 .nav div {
     display: flex;
@@ -958,7 +991,7 @@ input:focus {
 }
 
 .nav h3 {
-    margin-left: 15px;
+    margin-left: 5px;
     font-size: 1rem;
     font-family: "Gagalin";
     letter-spacing: 1.3px;
@@ -968,13 +1001,11 @@ input:focus {
 }
 
 .nav img {
-    margin: 0 0 0 0.8rem;
-    height: 28px;
-    border-radius: 200px;
-    box-shadow: 0px 2px 10px #00dc82;
+    margin: 0 0 0 .6rem;
+    height: 44px;
 }
 .left-column-two .nav img {
-    margin: 0 0 0 0.2rem;
+    margin: 0 0 0 -0.3rem;
 }
 
 .nav .icon {
@@ -1043,7 +1074,7 @@ input:focus {
     border-radius: 6px;
 }
 .retract-button {
-    align-items: center;
+    align-items: right;
     transition: background-color 0.2s ease;
     text-decoration: none;
     display: flex;
@@ -1053,6 +1084,9 @@ input:focus {
     padding: 7px 5px;
     border-radius: 6px;
     cursor: pointer;
+    position: absolute;
+    bottom: 40px;
+    left:-70px;
 }
 
 .search{

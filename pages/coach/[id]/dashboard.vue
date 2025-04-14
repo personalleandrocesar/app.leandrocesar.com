@@ -1,4 +1,23 @@
 <script setup>
+import { ref } from 'vue';
+import { Doughnut, Bar, Pie } from 'vue-chartjs';
+import { useDoughnutChart } from '~/composables/useDoughnutChart';
+import { useBarChart } from '~/composables/useBarChart';
+import { usePieChart } from '~/composables/usePieChart';
+import { useBarVerticalChart } from '~/composables/useBarVerticalChart';
+
+// Variáveis e estados
+const userr = ref([]);
+
+// Gráfico Doughnut
+const { data: doughnutData, options: doughnutOptions, pending: doughnutPending, error: doughnutError } = await useDoughnutChart();
+
+// Gráfico Pie
+const { data: pieData, options: pieOptions, pending: piePending, error: pieError } = await usePieChart();
+
+// Gráfico Bar
+const { data: barData, options: barOptions } = useBarChart(userr.value);
+const { data: barVData, options: barVOptions } = useBarVerticalChart(userr.value);
 
 // Configurar a tag <head>
 useHead({
@@ -7,7 +26,41 @@ useHead({
 </script>
 
 <template>
-  
+  <div class="layout-no-sidebar">
+    <!-- Barra fixa no topo -->
+    <header class="topbar">
+      <div>
+        <h3>Dashboard</h3>
+      </div>
+      <div>
+        <Icon name="heroicons:bell-alert" />
+      </div>
+    </header>
+
+    <!-- Conteúdo com scroll -->
+    <div class="content">
+      <div class="grid-container">
+        <!-- Gráfico Pie -->
+        <div class="left-column">
+          <div v-if="piePending">Carregando dados...</div>
+          <div v-else-if="pieError">Erro ao carregar os dados: {{ pieError.message }}</div>
+          <div v-else>
+            <Pie :data="pieData" :options="pieOptions" />
+          </div>
+        </div>
+
+        <!-- Gráfico Doughnut -->
+        <div class="right-column">
+          <div v-if="doughnutPending">Carregando dados...</div>
+          <div v-else-if="doughnutError">Erro ao carregar os dados: {{ doughnutError.message }}</div>
+          <div v-else>
+            <Doughnut :data="doughnutData" :options="doughnutOptions" />
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 

@@ -648,22 +648,17 @@ loadTeamImages();
                         </div>
                     </div>
                     <div class="inputs">
-                            <div>
-                                      <input type="radio" id="oneMonth" value="1" v-model="monthsToAdd" @change="calculateNewDate" />
-                                      <label for="oneMonth">Mensal</label>
-                                    </div>
-                                    <div>
-                                      <input type="radio" id="threeMonths" value="3" v-model="monthsToAdd" @change="calculateNewDate" />
-                                      <label for="threeMonths">Trimestral</label>
-                                    </div>
-                                    <div>
-                                      <input type="radio" id="sixMonths" value="6" v-model="monthsToAdd" @change="calculateNewDate" />
-                                      <label for="sixMonths">Semestral</label>
-                                    </div>
-                                    <div>
-                                      <input type="radio" id="twelveMonths" value="12" v-model="monthsToAdd" @change="calculateNewDate" />
-                                      <label for="twelveMonths">Anual</label>
-                                    </div>
+                        <div>
+
+                            <span>Qual plano?</span>
+                            <select name="target" id="target" class="select" placeholder='' required v-model="target">
+                                <option disabled value="">Selecione uma opção</option>
+                                <option value="1">Mensal</option>
+                                <option value="3">Trimestral</option>
+                                <option value="6">Semestral</option>
+                                <option value="12">Anual</option>
+                            </select>
+                        </div>
                            
                     </div>
                     <div class="inputs">
@@ -1249,7 +1244,7 @@ h4:nth-child(1) {
     border: 0;
     color: inherit;
     background-color: transparent;
-    border-bottom: solid 2px #00dc82;
+    border: solid 2px #00dc82;
     border-radius: 5px;
     cursor: pointer;
     width: 160px;

@@ -1692,7 +1692,6 @@ input[type="file"] {
 .search-input {
   width: 35%;
   padding: 8px;
-  border: 1px solid #ddd;
   border-radius: 4px;
 }
 

@@ -527,7 +527,7 @@ loadTeamImages();
                     </tr>
                 </tbody>
             </table>
-            <div v-else class='no-user'>Usuário não encontrado !!</div>
+            <div v-else class='no-user'>Atleta não encontrado !!</div>
 
 
 

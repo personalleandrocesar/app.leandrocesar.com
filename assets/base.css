@@ -150,7 +150,7 @@ body code {
 }
 
 body input {
-    color: #555;
+    color: #999;
 }
 
 body input:focus {
@@ -158,8 +158,6 @@ body input:focus {
 }
 
 .dark-mode body input {
-  background: var(--vt-c-black-soft);
-  color: #fff;
   border: transparent;
   border: solid 2px #00dc82;
 }

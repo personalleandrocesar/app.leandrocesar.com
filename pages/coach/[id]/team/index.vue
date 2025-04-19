@@ -2,7 +2,7 @@
 import { ref, watch } from 'vue'
 const route = useRoute();
 useHead({
-    titleTemplate: 'Clientes | Leandro Cesar - App',
+    titleTemplate: 'Team | Leandro Cesar - App',
 });
 
 const Users = await useFetch(`https://api.leandrocesar.com/usersnw/${route.params.id}/team`);
@@ -283,6 +283,7 @@ const allUsers = computed(() => atletas.value || []);
 const filteredUsers = computed(() => {
   return allUsers.value.filter(user => 
     user.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+    user.lastName.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
     user.username.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
     user._id.toLowerCase().includes(searchQuery.value.toLowerCase()) 
   );
@@ -477,11 +478,13 @@ loadTeamImages();
                 </div>
                 <div  v-else="state === 'list'" class="users-list">
                 
-                <table class="styled-table">
+                <table class="styled-table" v-if="filteredUsers.length">
                   <thead>
                     <tr class="header-row">
                       <th>#</th>
+                      <th></th>
                       <th>Nome</th>
+                      <th class="none">Serviço</th>
                       <th class="none">Venc.</th>
                       <th class="none">Nascimento</th>
                       <th class="none">Status</th>
@@ -496,10 +499,17 @@ loadTeamImages();
                     >
                       <td>{{ index + 1 }}</td>
                       <td>
-                        <img :src="item.foto" alt="Foto do Atleta" class="user-photo" />
+
+                          <img :src="item.foto" alt="Foto do Atleta" class="user-photo" />
+                        </td>
+                      <td>
                         <span class="user-name">
-                          {{ item.name.split(' ')[0] }} {{ item.name.split(' ')[1] }}
+                          {{ item.name }}
+                          {{ item.lastName }}
                         </span>
+                      </td>
+                      <td class="none">
+                        <span class="due-date">{{ item.service }}</span>
                       </td>
                       <td class="none">
                         <span class="due-date">{{ item.payDay }}</span>
@@ -515,8 +525,9 @@ loadTeamImages();
                         </span>
                       </td>
                     </tr>
-                  </tbody>
-                </table>
+                </tbody>
+            </table>
+            <div v-else class='no-user'>Usuário não encontrado !!</div>
 
 
 
@@ -651,7 +662,7 @@ loadTeamImages();
                         <div>
 
                             <span>Qual plano?</span>
-                            <select name="target" id="target" class="select" placeholder='' required v-model="target">
+                            <select name="monthsToAdd" id="monthsToAdd" class="select" placeholder='' required v-model="monthsToAdd">
                                 <option disabled value="">Selecione uma opção</option>
                                 <option value="1">Mensal</option>
                                 <option value="3">Trimestral</option>
@@ -662,13 +673,11 @@ loadTeamImages();
                            
                     </div>
                     <div class="inputs">
-                        <div>
                             <div>
-                              <label for="monthsToAdd">Fim do treino</label>
-                              <input type="date" id="newDate" v-model="newDate" @input="updateNewDate" />
+                              <label for="newDate">Fim do treino</label>
+                              <input type="date" id="newDate" v-model="periodEnd" @input="updateNewDate" />
                             </div>
                           </div>
-                    </div>
                     </div>
                     <div>
 
@@ -855,6 +864,16 @@ loadTeamImages();
             </div>
 </template>
 <style scoped>
+.no-user {
+    color: #00dc82;
+    font-weight: bolder;
+    line-height: 100px;
+    text-transform: uppercase;
+    margin: auto;
+    border-top: 1px solid #00dc8240;
+    width: 100%;
+    text-align: center;
+}
 /* Tabela geral */
 .styled-table {
   width: 100%;
@@ -897,7 +916,6 @@ loadTeamImages();
 }
 
 .styled-table td {
-  padding: 12px 15px;
   vertical-align: middle;
 }
 
@@ -1172,19 +1190,7 @@ input {
     height: 30px;
     font-size: 14px;
 border: solid 2px #00dc82;
-}
-
-
-.inputs #username {
-    width: 190px
-}
-
-.inputs #lastName {
-    width: 130px
-}
-
-.inputs #email {
-    width: 335px
+width: 265px;
 }
 
 .inputs div h4 {
@@ -1243,19 +1249,24 @@ h4:nth-child(1) {
 .select {
     border: 0;
     color: inherit;
-    background-color: transparent;
+    background-color: #00dc8220;
     border: solid 2px #00dc82;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    width: 160px;
+    width: 265px;
     text-align: left;
     height: 30px;
     font-size: 14px;
 }
 
+.dark-mode option {
+    background-color: #111832;
+    color: #fff;  
+}
+
 .select:focus {
     border: 0 none;
-    border-bottom: solid 2px #00dc82;
+    border: solid 2px #00dc82;
     outline: 0;
 }
 
@@ -1461,16 +1472,18 @@ td:nth-child(1){
 }
 
 td:nth-child(2){
-    padding: 0px 10px;
-    display: flex;
-    justify-content: flex-start;
+    display: flex;    
+    justify-content: flex-end;
     flex-direction: row;
     align-items: center;
     flex-wrap: nowrap;
 }
 
 td:nth-child(3){
-    width: 5px;    
+    width: 400px;    
+    padding: 0px 10px;
+}
+td:nth-child(4){
     padding: 0px 10px;
 }
 
@@ -1705,7 +1718,7 @@ input[type="radio"] {
 .filter {
     border: solid 1px #00dc8290;
     padding: 4px 12px;
-    margin: 4px 14px;
+    margin: 5.5px 14px;
     border-radius: 4px;
     cursor: pointer;
     background-color: #00dc8210;

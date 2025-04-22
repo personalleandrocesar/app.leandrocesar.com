@@ -1317,9 +1317,8 @@ function openPhoto() {
 <div v-if="main">
 <div class="content">
     <div class='line-two'>
-    <div>
 
-        <div>
+        <div class='contn' >
         
           <div class="theme-switch-two">
               <div class='tr-two' v-if="selectedTraining" :key="index" >
@@ -1373,6 +1372,138 @@ function openPhoto() {
                         </div>
                         <input type='text' v-model='selectedTraining.ombro' /> cm
                 </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Tórax
+                        </div>
+                        <input type='text' v-model='selectedTraining.torax' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Tórax Relaxado
+                        </div>
+                        <input type='text' v-model='selectedTraining.toraxRelaxado' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Tórax Contraído
+                        </div>
+                        <input type='text' v-model='selectedTraining.toraxContraido' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Cintura
+                        </div>
+                        <input type='text' v-model='selectedTraining.cintura' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Abdômen
+                        </div>
+                        <input type='text' v-model='selectedTraining.abdomem' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Quadril
+                        </div>
+                        <input type='text' v-model='selectedTraining.quadril' /> cm
+                </div>
+            </div>
+          <div class="theme-switch-two">
+              
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Braço direito relaxado
+                        </div>
+                        <input type='text' v-model='selectedTraining.bracoDireitoRelaxado' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Braço direito contraído
+                        </div>
+                        <input type='text' v-model='selectedTraining.bracoDireitoContraido' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Antebraço direito
+                        </div>
+                        <input type='text' v-model='selectedTraining.antebracoDireito' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Coxa medial direita
+                        </div>
+                        <input type='text' v-model='selectedTraining.coxaMedialDireita' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Coxa distal direita
+                        </div>
+                        <input type='text' v-model='selectedTraining.coxaDistalDireita' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Perna direita
+                        </div>
+                        <input type='text' v-model='selectedTraining.pernaDireita' /> cm
+                </div>
+            </div>
+          <div class="theme-switch-two">
+              
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Braço esquerdo relaxado
+                        </div>
+                        <input type='text' v-model='selectedTraining.bracoEsquerdoRelaxado' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Braço esquerdo contraído
+                        </div>
+                        <input type='text' v-model='selectedTraining.bracoEsquerdoContraido' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Antebraço esquerdo
+                        </div>
+                        <input type='text' v-model='selectedTraining.antebracoEsquerdo' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Coxa medial esquerda
+                        </div>
+                        <input type='text' v-model='selectedTraining.coxaMedialEsquerda' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Coxa distal esquerda
+                        </div>
+                        <input type='text' v-model='selectedTraining.coxaDistalEsquerda' /> cm
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Perna esquerda
+                        </div>
+                        <input type='text' v-model='selectedTraining.pernaEsquerda ' /> cm
+                </div>
             </div>
             
             <div class="theme-switch-two"> 
@@ -1412,7 +1543,6 @@ function openPhoto() {
             </div>
         </div>
 
-        </div>
     </div>
 
 </div>
@@ -2619,7 +2749,7 @@ input {
 
 input:nth-child(2) {
     width: 120px;
-    border: none;
+    border: solid .1px #00dc8250;
 }
 
 .dark-mode input:nth-child(2) {
@@ -2634,6 +2764,11 @@ input:nth-child(2) {
     padding: 5px;
     border-radius: 6px;
     backdrop-filter: blur(15px);
+}
+
+.contn {
+    height: 440px;
+    overflow-y: auto;
 }
 
 button {

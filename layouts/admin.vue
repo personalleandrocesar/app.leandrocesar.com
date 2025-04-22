@@ -202,14 +202,14 @@ function logout () {
             <div>
                 <NuxtLink @click="home()" class="menu-button">
                     <div>
-                        <Icon name="heroicons:home" />
+                        <Icon name="material-symbols:home-outline-rounded" />
                         <p>Home</p>
                     </div>
                 </NuxtLink>
                 
                 <NuxtLink @click="team()" class="menu-button">
                     <div>
-                        <Icon name="heroicons:user-group" />
+                        <Icon name="material-symbols:groups-outline-rounded" />
                         <p>Team</p>
                     </div>
                 </NuxtLink>
@@ -248,7 +248,7 @@ function logout () {
                             class="menu-button search"
                             >
                             <div>
-                                <Icon name="heroicons-outline:search" />
+                                <Icon name="material-symbols:search" />
                                 <p>Search...</p>
                             </div>
                             <div class='trap'>
@@ -261,7 +261,7 @@ function logout () {
                         class="menu-button"
                         >
                         <div>
-                            <Icon name="heroicons:home" />
+                            <Icon name="material-symbols:home-outline-rounded" />
                             <p>Home</p>
                         </div>
                     </NuxtLink>
@@ -280,7 +280,7 @@ function logout () {
                     class="menu-button"
                     >
                     <div>
-                        <Icon name="heroicons:user-group" />
+                        <Icon name="material-symbols:groups-outline-rounded" />
                         <p>Team</p>
                     </div>
                 </NuxtLink>
@@ -290,7 +290,7 @@ function logout () {
                 class="menu-button"
                 >
                 <div>
-                                    <Icon name="heroicons:cog-6-tooth" />
+                                    <Icon name="material-symbols:settings-outline-rounded" />
                                     <p>Settings</p>
                                 </div>
                                 <Icon name="heroicons:chevron-right-20-solid" />
@@ -301,7 +301,7 @@ function logout () {
                             class="menu-button"
                             >
                             <div>
-                                <Icon name="heroicons:cog-6-tooth" />
+                                <Icon name="material-symbols:settings-outline-rounded" />
                                 <p>Settings</p>
                             </div>
                             <Icon name="heroicons:chevron-down-20-solid" />
@@ -365,7 +365,7 @@ function logout () {
                             class="menu-button"
                             >
                             <div>
-                                <Icon name="heroicons:cog-6-tooth" />
+                                <Icon name="material-symbols:settings-outline-rounded" />
                                 <p>Settings</p>
                             </div>
                         </NuxtLink>
@@ -447,7 +447,7 @@ function logout () {
         :to="`/coach/${route.params.id}`"
         class="menu-button"
         >
-        <Icon name="heroicons:home" />
+        <Icon name="material-symbols:home-outline-rounded" />
     </NuxtLink>
         <NuxtLink
         :to="`/coach/${route.params.id}/dashboard`"
@@ -460,14 +460,14 @@ function logout () {
                     :to="`/coach/${route.params.id}/team`"
                     class="menu-button"
                     >
-                    <Icon name="heroicons:user-group" />
+                    <Icon name="material-symbols:groups-outline-rounded" />
                 </NuxtLink>
                 
                 <NuxtLink
                 :to="`/coach/${route.params.id}/settings`"
                 class="menu-button"
                 >
-                <Icon name="heroicons:cog-6-tooth" />
+                <Icon name="material-symbols:settings-outline-rounded" />
             </NuxtLink>
         </div>
         <div>
@@ -523,7 +523,7 @@ function logout () {
                             class="menu-button" @click="coachFloat"
                         >
                             <div>
-                            <Icon name="heroicons:home" />
+                            <Icon name="material-symbols:home-outline-rounded" />
                             <p>Home</p>
                             </div>
                             <div class='trap'>
@@ -536,7 +536,7 @@ function logout () {
                             class="menu-button" @click="coachFloat"
                         >
                             <div>
-                            <Icon name="heroicons:user-group" />
+                            <Icon name="material-symbols:groups-outline-rounded" />
                             <p>Team</p> 
                             </div>
                             <div class='trap'>
@@ -549,7 +549,7 @@ function logout () {
                             class="menu-button" @click="coachFloat"
                         >
                             <div>
-                                <Icon name="heroicons:cog-6-tooth" />
+                                <Icon name="material-symbols:settings-outline-rounded" />
                                 <p>Settings</p>
                             </div>
                             <div class='trap'>

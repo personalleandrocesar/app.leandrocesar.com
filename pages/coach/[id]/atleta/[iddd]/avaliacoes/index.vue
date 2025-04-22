@@ -19,7 +19,7 @@ function coachFloatCreate() {
 const menuFloat = ref(false);
 const menuFloatEx = ref(false);
 const user = item;
-const train = item.treinos
+const train = item.avaliacoes
 const seriess = train
 
 function closeNotific () {
@@ -660,7 +660,7 @@ function openPhoto() {
                 </div>
                 <div class="users-conf"  v-if='train'>
                     <NuxtLink v-if='buttonCreate' @click="coachFloatCreate" class="filter-two">
-                        <Icon name='bi:plus-lg' /> Criar Treino
+                        <Icon name='bi:plus-lg' /> Criar Avaliação
                     </NuxtLink>
                     <NuxtLink v-else @click='coachFloatCreate' class="filter-two">
                         <Icon name='material-symbols:close' /> Fechar
@@ -769,16 +769,16 @@ function openPhoto() {
                                     <!-- <NuxtLink :to="`/coach/${route.params.id}/atleta/${route.params.iddd}/treino/${training.named }`"> -->
                                     <NuxtLink>
                                         <div>
-                                            <h3>{{ training.name }}</h3>
+                                            <h3>{{ training.date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1') }}</h3>
                                         </div> 
                                     </NuxtLink>
                                 </div>
                                 <div v-else >
-                                    <h3>Sem treino!</h3>
+                                    <h3>Sem avaliação!</h3>
                                     <br>
                                     <NuxtLink @click="coachFloatCreate">
                                         <div class='blue'>
-                                            <h3>Criar treino</h3>
+                                            <h3>Criar Avaliação</h3>
                                         </div>
 
                                     </NuxtLink>
@@ -808,11 +808,11 @@ function openPhoto() {
                                     </NuxtLink>
                                 </div>
                                 <div v-else >
-                                    <h3>Sem treino!</h3>
+                                    <h3>Sem avaliação!</h3>
                                     <br>
                                     <NuxtLink @click="coachFloatCreate">
                                         <div class='blue'>
-                                            <h3>Criar treino</h3>
+                                            <h3>Criar avaliação</h3>
                                         </div>
 
                                     </NuxtLink>
@@ -827,11 +827,11 @@ function openPhoto() {
 
                     <div>
                     <div v-if="selectedTraining">
-                        <h4>Treino: {{ selectedTraining.name }}</h4>
+                        <h4>Avaliação: {{ selectedTraining.name }}</h4>
                         <!-- <span>Criada: {{ creationDate }}</span> -->
                     </div>
                     <div v-else>
-                        <p>Nenhum treino selecionado</p>
+                        <p>Nenhuma avaliação selecionada</p>
                     </div>
 
                     </div>
@@ -1279,11 +1279,11 @@ function openPhoto() {
         <div class="menu-float zoomOut" >
 
             <div>
-                <div class='conec'>
+                <div class='conec-one'>
 
                     <div>
                     <div v-if="selectedTraining">
-                        <h4>Treino: {{ selectedTraining.name }}</h4>
+                        <h4>Avaliação: {{ selectedTraining.date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1') }}</h4>
                         <!-- <span>Criada: {{ creationDate }}</span> -->
                     </div>
                     <div v-else>
@@ -1299,16 +1299,12 @@ function openPhoto() {
                 <div class='conec'>
 
                     <div>
-                        <h3>
-                            <Icon name='solar:dumbbells-bold' /> Séries
-                        </h3>
-
                         </div>
                         <div class="new-user" @click="deleteSerie">
-                            <Icon name='material-symbols:add-notes' /> deletar Serie
+                            <Icon name='material-symbols:add-notes' /> Deletar avaliação
                         </div>
                         <div v-if="addCloseTrainning" class="new-user" @click="newTrainning">
-                            <Icon name='material-symbols:add-notes' /> Nova Série
+                            <Icon name='material-symbols:add-notes' /> Atualizar avaliação
                         </div>
                         <div v-else='addCloseTrainning' class="new-user" @click="newTrainning">
                             <Icon name='material-symbols:cancel-rounded' /> Fechar
@@ -1325,17 +1321,61 @@ function openPhoto() {
 
         <div>
         
-            <div class="theme-switch-two">
-                <div class='tr-two' v-for="(item, index) in selectedTraining.serie" :key="index"  @click="selectSeries(item)">
-                    <NuxtLink>
+          <div class="theme-switch-two">
+              <div class='tr-two' v-if="selectedTraining" :key="index" >
+                  
+                      <div>
+                          Data de nascimento
+                      </div>
+                      <input type='text' v-model='selectedTraining.nascimento' />
+              </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
                         <div>
-                            <h3>{{ item.name }}</h3>
+                            Idade
                         </div>
-                    </NuxtLink>
+                        <input type='text' v-model='selectedTraining.idade' /> anos
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Massa
+                        </div>
+                        <input type='text' v-model='selectedTraining.massa' /> kg
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Altura
+                        </div>
+                        <input type='text' v-model='selectedTraining.altura' /> m
+                </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Gênero
+                        </div>
+                        <input type='text' v-model='selectedTraining.sexo' /> 
+                </div>
+            </div>
+          <div class="theme-switch-two">
+              <div class='tr-two' v-if="selectedTraining" :key="index" >
+                  
+                      <div>
+                          Pescoço
+                      </div>
+                      <input type='text' v-model='selectedTraining.pescoco' /> cm
+              </div>
+                <div class='tr-two' v-if="selectedTraining" :key="index" >
+                    
+                        <div>
+                            Ombro
+                        </div>
+                        <input type='text' v-model='selectedTraining.ombro' /> cm
                 </div>
             </div>
             
-            <div class="theme-switch-two">
+            <div class="theme-switch-two"> 
             
             
             <div v-if="selectedSeries" class="exercise-list-container">
@@ -1862,7 +1902,7 @@ li:hover img {
 }
 
 
-.conec {
+.conec-one {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1870,7 +1910,21 @@ li:hover img {
     margin:5px;
     overflow: auto;
 }
+.conec {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin:5px;
+    overflow: auto;
+}
 
+.conec-one div button {
+    margin: 0 5px;
+    cursor: pointer;
+    border-bottom: solid 3px #00d4ff;
+    padding: 6px 16px;
+}
 .conec div button {
     margin: 0 5px;
     cursor: pointer;
@@ -1903,6 +1957,22 @@ label {
     border-radius: 6px;
 }
 .conec:nth-child(1  ) .icon:hover {
+    background: #00dc8240;
+}
+.conec-one div button:hover {
+    opacity: .8;
+}
+
+.conec-one span {
+    font-size: .85rem;
+}
+
+.conec-one .icon {
+    zoom: 1.6;
+    padding: 3px;
+    border-radius: 6px;
+}
+.conec-one:nth-child(1  ) .icon:hover {
     background: #00dc8240;
 }
 .menu-float {
@@ -2346,10 +2416,8 @@ input:checked + .slider:before {
 }
 
 .tr-two {
-  border: solid .1px #00dc8220;
-  padding: 15px 40px;
+  padding: 10px 30px;
   border-radius: 8px;
-  cursor: pointer;
 }
 .tr-two-ex {
   border: solid .1px #00dc8220;
@@ -2550,7 +2618,14 @@ input {
 }
 
 input:nth-child(2) {
-    width: 70px;
+    width: 120px;
+    border: none;
+}
+
+.dark-mode input:nth-child(2) {
+    width: 120px;
+    color: #fff;
+    border: none;
 }
 
 .cr-fix {
@@ -2739,7 +2814,6 @@ img {
 h4 {
     margin: 00px;
     text-align: left;
-    color: #999;
 }
 
 

@@ -152,6 +152,9 @@ body code {
 body input {
     color: #555;
 }
+.dark-mode body input {
+    color: #fff;
+}
 
 body input:focus {
     background-color: #00dc8220;

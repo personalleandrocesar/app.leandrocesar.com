@@ -230,12 +230,12 @@ function logout () {
                         <div v-else @click="buttonMenuBar" class="menu-bar">
                             <Icon name="heroicons:bars-2-16-solid" />
                         </div>
-                        <NuxtLink v-if="navLeft" :to='`/acupuntura/${route.params.id}`'>
+                        <NuxtLink v-if="navLeft" @click="button">
                             <img src="~assets/logoTrans.png" />
                                 <h3 v-if='title'>app.leandrocesar</h3>
                                 <h3></h3>
                             </NuxtLink>
-                            <NuxtLink v-else :to='`/acupuntura/${route.params.id}`'>
+                            <NuxtLink v-else @click="button">
                                 <img src="~assets/logoTrans.png" />
                                 <h3></h3>
                             </NuxtLink>
@@ -421,11 +421,11 @@ function logout () {
                         <div v-else @click="buttonMenuBar" class="menu-bar">
                             <Icon name="heroicons:bars-2-16-solid" />
                         </div>
-                        <NuxtLink v-if="navLeft" :to='`/acupuntura/${route.params.id}`'>
+                        <NuxtLink v-if="navLeft" @click="button">
                             <img src="~assets/logoTrans.png" />
                             <h3>Nex_Wod</h3>
                         </NuxtLink>
-                        <NuxtLink v-else :to='`/acupuntura/${route.params.id}`'>
+                        <NuxtLink v-else @click="button">
                             <img src="~assets/logoTrans.png" />
                         </NuxtLink>
                     </div>

@@ -21,7 +21,7 @@ const { data: barVData, options: barVOptions } = useBarVerticalChart(userr.value
 
 // Configurar a tag <head>
 useHead({
-  titleTemplate: 'Área do Coach | Nex_WOD',
+    titleTemplate: 'Dashboard | app.leandrocesar.com',
 });
 </script>
 

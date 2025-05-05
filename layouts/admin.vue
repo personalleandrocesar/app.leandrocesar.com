@@ -206,7 +206,7 @@ function logout () {
                         <p>Home</p>
                     </div>
                 </NuxtLink>
-                
+
                 <NuxtLink @click="team()" class="menu-button">
                     <div>
                         <Icon name="material-symbols:groups-outline-rounded" />
@@ -220,18 +220,14 @@ function logout () {
                 <div>
                     <div class="nav">
                         <div>
-                            <div
-                            v-if="menuBar"
-                            @click="buttonMenuBar"
-                            class="menu-bar"
-                            >
-                            <Icon name="material-symbols:close-rounded" />
-                        </div>
-                        <div v-else @click="buttonMenuBar" class="menu-bar">
-                            <Icon name="heroicons:bars-2-16-solid" />
-                        </div>
-                        <NuxtLink v-if="navLeft" @click="button">
-                            <img src="~assets/logoTrans.png" />
+                            <div v-if="menuBar" @click="buttonMenuBar" class="menu-bar">
+                                <Icon name="material-symbols:close-rounded" />
+                            </div>
+                            <div v-else @click="buttonMenuBar" class="menu-bar">
+                                <Icon name="heroicons:bars-2-16-solid" />
+                            </div>
+                            <NuxtLink v-if="navLeft" @click="button">
+                                <img src="~assets/logoTrans.png" />
                                 <h3 v-if='title'>app.leandrocesar</h3>
                                 <h3></h3>
                             </NuxtLink>
@@ -241,137 +237,101 @@ function logout () {
                             </NuxtLink>
                         </div>
                     </div>
-                    
+
                     <div class="nav-left">
                         <div>
-                            <NuxtLink @click='coachFloat'
-                            class="menu-button search"
-                            >
-                            <div>
-                                <Icon name="material-symbols:search" />
-                                <p>Search...</p>
-                            </div>
-                            <div class='trap'>
-                                <span>/</span>
-                                <span>k</span>
-                            </div>
-                        </NuxtLink>
-                        <NuxtLink
-                        :to="`/coach/${route.params.id}`"
-                        class="menu-button"
-                        >
-                        <div>
-                            <Icon name="material-symbols:home-outline-rounded" />
-                            <p>Home</p>
-                        </div>
-                    </NuxtLink>
-                        <NuxtLink
-                        :to="`/coach/${route.params.id}/dashboard`"
-                        class="menu-button"
-                        >
-                        <div>
-                            <Icon name="material-symbols:dashboard-outline-rounded" />
-                            <p>Dashboard</p>
-                        </div>
-                    </NuxtLink>
-                    
-                    <NuxtLink
-                    :to="`/coach/${route.params.id}/team`"
-                    class="menu-button"
-                    >
-                    <div>
-                        <Icon name="material-symbols:groups-outline-rounded" />
-                        <p>Team</p>
-                    </div>
-                </NuxtLink>
-                <NuxtLink
-                v-if="notSuspend"
-                @click="suspend"
-                class="menu-button"
-                >
-                <div>
+                            <NuxtLink @click='coachFloat' class="menu-button search">
+                                <div>
+                                    <Icon name="material-symbols:search" />
+                                    <p>Search...</p>
+                                </div>
+                                <div class='trap'>
+                                    <span>/</span>
+                                    <span>k</span>
+                                </div>
+                            </NuxtLink>
+                            <NuxtLink :to="`/coach/${route.params.id}`" class="menu-button">
+                                <div>
+                                    <Icon name="material-symbols:home-outline-rounded" />
+                                    <p>Home</p>
+                                </div>
+                            </NuxtLink>
+                            <NuxtLink :to="`/coach/${route.params.id}/dashboard`" class="menu-button">
+                                <div>
+                                    <Icon name="material-symbols:dashboard-outline-rounded" />
+                                    <p>Dashboard</p>
+                                </div>
+                            </NuxtLink>
+
+                            <NuxtLink :to="`/coach/${route.params.id}/team`" class="menu-button">
+                                <div>
+                                    <Icon name="material-symbols:groups-outline-rounded" />
+                                    <p>Team</p>
+                                </div>
+                            </NuxtLink>
+                            <NuxtLink v-if="notSuspend" @click="suspend" class="menu-button">
+                                <div>
                                     <Icon name="material-symbols:settings-outline-rounded" />
                                     <p>Settings</p>
                                 </div>
                                 <Icon name="heroicons:chevron-right-20-solid" />
                             </NuxtLink>
-                            <NuxtLink
-                            v-else
-                            @click="suspend"
-                            class="menu-button"
-                            >
-                            <div>
-                                <Icon name="material-symbols:settings-outline-rounded" />
-                                <p>Settings</p>
-                            </div>
-                            <Icon name="heroicons:chevron-down-20-solid" />
-                        </NuxtLink>
-                        <span v-if="settings">
-                            <NuxtLink
-                            :to="`/coach/${route.params.id}/settings`"
-                            class="menu-button"
-                            >
-                            <div>
-                                <Icon name="ci:dot-01-xs" />
-                                <p>General</p>
+                            <NuxtLink v-else @click="suspend" class="menu-button">
+                                <div>
+                                    <Icon name="material-symbols:settings-outline-rounded" />
+                                    <p>Settings</p>
+                                </div>
+                                <Icon name="heroicons:chevron-down-20-solid" />
+                            </NuxtLink>
+                            <span v-if="settings">
+                                <NuxtLink :to="`/coach/${route.params.id}/settings`" class="menu-button">
+                                    <div>
+                                        <Icon name="ci:dot-01-xs" />
+                                        <p>General</p>
                                     </div>
                                 </NuxtLink>
-                                <NuxtLink
-                                :to="`/coach/${route.params.id}/settings/users`"
-                                class="menu-button"
-                                >
-                                <div>
-                                    <Icon name="ci:dot-01-xs" />
-                                    <p>Users</p>
-                                </div>
-                            </NuxtLink>
-                            <NuxtLink
-                            :to="`/coach/${route.params.id}/settings/exercises`"
-                            class="menu-button"
-                            >
-                            <div>
-                                <Icon name="ci:dot-01-xs" />
-                                <p>Exercises</p>
-                            </div>
-                        </NuxtLink>
-                                <NuxtLink
-                                :to="`/coach/${route.params.id}/settings/notifications`"
-                                class="menu-button"
-                                >
-                                <div>
-                                    <Icon name="ci:dot-01-xs" />
-                                    <p>Notifications</p>
-                                </div>
-                            </NuxtLink>
-                        </span>
-                    </div>
+                                <NuxtLink :to="`/coach/${route.params.id}/settings/users`" class="menu-button">
+                                    <div>
+                                        <Icon name="ci:dot-01-xs" />
+                                        <p>Users</p>
+                                    </div>
+                                </NuxtLink>
+                                <NuxtLink :to="`/coach/${route.params.id}/settings/exercises`" class="menu-button">
+                                    <div>
+                                        <Icon name="ci:dot-01-xs" />
+                                        <p>Exercises</p>
+                                    </div>
+                                </NuxtLink>
+                                <NuxtLink :to="`/coach/${route.params.id}/settings/notifications`" class="menu-button">
+                                    <div>
+                                        <Icon name="ci:dot-01-xs" />
+                                        <p>Notifications</p>
+                                    </div>
+                                </NuxtLink>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div>
-                        <div  class="retract-button"  @click="button">
-                            <Icon name="material-symbols:keyboard-double-arrow-left-rounded"/>
-                        </div>
-                        <div class="menu-suspend zoom" v-if="menuSuspend">
+                    <div class="retract-button" @click="button">
+                        <Icon name="material-symbols:keyboard-double-arrow-left-rounded" />
+                    </div>
+                    <div class="menu-suspend zoom" v-if="menuSuspend">
+                        <div>
                             <div>
-                                <div>
                                 <p>Signed in as</p>
                                 <h4>
                                     <b>{{ user.username }}</b>
                                 </h4>
                             </div>
                             <div class="line"></div>
-                            <NuxtLink
-                            :to="`/coach/${route.params.id}/settings`"
-                            class="menu-button"
-                            >
-                            <div>
-                                <Icon name="material-symbols:settings-outline-rounded" />
-                                <p>Settings</p>
-                            </div>
-                        </NuxtLink>
-                        <NuxtLink @click='coachFloat'
-                                class="menu-button"
-                                >
+                            <NuxtLink :to="`/coach/${route.params.id}/settings`" class="menu-button">
+                                <div>
+                                    <Icon name="material-symbols:settings-outline-rounded" />
+                                    <p>Settings</p>
+                                </div>
+                            </NuxtLink>
+                            <NuxtLink @click='coachFloat' class="menu-button">
                                 <div>
                                     <Icon name="heroicons-outline:terminal" />
                                     <p>Command menu</p>
@@ -390,164 +350,120 @@ function logout () {
                     </div>
                     <div class="track"></div>
                     <div class="user">
-                        <NuxtLink
-                        @click="coach"
-                        :class="{ userActive: ative }"
-                        class="menu-button"
-                        >
-                        <div>
-                            <img
-                            @click="openPhoto()"
-                            src="/img/myFotoTwo.jpg"
-                            />
-                            <p :class="{ userActiveP: ative }">Leandro</p>
-                        </div>
-                        <Icon name="heroicons:ellipsis-vertical" />
-                    </NuxtLink>
+                        <NuxtLink @click="coach" :class="{ userActive: ative }" class="menu-button">
+                            <div>
+                                <img @click="openPhoto()" src="/img/myFotoTwo.jpg" />
+                                <p :class="{ userActiveP: ative }">Leandro</p>
+                            </div>
+                            <Icon name="heroicons:ellipsis-vertical" />
+                        </NuxtLink>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div v-else class="left-column-two">
+            <div v-else class="left-column-two">
                 <div class="nav-left">
                     <div class="nav">
                         <div>
-                            <div
-                            v-if="menuBar"
-                            @click="buttonMenuBar"
-                            class="menu-bar"
-                            >
-                            <Icon name="material-symbols:close-rounded" />
+                            <div v-if="menuBar" @click="buttonMenuBar" class="menu-bar">
+                                <Icon name="material-symbols:close-rounded" />
+                            </div>
+                            <div v-else @click="buttonMenuBar" class="menu-bar">
+                                <Icon name="heroicons:bars-2-16-solid" />
+                            </div>
+                            <NuxtLink v-if="navLeft" @click="button">
+                                <img src="~assets/logoTrans.png" />
+                                <h3>Nex_Wod</h3>
+                            </NuxtLink>
+                            <NuxtLink v-else @click="button">
+                                <img src="~assets/logoTrans.png" />
+                            </NuxtLink>
                         </div>
-                        <div v-else @click="buttonMenuBar" class="menu-bar">
-                            <Icon name="heroicons:bars-2-16-solid" />
-                        </div>
-                        <NuxtLink v-if="navLeft" @click="button">
-                            <img src="~assets/logoTrans.png" />
-                            <h3>Nex_Wod</h3>
-                        </NuxtLink>
-                        <NuxtLink v-else @click="button">
-                            <img src="~assets/logoTrans.png" />
-                        </NuxtLink>
-                    </div>
-                    <div>
-                        <!-- <div @click="theme()" :model="$colorMode.value">
+                        <div>
+                            <!-- <div @click="theme()" :model="$colorMode.value">
                             <Icon
                             :name="colorMode.value === 'dark' ? 'ic:baseline-dark-mode' : 'ic:round-light-mode'" />
                         </div> -->
+                        </div>
                     </div>
+                    <NuxtLink @click='coachFloat' class="menu-button search">
+                        <div>
+                            <Icon name="heroicons-outline:search" />
+                        </div>
+                    </NuxtLink>
+                    <NuxtLink :to="`/coach/${route.params.id}`" class="menu-button">
+                        <Icon name="material-symbols:home-outline-rounded" />
+                    </NuxtLink>
+                    <NuxtLink :to="`/coach/${route.params.id}/dashboard`" class="menu-button">
+                        <Icon name="material-symbols:dashboard-outline-rounded" />
+                    </NuxtLink>
+
+                    <NuxtLink :to="`/coach/${route.params.id}/team`" class="menu-button">
+                        <Icon name="material-symbols:groups-outline-rounded" />
+                    </NuxtLink>
+
+                    <NuxtLink :to="`/coach/${route.params.id}/settings`" class="menu-button">
+                        <Icon name="material-symbols:settings-outline-rounded" />
+                    </NuxtLink>
                 </div>
-            <NuxtLink @click='coachFloat'
-            class="menu-button search"
-            >
-            <div>
-                <Icon name="heroicons-outline:search" />
-            </div>
-        </NuxtLink>
-        <NuxtLink
-        :to="`/coach/${route.params.id}`"
-        class="menu-button"
-        >
-        <Icon name="material-symbols:home-outline-rounded" />
-    </NuxtLink>
-        <NuxtLink
-        :to="`/coach/${route.params.id}/dashboard`"
-        class="menu-button"
-        >
-            <Icon name="material-symbols:dashboard-outline-rounded" />
-    </NuxtLink>
-    
-                    <NuxtLink
-                    :to="`/coach/${route.params.id}/team`"
-                    class="menu-button"
-                    >
-                    <Icon name="material-symbols:groups-outline-rounded" />
-                </NuxtLink>
-                
-                <NuxtLink
-                :to="`/coach/${route.params.id}/settings`"
-                class="menu-button"
-                >
-                <Icon name="material-symbols:settings-outline-rounded" />
-            </NuxtLink>
-        </div>
-        <div>
-            <div class="retract-button"  @click="button">
-            <Icon name="material-symbols:keyboard-double-arrow-right-rounded"/>
-            </div>
-            <div class="track"></div>
-            <div class="user">
-                <NuxtLink
-                @click="coachFloat"
-                :class="{ userActive: ative }"
-                class="menu-button"
-                >
-                <img src="/img/myFotoTwo.jpg" />
-            </NuxtLink>
+                <div>
+                    <div class="retract-button" @click="button">
+                        <Icon name="material-symbols:keyboard-double-arrow-right-rounded" />
+                    </div>
+                    <div class="track"></div>
+                    <div class="user">
+                        <NuxtLink @click="coachFloat" :class="{ userActive: ative }" class="menu-button">
+                            <img src="/img/myFotoTwo.jpg" />
+                        </NuxtLink>
                     </div>
                 </div>
             </div>
-            <div class="float zoom" v-if="menuFloat" >
-                <div class="menu-float zoomOut"   v-if="menuFloat ">
-                
+            <div class="float zoom" v-if="menuFloat">
+                <div class="menu-float zoomOut" v-if="menuFloat ">
+
                     <div>
                         <div class='conec'>
-                            
+
                             <div>
-                                
+
                                 <p>Signed in as</p>
                                 <h4>
                                     <b>{{ user.username }}</b>
                                 </h4>
                             </div>
                             <div>
-                                <Icon @click="coachFloat"  name='material-symbols:close-rounded' />
+                                <Icon @click="coachFloat" name='material-symbols:close-rounded' />
                             </div>
                         </div>
-                        <div class="line"></div>  
-                            <div class='float-top'>
-                                <Icon class='filt' name='heroicons-outline:search' />
-                                <div class="nav-users">
-                                    <input autofocus type='text'
-                                    ref="searchInputRef"
-                                    v-model="searchQuery"
-                                    placeholder="Procurar..."
-                                    @input="updateSearchQuery"
-                                    class="search-input"
-                                    name='q'
-                                    >
-                                </div>
+                        <div class="line"></div>
+                        <div class='float-top'>
+                            <Icon class='filt' name='heroicons-outline:search' />
+                            <div class="nav-users">
+                                <input autofocus type='text' ref="searchInputRef" v-model="searchQuery"
+                                    placeholder="Procurar..." @input="updateSearchQuery" class="search-input" name='q'>
                             </div>
+                        </div>
                         <p class='go-to'>Go to</p>
-                        <NuxtLink
-                            :to="`/coach/${route.params.id}`"
-                            class="menu-button" @click="coachFloat"
-                        >
+                        <NuxtLink :to="`/coach/${route.params.id}`" class="menu-button" @click="coachFloat">
                             <div>
-                            <Icon name="material-symbols:home-outline-rounded" />
-                            <p>Home</p>
+                                <Icon name="material-symbols:home-outline-rounded" />
+                                <p>Home</p>
                             </div>
                             <div class='trap'>
                                 <span>/</span>
                                 <span>h</span>
                             </div>
                         </NuxtLink>
-                        <NuxtLink
-                            :to="`/coach/${route.params.id}/team`"
-                            class="menu-button" @click="coachFloat"
-                        >
+                        <NuxtLink :to="`/coach/${route.params.id}/team`" class="menu-button" @click="coachFloat">
                             <div>
-                            <Icon name="material-symbols:groups-outline-rounded" />
-                            <p>Team</p> 
+                                <Icon name="material-symbols:groups-outline-rounded" />
+                                <p>Team</p>
                             </div>
                             <div class='trap'>
                                 <span>/</span>
                                 <span>t</span>
                             </div>
                         </NuxtLink>
-                        <NuxtLink
-                            :to="`/coach/${route.params.id}/settings`"
-                            class="menu-button" @click="coachFloat"
-                        >
+                        <NuxtLink :to="`/coach/${route.params.id}/settings`" class="menu-button" @click="coachFloat">
                             <div>
                                 <Icon name="material-symbols:settings-outline-rounded" />
                                 <p>Settings</p>
@@ -558,26 +474,29 @@ function logout () {
                             </div>
                         </NuxtLink>
                         <p class='go-to'>Theme</p>
-                       
-                        <a class="menu-button" @click="theme()" :model="$colorMode.value">
-                            <div>
-                            <Icon
-                                name="line-md:moon-filled-to-sunny-filled-loop-transition"
-                            /> 
-                                <p>Light</p>
-                            </div>
-                        </a>
-                        <a class="menu-button" @click="theme()" :model="$colorMode.value">
-                            <div>
-                            <Icon
-                                name="line-md:sunny-filled-loop-to-moon-alt-filled-loop-transition"
-                            /> 
-                                <p>Dark</p>
-                            </div>
-                        </a>
+
+                        <div class="theme-switch">
+                            <input type="radio" id="system" value="system" v-model="$colorMode.preference"
+                                class="radio-input" />
+                            <label for="system" class="pill">
+                                <Icon name='mi:computer' /> System
+                            </label>
+
+                            <input type="radio" id="light" value="light" v-model="$colorMode.preference"
+                                class="radio-input" />
+                            <label for="light" class="pill">
+                                <Icon name='material-symbols:light-mode-outline-rounded' /> Light
+                            </label>
+
+                            <input type="radio" id="dark" value="dark" v-model="$colorMode.preference"
+                                class="radio-input" />
+                            <label for="dark" class="pill">
+                                <Icon name='material-symbols:dark-mode-outline-rounded' />Dark
+                            </label>
+                        </div>
                     </div>
                     <div>
-                    <div class="line"></div>
+                        <div class="line"></div>
                         <NuxtLink @click='notifConfirm' class="menu-button">
                             <div>
                                 <Icon name="stash:signout" />
@@ -588,26 +507,26 @@ function logout () {
                 </div>
             </div>
             <div v-if='notificTree' class="float">
-                    <div class="notific-float zoomOut" >
-                        <div>
-                            <Icon name='stash:signout' style="color: red; zoom:2.2"/>
-                        </div>
-                        <div>
-                            <div>
-                                <h3>
-                                    Sair da conta
-                                </h3>
-                                <p>
-                                    Tem certeza que que deseja sair? 
-                                </p>
-                            </div>
-                            <div>   
-                                <button @click='logout()' class="pill-can ex">Sair</button>
-                                <button @click="notifCancel()" class="pill-can can">Cancelar</button>
-                            </div>
-                        </div>
-            
+                <div class="notific-float zoomOut">
+                    <div>
+                        <Icon name='stash:signout' style="color: red; zoom:2.2" />
                     </div>
+                    <div>
+                        <div>
+                            <h3>
+                                Sair da conta
+                            </h3>
+                            <p>
+                                Tem certeza que que deseja sair?
+                            </p>
+                        </div>
+                        <div>
+                            <button @click='logout()' class="pill-can ex">Sair</button>
+                            <button @click="notifCancel()" class="pill-can can">Cancelar</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <div class="main" @mouseleave="coachOut">
                 <NuxtPage />
@@ -616,6 +535,49 @@ function logout () {
     </div>
 </template>
 <style scoped>
+.theme-switch {
+    align-items: center;
+        transition: background-color 0.2s ease;
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 6px 6%;
+        padding: 7px 5px;
+        border-radius: 6px;
+}
+
+.theme-switch .icon {
+    margin-top: -3p
+}
+
+.radio-input {
+    display: none;
+}
+
+.pill {
+    padding: 0.3rem .7rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background: #ddd;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.radio-input:checked+.pill {
+    background-color: #00dc82;
+    border-color: #00d4ff50;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pill:hover {
+    background-color: #04be7a;
+    color: #fff;
+}
 .notific-float {
     background: #f1fef9;
     width:576px; /* Largura fixa */

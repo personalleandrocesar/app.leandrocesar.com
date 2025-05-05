@@ -4,7 +4,7 @@ import { useFetch } from 'nuxt/app';
 
 const route = useRoute();
 useHead({
-    titleTemplate: 'Clientes | Leandro Cesar - App',
+    titleTemplate: 'Exercises - Settings | app.leandrocesar.com',
 });
 
 const Users = await useFetch(`https://api.leandrocesar.com/exercises`);

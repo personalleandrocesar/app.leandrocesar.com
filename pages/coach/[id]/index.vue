@@ -2,7 +2,7 @@
 
 // Configurar a tag <head>
 useHead({
-  titleTemplate: 'Área do Coach | Nex_WOD',
+  titleTemplate: 'Home | app.leandrocesar.com',
 });
 </script>
 

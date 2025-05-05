@@ -310,7 +310,6 @@ a {
 
 .link a {
     letter-spacing: 3px;
-    margin: 5px 15px;
     text-align: center;
     cursor: pointer;
     font-family: 'Gagalin';

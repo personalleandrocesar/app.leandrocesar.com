@@ -3,6 +3,10 @@
 import { ref, computed, onMounted } from 'vue';
 const route = useRoute();
 
+useHead({
+    titleTemplate: 'Users - Settings | app.leandrocesar.com',
+});
+
 const searchQuery = ref('');
 const Users = await useFetch(`https://api.leandrocesar.com/usersnw/${route.params.id}/team`);
 const allUsers = Users.data.value || [];

@@ -2,7 +2,7 @@
 import { ref, watch } from 'vue'
 const route = useRoute();
 useHead({
-    titleTemplate: 'Team | Leandro Cesar - App',
+    titleTemplate: 'Team | app.leandrocesar.com',
 });
 
 const Users = await useFetch(`https://api.leandrocesar.com/usersnw/${route.params.id}/team`);

@@ -194,3 +194,9 @@ app.listen(port, () => {
 
 ## para apagar o treino, depois de criar:
 localStorage.clear();
+
+## Atualizar dados de uma id específica
+db.nome_da_collection.updateOne(
+  { id: 30 },
+  { $set: { grupo: 'Abdômen' } }
+)

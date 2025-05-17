@@ -16,6 +16,7 @@ if (colorMode.value === "dark") {
 colorCookie.value === "darkCookie" ? colorMode.value = "dark" : colorMode.value ="light"
 
 </script>
+
 <template>
   <div>
     <div class="grid-container">
@@ -29,6 +30,7 @@ colorCookie.value === "darkCookie" ? colorMode.value = "dark" : colorMode.value 
   </div>
 
 </template>
+
 <style scoped>
 
 @media (min-width: 1001px) {
@@ -78,4 +80,5 @@ colorCookie.value === "darkCookie" ? colorMode.value = "dark" : colorMode.value 
     display: none;
   }
 }
+
 </style>

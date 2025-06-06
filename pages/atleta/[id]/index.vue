@@ -169,7 +169,6 @@ const selectG = () => {
 
 <template>
   <NuxtLayout>
-      <HudPanel/>
     <div class="main-div-two">
       <h3 @click="chooseTreino" :class="{ alternateList: alternateTreino }">
         <Icon name="solar:dumbbell-large-minimalistic-broken" /> TREINOS

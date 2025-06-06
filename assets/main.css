@@ -2,13 +2,13 @@
 @import './normalize.css';
 
 * {
-  font-family: "Ubuntu";
+    font-family: 'Orbitron-SemiBold', sans-serif;
   user-select: none;
 }
 
 @font-face {
-  font-family: 'Gagalin';
-  src: url('~/assets/Gagalin.otf') format('opentype');
+  font-family: 'Orbitron-SemiBold';
+  src: url('~/assets/Orbitron-SemiBold.otf') format('opentype');
 }
 
 #app {
